@@ -1,0 +1,2 @@
+# automatric
+Automated repository
