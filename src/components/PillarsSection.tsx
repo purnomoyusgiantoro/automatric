@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Sparkles,
   Zap,
   TrendingUp,
   CheckCircle2,
@@ -141,8 +140,8 @@ export const PillarsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/[0.08] border border-emerald-500/20 backdrop-blur-md mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/[0.08] border border-emerald-500/20 mb-4">
+            <Layers className="w-3.5 h-3.5 text-emerald-400" />
             <span className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
               Solusi Terpadu Automatric
             </span>
@@ -424,7 +423,7 @@ export const PillarsSection: React.FC = () => {
                           Materi promosi tajam, estetis, dan teruji psikologis meningkatkan klik pembeli.
                         </p>
                         <div className="mt-4 inline-block px-4 py-1.5 rounded-full bg-white text-black font-bold text-xs shadow-md">
-                          Order Sekarang &rarr;
+                          Order Sekarang
                         </div>
                       </div>
 
@@ -448,7 +447,7 @@ export const PillarsSection: React.FC = () => {
 
                   {/* Micro Step indicator */}
                   <div className="text-[11px] text-slate-400 flex items-center justify-between px-1">
-                    <span>Brief Diterima &rarr; Draft Visual AI &rarr; Quality Check &rarr; Siap Tayang</span>
+                    <span>Brief Diterima &bull; Draft Visual AI &bull; Quality Check &bull; Siap Tayang</span>
                   </div>
                 </div>
               </div>
@@ -587,7 +586,7 @@ export const PillarsSection: React.FC = () => {
                           AI Ads Intelligence Dashboard
                         </h4>
                         <span className="text-[10px] text-slate-400">
-                          Meta &amp; TikTok Ads Realtime Optimization
+                          [Simulasi Studi Kasus Retail UMKM Fashion]
                         </span>
                       </div>
                     </div>
@@ -688,7 +687,7 @@ export const PillarsSection: React.FC = () => {
 
                   {/* AI Smart Insight Alert Box */}
                   <div className="p-3 rounded-lg bg-emerald-500/[0.06] border border-emerald-500/20 flex items-start gap-2.5">
-                    <Sparkles className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <Activity className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <p className="text-[11px] text-slate-300 leading-snug">
                       <strong className="text-emerald-300 font-semibold">AI Auto-Optimizer Aktif:</strong> Anggaran otomatis dialihkan ke segmen pembeli berulang di kota-kota dengan margin profit tertinggi.
                     </p>

@@ -41,10 +41,23 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 * [x] **Task 4 Selesai**: Interactive Pricing Section with "Choose Plan" & WhatsApp Sync (`src/components/PricingSection.tsx`).
 * [x] **Task 5 Selesai**: FAQ Section (`src/components/FaqSection.tsx`), Footer (`src/components/Footer.tsx`), and Full App Assembly (`src/App.tsx`).
 * [x] **Task 6 Selesai**: Production Build (`npm run build` 0 error), Telemetry Audit & Final Git Push.
+* [x] **Task 7 Selesai (Anti-Slop Audit & Refinement)**: Instalasi global plugin anti-slop, pembuatan `DESIGN.md` (dials ENERGY 2 / RHYTHM 2 / MOTION 2), penghapusan seluruh em dash (`—`), eliminasi link mati `#keunggulan`, penggantian generic AI icons dengan semantic icons (`Layers`, `Flame`, `ShieldCheck`), pembatasan glassmorphism dan multi-glow, transparent case-study labeling, dan pembuatan laporan `anti-slop/audit-001-2026-09-24.md`.
 
 ---
 
 ## 4. Change Log / Riwayat Perubahan
+
+### [2026-09-24 21:55] - Anti-Slop Audit & UI/UX Hard Gate Refinement
+* **Tipe**: Desain, Bugfix & Dokumentasi
+* **File Terkait**: `DESIGN.md`, `AGENTS.md`, `anti-slop/audit-001-2026-09-24.md`, `index.html`, `src/config/site.ts`, `src/components/Navbar.tsx`, `src/components/HeroSection.tsx`, `src/components/PillarsSection.tsx`, `src/components/WorkflowSection.tsx`, `src/components/PricingSection.tsx`, `src/components/Footer.tsx`
+* **Detail**:
+  - **R-02 (Copywriting: Em Dash Ban)**: Menghapus 100% karakter em dash (`—`) dan en-dash di seluruh judul, button, dan deskripsi copy (diubah menjadi `:` atau tanda kurung).
+  - **R-24 & R-26 (Navigation & Interactivity)**: Menghapus anchor link mati `#keunggulan` dari navigasi Navbar agar seluruh navigasi 100% memetakan ke section aktif.
+  - **R-37 (Design Direction)**: Menerbitkan `DESIGN.md` mendefinisikan identitas brand, palette Obsidian Black dengan single Emerald accent, tipografi Plus Jakarta Sans / JetBrains Mono, dan dial ENERGY 2 / RHYTHM 2 / MOTION 2.
+  - **R-04 & R-16 (Generic Icons & AI Buzzwords)**: Menghapus icon generic `Sparkles` dan emoji dekoratif pada badge hero (`⚡`, `🤖`, `📈`, `💰`), menggantinya dengan semantic SVG icons (`Layers`, `Flame`, `ShieldCheck`, `Zap`, `TrendingUp`), serta membersihkan buzzword "Next-Gen".
+  - **R-10 & R-13 (Glassmorphism & Glow Dose Cap)**: Mengubah permukaan kartu menjadi dark matte solid (`bg-[#080c16]` / `bg-[#0b101c]`) dan membatasi efek glow hanya pada kartu paket harga yang dipilih pengguna (`isSelected`).
+  - **R-17 & R-36 (Data Transparency)**: Memberikan label transparan `[Simulasi Studi Kasus Retail UMKM Fashion]` pada dashboard periklanan AI.
+  - **R-35 (Verifikasi)**: Menjalankan `npm run build` dengan hasil 0 error dan memverifikasi dev server `http://localhost:5173/` berjalan lancar.
 
 ### [2026-09-24 21:43] - Implementasi WorkflowSection & PricingSection (Choose Plan)
 * **Tipe**: Fitur & Desain

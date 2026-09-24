@@ -34,16 +34,15 @@ export interface FaqItem {
 
 export const siteConfig = {
   name: "Automatric",
-  tagline: "Next-Gen AI Growth Agency",
+  tagline: "Agensi Pertumbuhan Bisnis Berbasis AI",
   description:
-    "Membantu bisnis & UMKM melipatgandakan omset dan efisiensi melalui otomasi cerdas WhatsApp AI 24/7, produksi materi promosi dan desain kilat dalam hitungan jam, serta strategi iklan berbasis kecerdasan buatan.",
+    "Membantu bisnis & UMKM meningkatkan omset dan efisiensi melalui otomasi cerdas WhatsApp AI 24/7, produksi materi promosi dan desain kilat dalam hitungan jam, serta strategi iklan digital presisi.",
   // Ganti nomor WhatsApp tujuan di bawah ini (gunakan format kode negara tanpa '+', misal '628...')
   whatsappNumber: "6281234567890",
   githubRepo: "https://github.com/purnomoyusgiantoro/automatric",
 
   navLinks: [
     { name: "Layanan", href: "#layanan" },
-    { name: "Keunggulan", href: "#keunggulan" },
     { name: "Cara Kerja", href: "#cara-kerja" },
     { name: "Paket Harga", href: "#pricing" },
     { name: "FAQ", href: "#faq" },
@@ -213,7 +212,7 @@ export const siteConfig = {
     {
       question: "Berapa lama proses pengerjaan sprint sampai sistem aktif?",
       answer:
-        "Tergantung paket yang Anda pilih: Paket Starter selesai dalam 3–5 hari kerja, Paket Growth dalam 5–7 hari kerja, dan Paket Domination dalam 10–14 hari kerja.",
+        "Tergantung paket yang Anda pilih: Paket Starter selesai dalam 3-5 hari kerja, Paket Growth dalam 5-7 hari kerja, dan Paket Domination dalam 10-14 hari kerja.",
     },
     {
       question: "Apakah ada biaya bulanan tersembunyi setelah sprint selesai?",

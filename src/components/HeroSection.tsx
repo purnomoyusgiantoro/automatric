@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Sparkles,
   ArrowRight,
   MessageSquare,
   Zap,
@@ -37,7 +36,6 @@ export const HeroSection: React.FC = () => {
 
   const featureBadges = [
     {
-      emoji: '⚡',
       label: 'Desain <24 Jam',
       icon: Zap,
       color: 'text-amber-400',
@@ -45,7 +43,6 @@ export const HeroSection: React.FC = () => {
       border: 'border-amber-400/20',
     },
     {
-      emoji: '🤖',
       label: 'Chatbot WA 24/7',
       icon: MessageSquare,
       color: 'text-emerald-400',
@@ -53,7 +50,6 @@ export const HeroSection: React.FC = () => {
       border: 'border-emerald-400/20',
     },
     {
-      emoji: '📈',
       label: 'Iklan Berbasis AI',
       icon: TrendingUp,
       color: 'text-cyan-400',
@@ -61,29 +57,26 @@ export const HeroSection: React.FC = () => {
       border: 'border-cyan-400/20',
     },
     {
-      emoji: '💰',
       label: 'Sprint Sekali Bayar',
       icon: ShieldCheck,
-      color: 'text-purple-400',
-      bg: 'bg-purple-400/10',
-      border: 'border-purple-400/20',
+      color: 'text-emerald-400',
+      bg: 'bg-emerald-400/10',
+      border: 'border-emerald-400/20',
     },
   ];
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#030508]">
       {/* Background Subtle Gradient Halos & Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 w-[380px] h-[300px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[320px] h-[260px] bg-purple-500/10 blur-[110px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/[0.07] blur-[130px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
         {/* Top Tag Announcement */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/[0.08] border border-emerald-500/25 backdrop-blur-xl mb-8 animate-in fade-in duration-700">
-          <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/[0.08] border border-emerald-500/25 mb-8 animate-in fade-in duration-700">
+          <span className="w-2 h-2 rounded-full bg-emerald-400" />
           <span className="text-xs font-semibold tracking-wide text-emerald-300">
-            Next-Gen AI Growth Agency untuk Bisnis & UMKM Indonesia
+            Slot Sprint Q4: Tersedia 4 Klien Bisnis & UMKM
           </span>
         </div>
 
@@ -108,9 +101,8 @@ export const HeroSection: React.FC = () => {
             return (
               <div
                 key={badge.label}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium backdrop-blur-md transition-all duration-200 hover:scale-105 ${badge.bg} ${badge.border} border text-slate-200 shadow-sm`}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105 ${badge.bg} ${badge.border} border text-slate-200 shadow-sm`}
               >
-                <span className="text-sm select-none" aria-hidden="true">{badge.emoji}</span>
                 <Icon className={`w-3.5 h-3.5 ${badge.color}`} />
                 <span className="font-semibold tracking-wide">{badge.label}</span>
               </div>
@@ -147,7 +139,7 @@ export const HeroSection: React.FC = () => {
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Sprint Beres 3–7 Hari</span>
+            <span>Sprint Beres 3-7 Hari</span>
           </div>
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -162,7 +154,7 @@ export const HeroSection: React.FC = () => {
         {/* Metrics Ticker Bar */}
         <div className="mt-14 pt-8 border-t border-white/[0.08]">
           <div className="backdrop-blur-xl bg-black/60 border border-white/[0.09] rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-cyan-500/5 to-purple-500/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-emerald-500/[0.02] pointer-events-none" />
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative z-10">
               {siteConfig.heroMetrics.map((metric, idx) => (

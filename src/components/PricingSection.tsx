@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
   Check, 
-  Sparkles, 
   MessageSquare, 
   ArrowRight, 
   ShieldCheck, 
@@ -80,19 +79,19 @@ export const PricingSection: React.FC = () => {
               <div
                 key={plan.id}
                 onClick={() => handleSelectPlan(plan)}
-                className={`relative rounded-3xl backdrop-blur-xl transition-all duration-300 cursor-pointer flex flex-col justify-between p-7 sm:p-9 ${
+                className={`relative rounded-3xl transition-all duration-200 cursor-pointer flex flex-col justify-between p-7 sm:p-9 ${
                   isSelected
-                    ? 'bg-black/80 border-2 border-emerald-500 shadow-[0_0_40px_rgba(16,185,129,0.28)] ring-1 ring-emerald-500/50 scale-[1.02]'
+                    ? 'bg-[#0b101c] border-2 border-emerald-500 shadow-[0_0_35px_rgba(16,185,129,0.22)] ring-1 ring-emerald-500/40 scale-[1.02] z-20'
                     : isFeatured
-                    ? 'bg-black/70 border border-emerald-500/30 hover:border-emerald-500/60 shadow-xl shadow-emerald-950/20'
-                    : 'bg-black/70 border border-white/[0.09] hover:border-white/20 shadow-xl shadow-black/40'
+                    ? 'bg-[#080c16] border border-emerald-500/25 hover:border-emerald-500/50 shadow-lg shadow-black/60'
+                    : 'bg-[#080c16] border border-white/[0.08] hover:border-white/20 shadow-lg shadow-black/60'
                 }`}
               >
                 {/* Popular / Recommended Badge */}
                 {isFeatured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider text-black bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 shadow-[0_0_20px_rgba(16,185,129,0.5)] border border-emerald-300">
-                      <Sparkles className="w-3.5 h-3.5 fill-black" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-black bg-emerald-400 border border-emerald-300 shadow-md">
+                      <Flame className="w-3.5 h-3.5 fill-black" />
                       <span>Paling Direkomendasikan</span>
                     </div>
                   </div>
@@ -178,7 +177,7 @@ export const PricingSection: React.FC = () => {
                     {isSelected ? (
                       <>
                         <Check className="w-4 h-4 stroke-[3]" />
-                        <span>Paket Dipilih — Siap Order</span>
+                        <span>Paket Dipilih: Siap Order</span>
                       </>
                     ) : (
                       <>
@@ -206,7 +205,7 @@ export const PricingSection: React.FC = () => {
                 <span>Pilihan Paket Terkonfirmasi</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black text-white">
-                Paket yang Anda pilih: <span className="text-emerald-400">{selectedPlan.name}</span> — {selectedPlan.formattedPrice}
+                Paket yang Anda pilih: <span className="text-emerald-400">{selectedPlan.name}</span> ({selectedPlan.formattedPrice})
               </h3>
               <p className="text-sm text-slate-400 max-w-xl">
                 {selectedPlan.duration} • Termasuk setup penuh dari nol, konfigurasi WhatsApp, dan garansi pendampingan resmi.

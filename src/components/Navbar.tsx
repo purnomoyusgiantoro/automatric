@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageSquare, Menu, X, Sparkles } from 'lucide-react';
+import { MessageSquare, Menu, X, Layers } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
 
@@ -31,18 +31,16 @@ export const Navbar: React.FC = () => {
             href="#"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg p-1"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center relative overflow-hidden group-hover:border-emerald-500/60 transition-colors">
-              <Sparkles className="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center relative overflow-hidden group-hover:border-emerald-500/60 transition-colors">
+              <Layers className="w-5 h-5 text-emerald-400 group-hover:scale-105 transition-transform duration-300" />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className="text-xl font-bold tracking-tight text-white font-sans">
                   {siteConfig.name}
                 </span>
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-mono font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
+                  LIVE
                 </span>
               </div>
               <span className="text-[10px] tracking-wider uppercase text-emerald-400/90 font-medium">

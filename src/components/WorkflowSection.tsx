@@ -1,12 +1,11 @@
 import React from 'react';
 import { 
-  Sparkles, 
   ArrowRight, 
   CheckCircle2, 
   Search, 
   Cpu, 
   ShieldCheck, 
-  Rocket, 
+  Send, 
   MessageSquare,
   Clock
 } from 'lucide-react';
@@ -17,7 +16,7 @@ const stepIcons = [
   Search,       // 01 Discovery & Briefing
   Cpu,          // 02 AI Training & Creative Sprint
   ShieldCheck,  // 03 Testing & Polishing
-  Rocket,       // 04 Go-Live & Handover
+  Send,         // 04 Go-Live & Handover
 ];
 
 const stepKeyPoints = [
@@ -49,8 +48,8 @@ export const WorkflowSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md shadow-sm shadow-emerald-950/30">
-            <Clock className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-            <span className="tracking-wide uppercase">Alur Kerja Cepat • Sprint 3–7 Hari Beres</span>
+            <Clock className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="tracking-wide uppercase">Alur Kerja Cepat • Sprint 3-7 Hari Beres</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -75,7 +74,7 @@ export const WorkflowSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
             {siteConfig.workflow.map((item: WorkflowStep, index: number) => {
-              const StepIcon = stepIcons[index] || Sparkles;
+              const StepIcon = stepIcons[index] || Send;
               const points = stepKeyPoints[index] || [];
 
               return (
@@ -99,8 +98,8 @@ export const WorkflowSection: React.FC = () => {
                       </div>
 
                       {/* Day Pill */}
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 backdrop-blur-md">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-cyan-300 bg-cyan-950/40 border border-cyan-500/30">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                         {item.day}
                       </span>
                     </div>
@@ -138,7 +137,7 @@ export const WorkflowSection: React.FC = () => {
         <div className="mt-14 sm:mt-16 p-6 sm:p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-r from-emerald-950/30 via-black/80 to-cyan-950/30 border border-emerald-500/20 shadow-2xl shadow-emerald-950/20 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-4 h-4" />
+              <ShieldCheck className="w-4 h-4" />
               <span>Garansi Serah Terima Siap Pakai</span>
             </div>
             <h4 className="text-lg sm:text-xl font-bold text-white">
