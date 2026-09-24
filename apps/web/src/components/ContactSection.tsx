@@ -41,8 +41,8 @@ export const ContactSection: React.FC = () => {
     <section id="kontak" className="relative py-28 sm:py-36 bg-[#050505] overflow-hidden">
       {/* Background glow orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-white/[0.045] blur-[150px]" />
-        <div className="absolute bottom-[10%] right-[10%] w-[450px] h-[450px] rounded-full bg-white/[0.035] blur-[130px]" />
+        <div className="glow-white-intense top-[15%] left-1/2 -translate-x-1/2 w-[800px] h-[500px]" />
+        <div className="glow-white-medium bottom-[5%] right-[10%] w-[550px] h-[550px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">

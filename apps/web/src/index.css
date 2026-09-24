@@ -7,8 +7,8 @@
     --bg-primary: #050505;
     --bg-surface: #0a0a0a;
     --bg-surface-elevated: #111111;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.16);
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.2);
     --accent: #ffffff;
   }
 
@@ -27,44 +27,88 @@
 
 @layer utilities {
   .glass {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
   }
   .glass-strong {
-    background: rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(32px);
     -webkit-backdrop-filter: blur(32px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.22);
   }
   .glass-card {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow:
-      0 12px 40px -10px rgba(0, 0, 0, 0.6),
-      inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
-      inset 0 -1px 1px 0 rgba(255, 255, 255, 0.03);
+      0 16px 45px -10px rgba(0, 0, 0, 0.6),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 1px 0 rgba(255, 255, 255, 0.04);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glass-card:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.24);
+    border-color: rgba(255, 255, 255, 0.28);
     box-shadow:
-      0 20px 50px -10px rgba(0, 0, 0, 0.7),
-      inset 0 1px 2px 0 rgba(255, 255, 255, 0.28);
+      0 24px 60px -10px rgba(0, 0, 0, 0.7),
+      inset 0 1px 2px 0 rgba(255, 255, 255, 0.35);
   }
 
-  /* Radiant white ambient glows */
-  .glow-ambient {
+  /* Radiant white ambient blur glow helpers */
+  .glow-white-intense {
     position: absolute;
     border-radius: 9999px;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.09) 40%, rgba(255, 255, 255, 0.02) 65%, transparent 80%);
     filter: blur(100px);
   }
+
+  .glow-white-medium {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 45%, transparent 75%);
+    filter: blur(120px);
+  }
+
+  .glow-white-wide {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 55%, transparent 80%);
+    filter: blur(150px);
+  }
+
+  .glow-white-spot {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.12) 35%, transparent 70%);
+    filter: blur(80px);
+  }
+}
+
+/* Subtle breathing glow animation */
+@keyframes ambient-breathe {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.animate-breathe {
+  animation: ambient-breathe 8s ease-in-out infinite;
+}
+
+.animate-breathe-delayed {
+  animation: ambient-breathe 10s ease-in-out infinite 3s;
 }
 
 ::-webkit-scrollbar {
@@ -75,9 +119,9 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
 }

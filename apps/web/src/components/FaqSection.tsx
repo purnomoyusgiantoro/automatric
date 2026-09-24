@@ -13,10 +13,10 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="relative py-32 sm:py-40 bg-[#050505]">
+    <section id="faq" className="relative py-32 sm:py-40 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-white/[0.02] blur-[140px]" />
+        <div className="glow-white-medium top-[35%] left-1/2 -translate-x-1/2 w-[700px] h-[500px]" />
       </div>
 
       <div className="relative z-10 max-w-2xl mx-auto px-6 lg:px-8">

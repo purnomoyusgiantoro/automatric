@@ -54,11 +54,12 @@ export const PillarsSection: React.FC = () => {
     }`;
 
   return (
-    <section id="layanan" className="relative py-28 sm:py-36 bg-[#050505]">
+    <section id="layanan" className="relative py-28 sm:py-36 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[15%] right-[15%] w-[500px] h-[500px] rounded-full bg-white/[0.025] blur-[140px]" />
-        <div className="absolute bottom-[20%] left-[10%] w-[450px] h-[450px] rounded-full bg-white/[0.02] blur-[130px]" />
+        <div className="glow-white-intense top-[10%] right-[10%] w-[650px] h-[650px]" />
+        <div className="glow-white-wide top-[45%] left-[5%] w-[700px] h-[700px]" />
+        <div className="glow-white-medium bottom-[8%] right-[15%] w-[600px] h-[600px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">

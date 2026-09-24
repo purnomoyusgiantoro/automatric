@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
     <footer className="relative bg-[#050505] border-t border-white/[0.08] pt-16 pb-12 overflow-hidden">
       {/* Background glow at the very bottom */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] rounded-full bg-white/[0.04] blur-[140px]" />
+        <div className="glow-white-wide bottom-[-15%] left-1/2 -translate-x-1/2 w-[950px] h-[450px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">

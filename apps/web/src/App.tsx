@@ -16,25 +16,25 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#050505] text-zinc-300 flex flex-col font-sans selection:bg-white/20 selection:text-white relative overflow-hidden">
-      {/* Radiant Global Ambient Lighting (Cahaya Putih Blur Background) */}
+      {/* Radiant Global Ambient Lighting (Cahaya Putih Blur Background Sangat Jelas) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Top-center prominent glow wash */}
-        <div className="absolute -top-[12%] left-1/2 -translate-x-1/2 w-[1000px] h-[650px] rounded-full bg-gradient-to-b from-white/[0.08] via-white/[0.035] to-transparent blur-[150px]" />
+        {/* Top-center luminous light wash */}
+        <div className="glow-white-wide animate-breathe -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[750px]" />
 
-        {/* Upper-left luminous orb */}
-        <div className="absolute top-[20%] -left-[12%] w-[700px] h-[700px] rounded-full bg-white/[0.055] blur-[160px]" />
+        {/* Upper-left bright white orb */}
+        <div className="glow-white-intense animate-breathe-delayed top-[18%] -left-[10%] w-[750px] h-[750px]" />
 
-        {/* Center-right luminous orb */}
-        <div className="absolute top-[45%] -right-[10%] w-[750px] h-[750px] rounded-full bg-white/[0.05] blur-[170px]" />
+        {/* Mid-right bright white ambient orb */}
+        <div className="glow-white-intense animate-breathe top-[42%] -right-[8%] w-[800px] h-[800px]" />
 
-        {/* Mid-center subtle bridge glow */}
-        <div className="absolute top-[60%] left-[25%] w-[650px] h-[650px] rounded-full bg-white/[0.045] blur-[150px]" />
+        {/* Center atmospheric glow pool */}
+        <div className="glow-white-medium top-[58%] left-[20%] w-[700px] h-[700px]" />
 
-        {/* Lower-left luminous orb */}
-        <div className="absolute bottom-[18%] -left-[5%] w-[600px] h-[600px] rounded-full bg-white/[0.05] blur-[160px]" />
+        {/* Lower-left bright luminous orb */}
+        <div className="glow-white-intense animate-breathe-delayed bottom-[15%] -left-[6%] w-[680px] h-[680px]" />
 
-        {/* Bottom prominent glow behind contact & footer */}
-        <div className="absolute -bottom-[10%] right-[15%] w-[800px] h-[600px] rounded-full bg-gradient-to-t from-white/[0.07] via-white/[0.035] to-transparent blur-[160px]" />
+        {/* Bottom prominent glow wash for contact & footer */}
+        <div className="glow-white-wide bottom-[-10%] right-[10%] w-[900px] h-[700px]" />
       </div>
 
       <Navbar />

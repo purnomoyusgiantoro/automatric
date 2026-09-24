@@ -3,10 +3,10 @@ import { siteConfig, WorkflowStep } from '../config/site';
 
 export const WorkflowSection: React.FC = () => {
   return (
-    <section id="cara-kerja" className="relative py-32 sm:py-40 bg-[#050505]">
+    <section id="cara-kerja" className="relative py-32 sm:py-40 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-white/[0.025] blur-[150px]" />
+        <div className="glow-white-wide top-[25%] left-1/2 -translate-x-1/2 w-[850px] h-[500px]" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">

@@ -19,11 +19,11 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 bg-[#050505]">
+    <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-[30%] w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-[150px]" />
-        <div className="absolute bottom-[10%] right-[20%] w-[400px] h-[400px] rounded-full bg-white/[0.025] blur-[120px]" />
+        <div className="glow-white-intense top-[15%] left-[25%] w-[650px] h-[650px]" />
+        <div className="glow-white-medium bottom-[5%] right-[15%] w-[500px] h-[500px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -82,8 +82,9 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Right: Live Console Preview */}
-          <div className="lg:col-span-5">
-            <div className="glass-card rounded-2xl overflow-hidden">
+          <div className="lg:col-span-5 relative">
+            <div className="glow-white-spot -top-8 -right-8 w-[380px] h-[380px]" />
+            <div className="relative z-10 glass-card rounded-2xl overflow-hidden">
               {/* Console Header */}
               <div className="glass-strong px-4 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">

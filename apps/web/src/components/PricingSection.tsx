@@ -14,11 +14,11 @@ export const PricingSection: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="relative py-32 sm:py-40 bg-[#050505]">
+    <section id="pricing" className="relative py-32 sm:py-40 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] rounded-full bg-white/[0.025] blur-[140px]" />
-        <div className="absolute bottom-[15%] right-[25%] w-[400px] h-[400px] rounded-full bg-white/[0.02] blur-[120px]" />
+        <div className="glow-white-intense top-[15%] left-1/2 -translate-x-1/2 w-[700px] h-[550px]" />
+        <div className="glow-white-medium bottom-[10%] right-[15%] w-[500px] h-[500px]" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
@@ -38,10 +38,16 @@ export const PricingSection: React.FC = () => {
           {siteConfig.pricing.map((plan: PricingPlan) => (
             <div
               key={plan.id}
-              className={`glass-card rounded-2xl p-8 sm:p-10 flex flex-col justify-between ${
-                plan.popular ? 'border-white/[0.2]' : ''
-              }`}
+              className={`relative ${plan.popular ? 'lg:-translate-y-2' : ''}`}
             >
+              {plan.popular && (
+                <div className="glow-white-spot top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px]" />
+              )}
+              <div
+                className={`relative z-10 h-full glass-card rounded-2xl p-8 sm:p-10 flex flex-col justify-between ${
+                  plan.popular ? 'border-white/[0.3] shadow-[0_0_50px_rgba(255,255,255,0.08)]' : ''
+                }`}
+              >
               <div>
                 {plan.popular && (
                   <span className="text-[10px] uppercase tracking-[0.15em] text-zinc-400 font-mono mb-4 block">
@@ -83,6 +89,7 @@ export const PricingSection: React.FC = () => {
                 </a>
               </div>
             </div>
+          </div>
           ))}
         </div>
       </div>
