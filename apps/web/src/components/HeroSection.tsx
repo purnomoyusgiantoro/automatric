@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
+import { ScrollReveal } from './ScrollReveal';
 
 export const HeroSection: React.FC = () => {
   const defaultWaMessage = encodeURIComponent(
@@ -30,7 +31,7 @@ export const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
           {/* Left: Value Proposition */}
-          <div className="lg:col-span-7 space-y-6">
+          <ScrollReveal className="lg:col-span-7 space-y-6">
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.05]">
               WhatsApp. Desain. Iklan.
               <br />
@@ -56,10 +57,10 @@ export const HeroSection: React.FC = () => {
                 <span>Konsultasi</span>
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Live Console Preview */}
-          <div className="lg:col-span-5 relative">
+          <ScrollReveal delay={180} className="lg:col-span-5 relative">
             <div className="glow-white-spot -top-8 -right-8 w-[380px] h-[380px]" />
             <div className="relative z-10 glass-card rounded-2xl overflow-hidden">
               {/* Console Header */}
@@ -108,7 +109,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

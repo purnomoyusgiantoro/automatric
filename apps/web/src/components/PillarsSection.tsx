@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
+import { ScrollReveal } from './ScrollReveal';
 
 export const PillarsSection: React.FC = () => {
   const [activeChatScenario, setActiveChatScenario] = useState<'catalog' | 'order' | 'followup'>('catalog');
@@ -65,16 +66,17 @@ export const PillarsSection: React.FC = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-14">
+        <ScrollReveal className="text-center mb-12 sm:mb-14">
           <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-3">Layanan</p>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             Tiga pilar untuk bisnis Anda.
           </h2>
-        </div>
+        </ScrollReveal>
 
         <div className="space-y-10 sm:space-y-12">
 
           {/* ─── Pilar 1: Bot WhatsApp ─── */}
+          <ScrollReveal>
           <div className="glass-card rounded-2xl p-6 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
@@ -157,8 +159,10 @@ export const PillarsSection: React.FC = () => {
               </div>
             </div>
           </div>
+          </ScrollReveal>
 
           {/* ─── Pilar 2: Desain Promosi ─── */}
+          <ScrollReveal>
           <div className="glass-card rounded-2xl p-6 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
@@ -237,8 +241,10 @@ export const PillarsSection: React.FC = () => {
               </div>
             </div>
           </div>
+          </ScrollReveal>
 
           {/* ─── Pilar 3: Setup Iklan ─── */}
+          <ScrollReveal>
           <div className="glass-card rounded-2xl p-6 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
@@ -316,6 +322,7 @@ export const PillarsSection: React.FC = () => {
               </div>
             </div>
           </div>
+          </ScrollReveal>
 
         </div>
       </div>
