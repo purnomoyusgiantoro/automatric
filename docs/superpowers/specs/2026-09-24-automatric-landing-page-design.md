@@ -24,10 +24,17 @@ Model penetapan harga mengadopsi skema **Project Sprint Sekali Bayar** (tanpa ik
 
 * **Framework**: React 19 + TypeScript
 * **Build Tool**: Vite 6
-* **Styling & Aesthetic**:
-  * **Deep Black Dominance**: Palet warna dominan hitam pekat (`#030508` / `#06080d`) untuk menghadirkan kesan mewah, eksklusif, dan modern.
-  * **Ultra Glassmorphism**: Kartu dan container menggunakan efek kaca buram (*frosted glass* dengan `backdrop-blur-xl`, background translusen `bg-white/[0.03]` atau `bg-black/60`, serta border tipis elegan `border-white/10` dengan glow halo).
-  * **Interactive Choose Plan System**: Fitur interaktif di mana pengunjung dapat memilih/mengklik paket (*Choose Plan*), melihat status paket yang sedang aktif terpilih dengan efek glow khusus, serta ringkasan pesan yang otomatis sinkron dengan WhatsApp CTA.
+* **Styling & Aesthetic (Anti-Slop UI/UX Standards via `ui-ux-pro-max`)**:
+  * **Deep Black Dominance**: Palet warna dominan hitam pekat (`#030508` / `#050811` / `#090d16`) untuk menghadirkan kesan mewah, eksklusif, dan modern, bukan abu-abu kusam.
+  * **Ultra Glassmorphism**: Kartu dan container menggunakan efek kaca buram (*frosted glass* dengan `backdrop-blur-xl`, background translusen `bg-white/[0.03]` atau `bg-black/70`, serta border tipis presisi `border-white/[0.09]` dengan glow halo halus).
+  * **Anti-Slop Design Principles**:
+    * Zero generic placeholders: Semua teks, mockup WhatsApp, dan contoh materi promosi menggunakan kasus nyata bisnis UMKM/Retail Indonesia (F&B, fashion, skincare, jasa).
+    * No emojis as icons: Menggunakan 100% ikon SVG terkurasi dari `lucide-react`.
+    * Strict High Contrast: Memenuhi standar WCAG AA (rasio kontras minimal 4.5:1 untuk body text, teks putih `#ffffff` untuk judul, dan aksen emerald `#22c55e` / cyan `#06b6d4` yang tajam dan terbaca).
+    * Tactile Micro-Interactions: Efek hover halus (150-200ms), kursor pointer eksplisit, dan *focus-visible* ring untuk navigasi keyboard.
+  * **Interactive Choose Plan System**:
+    * Pengunjung dapat mengklik paket mana saja untuk memilihnya (*select plan*).
+    * Paket yang aktif terpilih mendapatkan penekanan visual instan: border glowing emerald, badge *"Paket Terpilih"*, dan kartu ringkasan dinamis di bagian bawah dengan tombol WhatsApp yang langsung disesuaikan.
 * **Icons**: `lucide-react`
 * **Observability**: Custom lightweight, zero-dependency Telemetry Logger & PerformanceObserver module
 * **Deployment Target**: Static Web (GitHub Pages / Vercel ready)
