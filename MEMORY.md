@@ -47,6 +47,15 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-24 22:01] - Deployment Skill Anti-Slop Lokal & Penguatan Standar Mobile
+* **Tipe**: Setup & Desain
+* **File Terkait**: `.agents/skills/*`, `src/components/Navbar.tsx`, `AGENTS.md`, `DESIGN.md`
+* **Detail**:
+  - Menginstal 6 paket skill antislop secara langsung ke repositori lokal `.agents/skills/` (`antislop`, `antislop-code`, `antislop-copywriting`, `antislop-human`, `antislop-layoutmobile`, `antislop-ui`) dan direktori skill global.
+  - Menjalankan uji kontras resmi via script `contrast-check.py` untuk seluruh pasangan warna UI (hasil 7.62:1 - 19.5:1, lolos kualifikasi WCAG AA).
+  - Penguatan kepatuhan R-03 Mobile Layout: Menstandarkan tombol hamburger dan link navigasi mobile ke target sentuh minimal 44px (`min-w-[44px] min-h-[44px]`).
+  - Pembersihan menyeluruh karakter em dash pada dokumen konfigurasi agent.
+
 ### [2026-09-24 21:55] - Anti-Slop Audit & UI/UX Hard Gate Refinement
 * **Tipe**: Desain, Bugfix & Dokumentasi
 * **File Terkait**: `DESIGN.md`, `AGENTS.md`, `anti-slop/audit-001-2026-09-24.md`, `index.html`, `src/config/site.ts`, `src/components/Navbar.tsx`, `src/components/HeroSection.tsx`, `src/components/PillarsSection.tsx`, `src/components/WorkflowSection.tsx`, `src/components/PricingSection.tsx`, `src/components/Footer.tsx`

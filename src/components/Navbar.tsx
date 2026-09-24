@@ -82,7 +82,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+              className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle Navigation Menu"
             >
@@ -94,13 +94,13 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#050811]/95 border-b border-white/[0.08] backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3 animate-in fade-in duration-200">
+        <div className="md:hidden bg-[#050811]/95 border-b border-white/[0.08] backdrop-blur-2xl px-4 pt-3 pb-6 space-y-2 animate-in fade-in duration-200">
           {siteConfig.navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => handleNavLinkClick(link.name)}
-              className="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-white/[0.05] transition-colors"
+              className="block px-3 py-3 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-white/[0.05] transition-colors"
             >
               {link.name}
             </a>

@@ -1,6 +1,6 @@
 # Automatric Agent Guidelines
 
-This repository hosts the codebase for Automatric — AI Growth Agency.
+This repository hosts the codebase for Automatric: AI Growth Agency.
 
 ## Core Rules & Memory Sync Contract
 1. **Always Sync to `MEMORY.md`**:

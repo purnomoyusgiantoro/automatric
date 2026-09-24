@@ -1,6 +1,6 @@
 # Automatric Design Direction (DESIGN.md)
 
-> Brand identity and visual system for Automatric — AI Growth Agency.
+> Brand identity and visual system for Automatric: AI Growth Agency.
 
 ## 1. Identity & Character
 - **Product**: Automatric (Agensi Pertumbuhan Bisnis Berbasis AI)
