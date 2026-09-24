@@ -34,12 +34,22 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 * [x] Konfigurasi environment: Node v24, npm, React 19, Tailwind CSS, Vite.
 * [x] Brainstorming & Penyusunan Dokumen Spesifikasi Desain (`docs/superpowers/specs/2026-09-24-automatric-landing-page-design.md`).
 * [x] Pembuatan aturan `SKILL.md` dan inisialisasi `MEMORY.md`.
-* [ ] Pembuatan Implementation Plan (`docs/superpowers/plans/2026-09-24-automatric-landing-page.md`).
-* [ ] Eksekusi implementasi komponen web & sistem observabilitas.
+* [x] Pembuatan Implementation Plan (`docs/superpowers/plans/2026-09-24-automatric-landing-page.md`).
+* [x] **Task 1 Selesai**: Implementasi site config (`src/config/site.ts`) dan Telemetry Observability Engine (`src/telemetry/tracker.ts`).
+* [ ] Task 2: Sticky Glass Navbar & Hero Section with Live Metrics.
+* [ ] Task 3: Tiga Pilar Layanan & Sprint Workflow Section.
+* [ ] Task 4: Interactive Pricing Section with "Choose Plan" & WhatsApp Sync.
+* [ ] Task 5: FAQ, Footer, and Full App Assembly.
+* [ ] Task 6: Production Build, Telemetry Audit & Final Git Push.
 
 ---
 
 ## 4. Change Log / Riwayat Perubahan
+
+### [2026-09-24 21:37] - Task 1: Konfigurasi Bisnis & Telemetry Engine
+* **Tipe**: Fitur & Telemetri
+* **File Terkait**: `src/config/site.ts`, `src/telemetry/types.ts`, `src/telemetry/tracker.ts`
+* **Detail**: Membuat konfigurasi terpusat untuk profil Automatric, 3 pilar layanan, rincian paket harga sekali bayar, serta mesin telemetri observabilitas (correlation session ID, structured JSON logging, zero-PII sanitization, dan Core Web Vitals observers). Lolos uji `tsc --noEmit`.
 
 ### [2026-09-24 21:30] - Inisialisasi Fondasi & Desain Spec
 * **Tipe**: Setup & Desain
