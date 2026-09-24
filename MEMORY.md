@@ -36,15 +36,33 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 * [x] Pembuatan aturan `SKILL.md` dan inisialisasi `MEMORY.md`.
 * [x] Pembuatan Implementation Plan (`docs/superpowers/plans/2026-09-24-automatric-landing-page.md`).
 * [x] **Task 1 Selesai**: Implementasi site config (`src/config/site.ts`) dan Telemetry Observability Engine (`src/telemetry/tracker.ts`).
-* [ ] Task 2: Sticky Glass Navbar & Hero Section with Live Metrics.
-* [ ] Task 3: Tiga Pilar Layanan & Sprint Workflow Section.
-* [ ] Task 4: Interactive Pricing Section with "Choose Plan" & WhatsApp Sync.
-* [ ] Task 5: FAQ, Footer, and Full App Assembly.
-* [ ] Task 6: Production Build, Telemetry Audit & Final Git Push.
+* [x] **Task 2 Selesai**: Sticky Glass Navbar (`src/components/Navbar.tsx`) & Hero Section with Live Metrics (`src/components/HeroSection.tsx`).
+* [x] **Task 3 Selesai**: Tiga Pilar Layanan (`src/components/PillarsSection.tsx`) dengan simulasi chat WhatsApp interaktif, prompt-to-banner pipeline, dan kartu metrik analitik iklan ROAS +4.2x.
+* [x] **Task 4 Selesai**: Interactive Pricing Section with "Choose Plan" & WhatsApp Sync (`src/components/PricingSection.tsx`).
+* [x] **Task 5 Selesai**: FAQ Section (`src/components/FaqSection.tsx`), Footer (`src/components/Footer.tsx`), and Full App Assembly (`src/App.tsx`).
+* [x] **Task 6 Selesai**: Production Build (`npm run build` 0 error), Telemetry Audit & Final Git Push.
 
 ---
 
 ## 4. Change Log / Riwayat Perubahan
+
+### [2026-09-24 21:43] - Implementasi WorkflowSection & PricingSection (Choose Plan)
+* **Tipe**: Fitur & Desain
+* **File Terkait**: `src/components/WorkflowSection.tsx`, `src/components/PricingSection.tsx`
+* **Detail**:
+  - `WorkflowSection.tsx`: Menampilkan timeline progresif alur kerja sprint 3–7 hari dengan badge nomor bercahaya, garis penghubung glow, dan kartu jaminan serah terima.
+  - `PricingSection.tsx`: Menghadirkan 3 paket harga Sekali Bayar (*Starter*, *Growth [Featured]*, dan *Domination*) dengan sistem interaktif *Choose Plan*, highlight border emerald bercahaya pada paket aktif, dan bar konfirmasi dinamis yang langsung membuka WhatsApp dengan format pesan otomatis terisi.
+  - Verifikasi: `npm run build` sukses 100% tanpa error.
+
+
+### [2026-09-24 21:42] - Implementasi HeroSection & PillarsSection
+* **Tipe**: Fitur & Desain
+* **File Terkait**: `src/components/HeroSection.tsx`, `src/components/PillarsSection.tsx`, `src/components/Footer.tsx`, `src/App.tsx`
+* **Detail**:
+  - `HeroSection.tsx`: Menghadirkan hero section bertema Deep Black Glassmorphism (`#030508`), 4 feature badges pill (⚡ Desain <24 Jam, 🤖 Chatbot WA 24/7, 📈 Iklan Berbasis AI, 💰 Sprint Sekali Bayar), dual CTA (smooth scroll ke #pricing dan direct WhatsApp sync dengan telemetry tracking), serta metrics ticker bar live (+350%, 5x, <24 Jam, 3-7 Hari).
+  - `PillarsSection.tsx`: Menampilkan 3 pilar layanan utama dari `siteConfig.pillars` dengan ultra glassmorphism (`backdrop-blur-xl`, `bg-black/70`, `border-white/[0.09]`), mockup chat bubble WhatsApp interaktif dengan 3 skenario nyata UMKM (cek stok, rekap order, follow-up), visual showcase prompt-to-banner <24 jam dengan multi-format switcher, serta kartu analitik iklan dengan ROAS +4.2x.
+  - Perbaikan SVG GitHub icon di `Footer.tsx` dan perakitan `App.tsx` yang menginisialisasi telemetry engine.
+  - Verifikasi: `tsc -b` dan `vite build` sukses 100% tanpa error TypeScript maupun linting.
 
 ### [2026-09-24 21:37] - Task 1: Konfigurasi Bisnis & Telemetry Engine
 * **Tipe**: Fitur & Telemetri
