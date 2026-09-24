@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowUpRight, Layers, MessageCircle, Phone } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Layers, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
 
@@ -49,18 +49,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Contact & Action CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${defaultWaMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleWhatsAppClick('navbar_desktop')}
-              className="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-zinc-500" />
-              <span>{siteConfig.contact.whatsapp}</span>
-            </a>
-
+          <div className="hidden md:flex items-center">
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}?text=${defaultWaMessage}`}
               target="_blank"
@@ -115,11 +104,7 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <div className="pt-2 border-t border-white/[0.08] space-y-2">
-            <div className="text-[11px] font-mono text-zinc-400 px-3 flex items-center gap-2">
-              <Phone className="w-3 h-3 text-zinc-500" />
-              <span>{siteConfig.contact.whatsapp}</span>
-            </div>
+          <div className="pt-2 border-t border-white/[0.08]">
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}?text=${defaultWaMessage}`}
               target="_blank"

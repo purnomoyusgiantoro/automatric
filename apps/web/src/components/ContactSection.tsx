@@ -78,7 +78,7 @@ export const ContactSection: React.FC = () => {
                   <span className="text-xs uppercase tracking-wider font-mono text-zinc-500 block">WhatsApp Resmi</span>
                   <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
                 </div>
-                <div className="text-base font-bold text-white mt-0.5">{siteConfig.contact.whatsapp}</div>
+                <div className="text-base font-bold text-white mt-0.5">Chat Langsung via WhatsApp</div>
                 <span className="text-[11px] text-zinc-400 mt-1 block">Aktif chat 24 jam nonstop</span>
               </div>
             </a>

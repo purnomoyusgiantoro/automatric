@@ -28,26 +28,29 @@
 @layer utilities {
   .glass {
     background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.14);
+    transform: translateZ(0);
   }
   .glass-strong {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.22);
+    transform: translateZ(0);
   }
   .glass-card {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow:
       0 16px 45px -10px rgba(0, 0, 0, 0.6),
       inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
       inset 0 -1px 1px 0 rgba(255, 255, 255, 0.04);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateZ(0);
   }
   .glass-card:hover {
     background: rgba(255, 255, 255, 0.08);
@@ -57,58 +60,42 @@
       inset 0 1px 2px 0 rgba(255, 255, 255, 0.35);
   }
 
-  /* Radiant white ambient blur glow helpers */
+  /* Hardware-Accelerated Smooth Radiant Glows (Zero Glitch / Pure Gradient Falloff) */
   .glow-white-intense {
     position: absolute;
     border-radius: 9999px;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.09) 40%, rgba(255, 255, 255, 0.02) 65%, transparent 80%);
-    filter: blur(100px);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.07) 35%, rgba(255, 255, 255, 0.015) 65%, transparent 80%);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
 
   .glow-white-medium {
     position: absolute;
     border-radius: 9999px;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 45%, transparent 75%);
-    filter: blur(120px);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.045) 45%, rgba(255, 255, 255, 0.01) 70%, transparent 85%);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
 
   .glow-white-wide {
     position: absolute;
     border-radius: 9999px;
     pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 55%, transparent 80%);
-    filter: blur(150px);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.035) 55%, transparent 85%);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
 
   .glow-white-spot {
     position: absolute;
     border-radius: 9999px;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.12) 35%, transparent 70%);
-    filter: blur(80px);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 75%);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
-}
-
-/* Subtle breathing glow animation */
-@keyframes ambient-breathe {
-  0%, 100% {
-    opacity: 0.85;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-}
-
-.animate-breathe {
-  animation: ambient-breathe 8s ease-in-out infinite;
-}
-
-.animate-breathe-delayed {
-  animation: ambient-breathe 10s ease-in-out infinite 3s;
 }
 
 ::-webkit-scrollbar {

@@ -41,10 +41,6 @@ export const HeroSection: React.FC = () => {
               <span className="text-zinc-500">Selesai dalam 7 hari.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-500 max-w-xl leading-relaxed">
-              Sistem otomasi WhatsApp 24 jam, desain promosi kilat, dan kampanye iklan digital. Sekali bayar, tanpa langganan.
-            </p>
-
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-md pt-2">
               <a
                 href="#pricing"
@@ -63,21 +59,6 @@ export const HeroSection: React.FC = () => {
               >
                 <span>Konsultasi</span>
               </a>
-            </div>
-
-            {/* Micro metrics */}
-            <div className="pt-6 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {[
-                { value: '<1s', label: 'Respon Bot' },
-                { value: '<24h', label: 'Desain Jadi' },
-                { value: '7 Hari', label: 'Sprint' },
-                { value: '1x', label: 'Bayar' },
-              ].map((m, i) => (
-                <div key={i} className="text-center sm:text-left">
-                  <span className="text-lg font-bold font-mono text-white block">{m.value}</span>
-                  <span className="text-[10px] uppercase tracking-[0.12em] text-zinc-600 block">{m.label}</span>
-                </div>
-              ))}
             </div>
           </div>
 

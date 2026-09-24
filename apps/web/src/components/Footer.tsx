@@ -1,13 +1,9 @@
 import React from 'react';
-import { ArrowUp, ArrowUpRight, MessageCircle, Mail, Phone, MapPin, Layers } from 'lucide-react';
+import { ArrowUpRight, MessageCircle, Mail, MapPin, Layers } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const defaultWaMessage = encodeURIComponent(
     "Halo Automatric! Saya ingin berdiskusi mengenai bot WhatsApp dan desain promosi untuk toko saya."
   );
@@ -70,9 +66,9 @@ export const Footer: React.FC = () => {
                   onClick={handleFooterWaClick}
                   className="flex items-center gap-2.5 text-zinc-300 hover:text-white transition-colors group"
                 >
-                  <Phone className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-                  <span className="font-mono">{siteConfig.contact.whatsapp}</span>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded glass text-zinc-400">WhatsApp</span>
+                  <MessageCircle className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                  <span>Chat WhatsApp Resmi</span>
+                  <ArrowUpRight className="w-3 h-3 text-zinc-600 group-hover:text-white transition-colors" />
                 </a>
               </li>
               <li>
@@ -114,20 +110,9 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Back To Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <div>
-            &copy; {new Date().getFullYear()} {siteConfig.name}. Seluruh hak cipta dilindungi undang-undang.
-          </div>
-          <button
-            onClick={scrollToTop}
-            type="button"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass text-zinc-400 hover:text-white transition-colors cursor-pointer"
-            aria-label="Kembali ke atas"
-          >
-            <span>Kembali ke Atas</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
+        {/* Bottom Bar: Copyright */}
+        <div className="pt-8 text-xs text-zinc-500 text-center sm:text-left">
+          &copy; {new Date().getFullYear()} {siteConfig.name}. Seluruh hak cipta dilindungi undang-undang.
         </div>
       </div>
     </footer>
