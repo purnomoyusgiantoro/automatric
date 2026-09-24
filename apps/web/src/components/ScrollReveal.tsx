@@ -11,7 +11,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   className = '',
   delay = 0,
-  threshold = 0.12,
+  threshold = 0.08,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -20,23 +20,19 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     const el = ref.current;
     if (!el) return;
 
-    // Check if element is already in viewport on mount (e.g. Hero)
+    // Check if element is already in viewport on mount (e.g. Hero on initial load)
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
       setIsVisible(true);
-      return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(el);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       {
         threshold,
-        rootMargin: '0px 0px -40px 0px',
+        rootMargin: '0px 0px -30px 0px',
       }
     );
 
@@ -51,14 +47,14 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <div
       ref={ref}
       style={{
-        transitionDuration: '700ms',
-        transitionDelay: `${delay}ms`,
+        transitionDuration: isVisible ? '650ms' : '350ms',
+        transitionDelay: isVisible ? `${delay}ms` : '0ms',
         transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
       }}
       className={`transition-all ${
         isVisible
           ? 'opacity-100 translate-y-0 scale-100'
-          : 'opacity-0 translate-y-6 scale-[0.98]'
+          : 'opacity-0 translate-y-7 scale-[0.98]'
       } ${className}`}
     >
       {children}
