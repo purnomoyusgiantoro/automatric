@@ -45,8 +45,8 @@ export const siteConfig = {
     { name: "Layanan", href: "#layanan" },
     { name: "Cara Kerja", href: "#cara-kerja" },
     { name: "Paket Biaya", href: "#pricing" },
-    { name: "FAQ", href: "#faq" },
     { name: "Kontak", href: "#kontak" },
+    { name: "FAQ", href: "#faq" },
   ],
 
   contact: {
