@@ -47,6 +47,20 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-24 22:07] - Full Bespoke Redesign Anti-Slop & Editorial Architecture Refactor
+* **Tipe**: Desain & Arsitektur UI
+* **File Terkait**: `src/index.css`, `src/App.tsx`, `src/components/HeroSection.tsx`, `src/components/ComparisonSection.tsx`, `src/components/PillarsSection.tsx`, `src/components/WorkflowSection.tsx`, `src/components/PricingSection.tsx`, `src/components/FaqSection.tsx`, `src/components/Footer.tsx`, `DESIGN.md`
+* **Detail**:
+  - **Pembersihan Total Elemen Slop**: Membuang seluruh background blueprint grid (`.bg-grid-pattern`), menghapus efek glow neon cyan/purple, menghapus teks gradien pelangi (emerald-to-cyan), dan menghilangkan floating capsule badge yang klise.
+  - **Arsitektur Editorial Asimetris (RHYTHM 3)**:
+    - *Hero Section*: Desain asimetris split-screen dengan Live Interactive Proof Console (Bot WA, Prompt-to-Banner 4K, dan AI Ads ROAS Engine) langsung di area above-the-fold.
+    - *Comparison Section Baru*: Komponen perbandingan langsung antara model lama agensi konvensional (boros waktu & biaya) vs model sprint Automatric (sekali bayar, 3-7 hari beres).
+    - *Pillars Section*: Penataan ulang 3 pilar layanan dengan palet warna tunggal Electric Emerald (meniadakan skema warna sirkus cyan & ungu), mockup interaktif WhatsApp dengan dialog realistis bisnis UMKM, dan format switcher presisi.
+    - *Workflow Section*: Timeline 4-fase sprint yang bersih dan terstruktur tanpa animasi garis kartun yang berlebihan.
+    - *Pricing Section*: Kartu paket harga berbasis solid matte surface dengan selektor interaktif Choose Plan dan bar konfirmasi dinamis langsung sinkron ke WhatsApp.
+    - *FAQ & Footer*: Tampilan akordeon minimalis dengan hairline border dan footer monokrom yang elegan.
+  - **Verifikasi Kontras & Build**: Pengujian kontras warna dengan `contrast-check.py` mencapai rasio 7.95:1 hingga 20.38:1 (WCAG AA PASS). Build produksi `tsc -b && vite build` sukses 100% (ukuran bundle CSS berkurang drastis dari 45kB menjadi 23kB).
+
 ### [2026-09-24 22:01] - Deployment Skill Anti-Slop Lokal & Penguatan Standar Mobile
 * **Tipe**: Setup & Desain
 * **File Terkait**: `.agents/skills/*`, `src/components/Navbar.tsx`, `AGENTS.md`, `DESIGN.md`

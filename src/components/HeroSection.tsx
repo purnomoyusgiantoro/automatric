@@ -1,18 +1,13 @@
-import React from 'react';
-import {
-  ArrowRight,
-  MessageSquare,
-  Zap,
-  ShieldCheck,
-  TrendingUp,
-  CheckCircle2,
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, MessageSquare, Check, Shield, Bot, Image as ImageIcon, TrendingUp, CheckCheck } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
 
 export const HeroSection: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'wa' | 'design' | 'ads'>('wa');
+
   const defaultWaMessage = encodeURIComponent(
-    'Halo Automatric! Saya tertarik untuk konsultasi ekosistem AI (Chatbot WhatsApp 24/7, Desain Kilat & Iklan Berbasis AI) untuk meningkatkan omset bisnis saya.'
+    'Halo Automatric! Saya tertarik untuk konsultasi sistem AI (Chatbot WhatsApp 24/7, Desain Kilat & Iklan Berbasis AI) untuk bisnis saya.'
   );
 
   const handlePricingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -34,149 +29,250 @@ export const HeroSection: React.FC = () => {
     });
   };
 
-  const featureBadges = [
-    {
-      label: 'Desain <24 Jam',
-      icon: Zap,
-      color: 'text-amber-400',
-      bg: 'bg-amber-400/10',
-      border: 'border-amber-400/20',
-    },
-    {
-      label: 'Chatbot WA 24/7',
-      icon: MessageSquare,
-      color: 'text-emerald-400',
-      bg: 'bg-emerald-400/10',
-      border: 'border-emerald-400/20',
-    },
-    {
-      label: 'Iklan Berbasis AI',
-      icon: TrendingUp,
-      color: 'text-cyan-400',
-      bg: 'bg-cyan-400/10',
-      border: 'border-cyan-400/20',
-    },
-    {
-      label: 'Sprint Sekali Bayar',
-      icon: ShieldCheck,
-      color: 'text-emerald-400',
-      bg: 'bg-emerald-400/10',
-      border: 'border-emerald-400/20',
-    },
-  ];
-
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#030508]">
-      {/* Background Subtle Gradient Halos & Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/[0.07] blur-[130px] rounded-full pointer-events-none" />
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        {/* Top Tag Announcement */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/[0.08] border border-emerald-500/25 mb-8 animate-in fade-in duration-700">
-          <span className="w-2 h-2 rounded-full bg-emerald-400" />
-          <span className="text-xs font-semibold tracking-wide text-emerald-300">
-            Slot Sprint Q4: Tersedia 4 Klien Bisnis & UMKM
-          </span>
-        </div>
-
-        {/* Main Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
-          Tingkatkan Omset & Efisiensi Bisnis Anda{' '}
-          <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent underline decoration-emerald-500/30 decoration-wavy underline-offset-8">
-            10x Lebih Cepat
-          </span>{' '}
-          dengan Ekosistem AI
-        </h1>
-
-        {/* Subheadline */}
-        <p className="mt-6 text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-          Solusi terintegrasi untuk <strong className="text-white font-semibold">UMKM & Retail</strong>: CS WhatsApp pintar siaga 24/7, materi promosi kilat &lt;24 jam, dan strategi iklan berbasis AI untuk melejitkan profit tanpa pusing biaya operasional.
-        </p>
-
-        {/* 4 Feature Badges Pill */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-3xl mx-auto">
-          {featureBadges.map((badge) => {
-            const Icon = badge.icon;
-            return (
-              <div
-                key={badge.label}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105 ${badge.bg} ${badge.border} border text-slate-200 shadow-sm`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${badge.color}`} />
-                <span className="font-semibold tracking-wide">{badge.label}</span>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Dual CTA Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-          {/* Primary CTA: Lihat Paket Harga */}
-          <a
-            href="#pricing"
-            onClick={handlePricingClick}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold tracking-wide text-white bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 shadow-xl shadow-emerald-950/60 hover:shadow-emerald-900/80 border border-emerald-400/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
-          >
-            <span>Lihat Paket Harga</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-          </a>
-
-          {/* Secondary CTA: WhatsApp Direct */}
-          <a
-            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${defaultWaMessage}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleWhatsAppClick}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-sm font-semibold tracking-wide text-slate-200 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-emerald-500/40 backdrop-blur-xl transition-all duration-200 hover:text-white cursor-pointer shadow-lg"
-          >
-            <MessageSquare className="w-4 h-4 text-emerald-400" />
-            <span>Konsultasi WhatsApp Sekarang</span>
-          </a>
-        </div>
-
-        {/* Trust Guarantees */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Sprint Beres 3-7 Hari</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Sekali Bayar (Tanpa Biaya Bulanan)</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Garansi Pendampingan & Revisi</span>
-          </div>
-        </div>
-
-        {/* Metrics Ticker Bar */}
-        <div className="mt-14 pt-8 border-t border-white/[0.08]">
-          <div className="backdrop-blur-xl bg-black/60 border border-white/[0.09] rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-emerald-500/[0.02] pointer-events-none" />
+    <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 bg-[#050505] text-zinc-100 border-b border-white/[0.08]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column: Editorial Value Proposition */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative z-10">
-              {siteConfig.heroMetrics.map((metric, idx) => (
-                <div
-                  key={metric.label}
-                  className={`flex flex-col items-center justify-center ${
-                    idx !== siteConfig.heroMetrics.length - 1
-                      ? 'md:border-r md:border-white/[0.08]'
-                      : ''
-                  }`}
-                >
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-gradient-to-b from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-                    {metric.value}
-                  </span>
-                  <span className="mt-2 text-xs sm:text-sm font-medium text-slate-400 text-center max-w-[150px]">
-                    {metric.label}
-                  </span>
+            {/* Status Line */}
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                Sistem AI Siap Kerja • Sprint 3-7 Hari
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.08]">
+              Sistem AI Nyata untuk Pertumbuhan Bisnis Anda.
+            </h1>
+
+            {/* Lead Text */}
+            <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-normal">
+              Otomasi CS WhatsApp 24/7, produksi materi promosi kilat dalam 24 jam, dan optimasi iklan digital presisi. Paket integrasi sekali bayar tanpa langganan wajib.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 max-w-md pt-2">
+              <a
+                href="#pricing"
+                onClick={handlePricingClick}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide text-black bg-emerald-400 hover:bg-emerald-300 transition-colors cursor-pointer shadow-sm text-center"
+              >
+                <span>Pilih Paket Sprint</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${defaultWaMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleWhatsAppClick}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide text-zinc-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.12] transition-colors cursor-pointer text-center"
+              >
+                <MessageSquare className="w-4 h-4 text-emerald-400" />
+                <span>Konsultasi WhatsApp</span>
+              </a>
+            </div>
+
+            {/* Micro Guarantees */}
+            <div className="pt-4 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-zinc-400">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Turnaround &lt;24 jam</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Sekali bayar</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Garansi 14-30 hari</span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Live Interactive Proof Console */}
+          <div className="lg:col-span-5">
+            <div className="bg-[#0b0b0e] border border-white/[0.12] rounded-2xl overflow-hidden shadow-2xl">
+              
+              {/* Console Tabs */}
+              <div className="bg-[#121216] px-3 py-2 border-b border-white/[0.06] flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('wa')}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
+                      activeTab === 'wa'
+                        ? 'bg-emerald-400 text-black font-semibold'
+                        : 'text-zinc-400 hover:text-white'
+                    }`}
+                  >
+                    <Bot className="w-3.5 h-3.5" />
+                    <span>Bot WhatsApp</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('design')}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
+                      activeTab === 'design'
+                        ? 'bg-emerald-400 text-black font-semibold'
+                        : 'text-zinc-400 hover:text-white'
+                    }`}
+                  >
+                    <ImageIcon className="w-3.5 h-3.5" />
+                    <span>Desain &lt;24 Jam</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('ads')}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
+                      activeTab === 'ads'
+                        ? 'bg-emerald-400 text-black font-semibold'
+                        : 'text-zinc-400 hover:text-white'
+                    }`}
+                  >
+                    <TrendingUp className="w-3.5 h-3.5" />
+                    <span>Iklan AI</span>
+                  </button>
                 </div>
-              ))}
+
+                <span className="text-[10px] font-mono text-zinc-400 pr-1 hidden sm:inline-block">
+                  LIVE DEMO
+                </span>
+              </div>
+
+              {/* Console Body */}
+              <div className="p-5 min-h-[340px] flex flex-col justify-between bg-[#08080a]">
+                
+                {/* TAB 1: WhatsApp Bot */}
+                {activeTab === 'wa' && (
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] text-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                        <span className="font-bold text-white">CS AI Automatric (Aktif 24/7)</span>
+                      </div>
+                      <span className="text-[10px] font-mono text-zinc-400">Response: 0.8s</span>
+                    </div>
+
+                    <div className="space-y-2.5 text-xs">
+                      <div className="bg-[#141418] p-3 rounded-xl border border-white/[0.06] text-zinc-300">
+                        <span className="text-[10px] text-zinc-400 block mb-1">Pelanggan (23:14):</span>
+                        <p>Malam min, kemeja batik navy size XL ready gak ya? Buat acara Sabtu besok.</p>
+                      </div>
+
+                      <div className="bg-emerald-950/40 p-3 rounded-xl border border-emerald-500/20 text-emerald-100">
+                        <div className="flex items-center justify-between text-[10px] text-emerald-400 mb-1">
+                          <span>Bot Automatric:</span>
+                          <CheckCheck className="w-3 h-3" />
+                        </div>
+                        <p>Malam kak! Ready kak untuk Batik Navy size XL (tersisa 3 pcs terakhir). Pengiriman via Paxel/JNE YES bisa sampai Jumat sore. Mau kami pesankan sekarang?</p>
+                      </div>
+
+                      <div className="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] text-[11px] text-zinc-400 flex items-center justify-between font-mono">
+                        <span>Pengecekan Stok: Otomatis</span>
+                        <span className="text-emerald-400">Database Live Sync</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB 2: Fast Design */}
+                {activeTab === 'design' && (
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] text-xs">
+                      <div className="flex items-center gap-2">
+                        <ImageIcon className="w-4 h-4 text-emerald-400" />
+                        <span className="font-bold text-white">Prompt-to-Banner 4K Engine</span>
+                      </div>
+                      <span className="text-[10px] font-mono text-emerald-400 font-semibold">&lt;24 Jam</span>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-[#121217] border border-white/[0.08] space-y-2 text-center">
+                      <span className="text-[10px] font-mono uppercase text-emerald-400 tracking-wider block">
+                        Output Siap Tayang
+                      </span>
+                      <h4 className="text-base font-bold text-white">
+                        BANNER PROMO FLASH SALE UMKM
+                      </h4>
+                      <p className="text-xs text-zinc-400">
+                        Visual tajam resolusi tinggi disesuaikan dengan psikologi konversi audiens Indonesia.
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
+                      <div className="p-2 rounded bg-white/[0.03] border border-white/[0.04]">
+                        <span className="text-[10px] text-zinc-400 block">Format</span>
+                        <span className="text-white font-semibold">Feed &amp; Story</span>
+                      </div>
+                      <div className="p-2 rounded bg-white/[0.03] border border-white/[0.04]">
+                        <span className="text-[10px] text-zinc-400 block">Waktu Buat</span>
+                        <span className="text-emerald-400 font-semibold">3.5 Jam</span>
+                      </div>
+                      <div className="p-2 rounded bg-white/[0.03] border border-white/[0.04]">
+                        <span className="text-[10px] text-zinc-400 block">Lisensi</span>
+                        <span className="text-white font-semibold">Komersial 100%</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB 3: Ads Analytics */}
+                {activeTab === 'ads' && (
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] text-xs">
+                      <div className="flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4 text-emerald-400" />
+                        <span className="font-bold text-white">AI Realtime Targeting Engine</span>
+                      </div>
+                      <span className="text-[10px] font-mono text-zinc-400">[Studi Kasus Retail]</span>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#121217] border border-white/[0.08]">
+                      <span className="text-[11px] text-zinc-400 block">Return on Ad Spend (ROAS)</span>
+                      <div className="flex items-baseline gap-2 mt-1">
+                        <span className="text-3xl font-bold font-mono text-emerald-400">4.20x</span>
+                        <span className="text-xs text-zinc-400">Modal Rp 1jt = Rp 4.2jt Omset</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+                      <div className="p-2.5 rounded bg-white/[0.03] border border-white/[0.04]">
+                        <span className="text-[10px] text-zinc-400 block">Omset Tercipta</span>
+                        <span className="text-white font-semibold">Rp 142.8 Juta</span>
+                      </div>
+                      <div className="p-2.5 rounded bg-white/[0.03] border border-white/[0.04]">
+                        <span className="text-[10px] text-zinc-400 block">Cost Per Order</span>
+                        <span className="text-emerald-400 font-semibold">Rp 24.500</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Console Footer */}
+                <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-zinc-400">
+                  <span>Status: Integrasi Terverifikasi</span>
+                  <a
+                    href="#layanan"
+                    className="text-emerald-400 hover:text-emerald-300 font-medium"
+                  >
+                    Pelajari Detail &rarr;
+                  </a>
+                </div>
+
+              </div>
+
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
   );

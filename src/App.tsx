@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { ComparisonSection } from './components/ComparisonSection';
 import { PillarsSection } from './components/PillarsSection';
 import { WorkflowSection } from './components/WorkflowSection';
 import { PricingSection } from './components/PricingSection';
@@ -14,10 +15,11 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#030508] text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-black">
+    <div className="min-h-screen bg-[#050505] text-zinc-100 flex flex-col font-sans selection:bg-emerald-400 selection:text-black">
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
+        <ComparisonSection />
         <PillarsSection />
         <WorkflowSection />
         <PricingSection />
