@@ -5,7 +5,6 @@ import { PillarsSection } from './components/PillarsSection';
 import { WorkflowSection } from './components/WorkflowSection';
 import { PricingSection } from './components/PricingSection';
 import { FaqSection } from './components/FaqSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { initObservability } from './telemetry/tracker';
 
@@ -33,7 +32,7 @@ export const App: React.FC = () => {
         {/* Lower-left bright luminous orb */}
         <div className="glow-white-intense bottom-[15%] -left-[6%] w-[680px] h-[680px]" />
 
-        {/* Bottom prominent glow wash for contact & footer */}
+        {/* Bottom prominent glow wash for footer */}
         <div className="glow-white-wide bottom-[2%] right-[10%] w-[900px] h-[700px]" />
       </div>
 
@@ -44,7 +43,6 @@ export const App: React.FC = () => {
         <WorkflowSection />
         <PricingSection />
         <FaqSection />
-        <ContactSection />
       </main>
       <Footer />
     </div>
