@@ -87,7 +87,7 @@ export const ComparisonSection: React.FC = () => {
                     {item.aspect}
                   </span>
                   <div className="flex items-start gap-3 text-sm text-white">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
                     <span className="font-medium">{item.automatric}</span>
                   </div>
                 </div>

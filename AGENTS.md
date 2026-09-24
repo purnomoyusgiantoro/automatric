@@ -6,7 +6,7 @@ This repository hosts the codebase for Automatric: AI Growth Agency.
 1. **Always Sync to `MEMORY.md`**:
    Every change in code, design, configuration, or features must be recorded in `MEMORY.md` under `## Change Log / Riwayat Perubahan` per `SKILL.md`.
 2. **Follow Design Direction**:
-   Refer to `DESIGN.md` for brand identity, dials (`ENERGY 2 / RHYTHM 2 / MOTION 2`), color palette, and typography standards.
+   Refer to `DESIGN.md` for brand identity, dials (`ENERGY 2 / RHYTHM 3 / MOTION 1`), color palette, and typography standards.
 
 <!-- antislop:start -->
 ## antislop

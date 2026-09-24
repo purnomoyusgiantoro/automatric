@@ -40,7 +40,6 @@ export const HeroSection: React.FC = () => {
             
             {/* Status Line */}
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
                 Otomasi Bisnis • Sprint 3-7 Hari Kerja
               </span>
@@ -82,11 +81,11 @@ export const HeroSection: React.FC = () => {
             {/* Micro Guarantees */}
             <div className="pt-4 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-zinc-400">
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Check className="w-4 h-4 text-white shrink-0" />
                 <span>Pengerjaan &lt;24 jam</span>
               </div>
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Check className="w-4 h-4 text-white shrink-0" />
                 <span>Biaya tetap sekali bayar</span>
               </div>
               <div className="flex items-center gap-2">
@@ -107,7 +106,7 @@ export const HeroSection: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setActiveTab('wa')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-lg text-xs font-mono font-medium transition-colors focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                       activeTab === 'wa'
                         ? 'bg-emerald-400 text-black font-semibold'
                         : 'text-zinc-400 hover:text-white'
@@ -119,7 +118,7 @@ export const HeroSection: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setActiveTab('design')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-lg text-xs font-mono font-medium transition-colors focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                       activeTab === 'design'
                         ? 'bg-emerald-400 text-black font-semibold'
                         : 'text-zinc-400 hover:text-white'
@@ -131,7 +130,7 @@ export const HeroSection: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setActiveTab('ads')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-lg text-xs font-mono font-medium transition-colors focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                       activeTab === 'ads'
                         ? 'bg-emerald-400 text-black font-semibold'
                         : 'text-zinc-400 hover:text-white'

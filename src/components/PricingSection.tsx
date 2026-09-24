@@ -116,7 +116,7 @@ export const PricingSection: React.FC = () => {
                     </span>
                     {plan.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-2.5 text-xs text-zinc-300 leading-relaxed">
-                        <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-white shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -131,7 +131,7 @@ export const PricingSection: React.FC = () => {
                       e.stopPropagation();
                       handleSelectPlan(plan);
                     }}
-                    className={`w-full py-3 px-4 rounded-lg text-xs font-semibold tracking-wide transition-colors duration-150 flex items-center justify-center gap-2 cursor-pointer ${
+                    className={`w-full py-3 px-4 rounded-lg text-xs font-semibold tracking-wide transition-colors duration-150 flex items-center justify-center gap-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                       isSelected
                         ? 'bg-emerald-400 text-black font-bold hover:bg-emerald-300'
                         : 'bg-white/[0.06] text-zinc-200 border border-white/[0.1] hover:bg-white/[0.1] hover:text-white'

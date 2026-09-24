@@ -142,9 +142,7 @@ export const PillarsSection: React.FC = () => {
         {/* Pillars Stack */}
         <div className="space-y-12 sm:space-y-16">
           
-          {/* ========================================================
-              PILAR 1: Otomasi Percakapan WhatsApp
-             ======================================================== */}
+          {/* Pilar 1: Otomasi Percakapan WhatsApp */}
           <div className="bg-[#0b0b0d] border border-white/[0.08] rounded-2xl p-6 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
@@ -182,7 +180,7 @@ export const PillarsSection: React.FC = () => {
                 <ul className="space-y-2.5 pt-1">
                   {p1.highlights.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -234,7 +232,7 @@ export const PillarsSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => handleScenarioChange('catalog')}
-                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors shrink-0 cursor-pointer ${
+                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors shrink-0 cursor-pointer min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                         activeChatScenario === 'catalog'
                           ? 'bg-emerald-400 text-black font-semibold'
                           : 'text-zinc-400 hover:text-white'
@@ -245,7 +243,7 @@ export const PillarsSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => handleScenarioChange('order')}
-                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors shrink-0 cursor-pointer ${
+                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors shrink-0 cursor-pointer min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                         activeChatScenario === 'order'
                           ? 'bg-emerald-400 text-black font-semibold'
                           : 'text-zinc-400 hover:text-white'
@@ -256,7 +254,7 @@ export const PillarsSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => handleScenarioChange('followup')}
-                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors shrink-0 cursor-pointer ${
+                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors shrink-0 cursor-pointer min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                         activeChatScenario === 'followup'
                           ? 'bg-emerald-400 text-black font-semibold'
                           : 'text-zinc-400 hover:text-white'
@@ -308,9 +306,7 @@ export const PillarsSection: React.FC = () => {
           </div>
 
 
-          {/* ========================================================
-              PILAR 2: Pembuatan Desain Promosi Kilat (<24 Jam)
-             ======================================================== */}
+          {/* Pilar 2: Pembuatan Desain Promosi Kilat (<24 Jam) */}
           <div className="bg-[#0b0b0d] border border-white/[0.08] rounded-2xl p-6 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
@@ -337,7 +333,7 @@ export const PillarsSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => handleCreativeFormatChange('feed')}
-                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors cursor-pointer ${
+                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors cursor-pointer min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                         activeCreativeFormat === 'feed'
                           ? 'bg-emerald-400 text-black font-semibold'
                           : 'text-zinc-400 hover:text-white'
@@ -348,7 +344,7 @@ export const PillarsSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => handleCreativeFormatChange('story')}
-                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors cursor-pointer ${
+                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors cursor-pointer min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                         activeCreativeFormat === 'story'
                           ? 'bg-emerald-400 text-black font-semibold'
                           : 'text-zinc-400 hover:text-white'
@@ -359,7 +355,7 @@ export const PillarsSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => handleCreativeFormatChange('banner')}
-                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors cursor-pointer ${
+                      className={`text-xs px-2.5 py-1 rounded font-medium transition-colors cursor-pointer min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                         activeCreativeFormat === 'banner'
                           ? 'bg-emerald-400 text-black font-semibold'
                           : 'text-zinc-400 hover:text-white'
@@ -444,7 +440,7 @@ export const PillarsSection: React.FC = () => {
                 <ul className="space-y-2.5 pt-1">
                   {p2.highlights.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -470,9 +466,7 @@ export const PillarsSection: React.FC = () => {
           </div>
 
 
-          {/* ========================================================
-              PILAR 3: Setup Iklan Digital Terarah
-             ======================================================== */}
+          {/* Pilar 3: Setup Iklan Digital Terarah */}
           <div className="bg-[#0b0b0d] border border-white/[0.08] rounded-2xl p-6 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
@@ -508,7 +502,7 @@ export const PillarsSection: React.FC = () => {
                 <ul className="space-y-2.5 pt-1">
                   {p3.highlights.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-white shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -547,7 +541,7 @@ export const PillarsSection: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setAdsTimeframe('30d')}
-                        className={`px-2 py-0.5 rounded cursor-pointer font-mono ${
+                        className={`px-2 py-0.5 rounded cursor-pointer font-mono min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                           adsTimeframe === '30d' ? 'bg-emerald-400 text-black font-semibold' : 'text-zinc-400'
                         }`}
                       >
@@ -556,7 +550,7 @@ export const PillarsSection: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setAdsTimeframe('60d')}
-                        className={`px-2 py-0.5 rounded cursor-pointer font-mono ${
+                        className={`px-2 py-0.5 rounded cursor-pointer font-mono min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none ${
                           adsTimeframe === '60d' ? 'bg-emerald-400 text-black font-semibold' : 'text-zinc-400'
                         }`}
                       >

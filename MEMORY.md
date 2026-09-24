@@ -11,7 +11,7 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
   1. Otomasi CS & Chatbot WhatsApp AI 24/7 (tanya jawab katalog, rekap pesanan, follow-up)
   2. Desain & Konten Promosi Kilat (Turnaround <24 Jam)
   3. Iklan Presisi Berbasis AI (Meta Ads & TikTok Ads)
-* **Model Penetapan Harga**: Paket Sprint Sekali Bayar (Starter Rp 2.9jt, Growth Rp 5.9jt [Featured], Domination Rp 9.9jt)
+* **Model Penetapan Harga**: Paket Sprint Sekali Bayar (Starter Rp 2.9jt, Growth Rp 5.9jt [Featured], Scale Sprint Rp 9.9jt)
 * **Alur Konversi**: Tombol paket terhubung langsung ke WhatsApp dengan pesan pre-filled otomatis.
 
 ---
@@ -21,7 +21,7 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 * **Build Tool**: Vite 6
 * **CSS & Styling**: Tailwind CSS 3
   * *Theme*: Deep Black Dominant (`#030508` / `#050811` / `#090d16`)
-  * *Style*: Ultra Glassmorphism (`backdrop-blur-xl`, `border-white/[0.09]`, translucent dark glass cards)
+  * *Style*: Matte Solid Surfaces (`#0b0b0d` / `#0e0e12`, subtle `bg-white/[0.03]` tint, navbar-only `backdrop-blur-md`)
   * *UI/UX Standard*: Anti-Slop principles (`ui-ux-pro-max`), no emojis as icons, WCAG AA contrast (4.5:1+), realistic Indonesian UMKM use cases.
 * **Icons**: `lucide-react`
 * **Observability**: Lightweight Background Telemetry Logger (`page_view`, `pricing_plan_clicked`, `whatsapp_redirect`, `web_vitals`) with correlation `sessionId` and zero PII.
@@ -47,6 +47,15 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 ---
 
 ## 4. Change Log / Riwayat Perubahan
+
+### [2026-09-24 22:25] - Perbaikan Temuan Audit Anti-Slop (Pricing, Telemetri, & Dokumentasi)
+* **Tipe**: Bugfix & Dokumentasi (Anti-Slop Hard Gate)
+* **File Terkait**: `src/components/PricingSection.tsx`, `src/telemetry/tracker.ts`, `AGENTS.md`, `DESIGN.md`, `SKILL.md`, `MEMORY.md`
+* **Detail**:
+  - **F-08**: Mengubah warna icon Check pada daftar fitur paket harga dari `text-emerald-400` menjadi `text-white` untuk membatasi aksen emerald hanya pada elemen interaktif.
+  - **F-13**: Menambahkan `focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none` pada tombol pemilih paket di `PricingSection.tsx` untuk aksesibilitas navigasi keyboard.
+  - **F-16**: Menyederhanakan komentar naratif pada modul `src/telemetry/tracker.ts` menjadi ringkas dan menghapus komentar yang menyatakan ulang hal yang sudah jelas dari kode.
+  - **Penyelarasan Dial & Dokumentasi**: Memperbarui dial pada `AGENTS.md` dan `DESIGN.md` menjadi `ENERGY 2 / RHYTHM 3 / MOTION 1` (jujur terhadap level motion transisi hover), memperbarui deskripsi styling pada `SKILL.md` dan `MEMORY.md` ke Obsidian Black + Matte Solid Surfaces, serta mengganti nama paket lama Domination menjadi Scale Sprint.
 
 ### [2026-09-24 22:15] - Penerapan Menyeluruh Skill Anti-Slop Copywriting pada Seluruh Teks Web
 * **Tipe**: Copywriting & Tone Refinement (Anti-Slop Hard Gate)

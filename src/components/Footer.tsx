@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
           <button
             onClick={scrollToTop}
             type="button"
-            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors focus:outline-none cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
           >
             <span>Kembali ke Atas</span>
             <ArrowUp className="w-3.5 h-3.5" />

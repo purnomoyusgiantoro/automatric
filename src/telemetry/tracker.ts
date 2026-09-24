@@ -84,7 +84,6 @@ export function getTelemetryEvents(): TelemetryEvent[] {
 export function initObservability(): void {
   if (typeof window === 'undefined') return;
 
-  // Track Initial Page View
   trackEvent('page_view', {
     path: window.location.pathname,
     viewportWidth: window.innerWidth,
@@ -92,7 +91,7 @@ export function initObservability(): void {
     referrer: document.referrer ? new URL(document.referrer).hostname : 'direct',
   });
 
-  // Observe Web Vitals: Navigation Timing (TTFB)
+  // TTFB from navigation timing
   try {
     const navEntries = performance.getEntriesByType('navigation');
     if (navEntries.length > 0) {
@@ -108,7 +107,7 @@ export function initObservability(): void {
     // Ignore unsupported navigation metrics
   }
 
-  // Observe FCP & LCP via PerformanceObserver
+  // FCP and LCP
   if ('PerformanceObserver' in window) {
     try {
       const paintObserver = new PerformanceObserver((entryList) => {
@@ -146,7 +145,6 @@ export function initObservability(): void {
       // LCP observer fallback
     }
 
-    // Cumulative Layout Shift (CLS)
     try {
       let clsValue = 0;
       const clsObserver = new PerformanceObserver((entryList) => {
@@ -159,7 +157,6 @@ export function initObservability(): void {
       });
       clsObserver.observe({ type: 'layout-shift', buffered: true });
 
-      // Report CLS on page unload
       window.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'hidden') {
           trackEvent('web_vitals', {
@@ -174,7 +171,7 @@ export function initObservability(): void {
     }
   }
 
-  // Catch Global Unhandled Errors
+  // Global error handler
   window.addEventListener('error', (event) => {
     trackEvent(
       'client_error',

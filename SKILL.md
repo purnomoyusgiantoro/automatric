@@ -24,5 +24,5 @@ Skill ini mengatur standar pencatatan riwayat dan memori proyek di repositori `a
 
 3. **Tech Stack Contract**:
    - Framework: **React 19 + TypeScript**
-   - Styling: **Tailwind CSS 3** (Deep Black `#030508` + Ultra Glassmorphism)
+   - Styling: **Tailwind CSS 3** (Obsidian Black `#050505` + Matte Solid Surfaces)
    - Telemetry: Background Observability terstruktur tanpa bloat.

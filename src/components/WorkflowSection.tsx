@@ -62,7 +62,9 @@ export const WorkflowSection: React.FC = () => {
             return (
               <div
                 key={item.step}
-                className="bg-[#0b0b0d] border border-white/[0.08] rounded-xl p-6 flex flex-col justify-between"
+                className={`bg-[#0b0b0d] border border-white/[0.08] rounded-xl p-6 flex flex-col justify-between ${
+                  index === 0 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
               >
                 <div>
                   {/* Step Header */}
@@ -93,7 +95,7 @@ export const WorkflowSection: React.FC = () => {
                 <div className="pt-4 border-t border-white/[0.06] space-y-2">
                   {points.map((pt, pIdx) => (
                     <div key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-white shrink-0 mt-0.5" />
                       <span>{pt}</span>
                     </div>
                   ))}
