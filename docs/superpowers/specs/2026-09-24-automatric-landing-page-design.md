@@ -24,7 +24,10 @@ Model penetapan harga mengadopsi skema **Project Sprint Sekali Bayar** (tanpa ik
 
 * **Framework**: React 19 + TypeScript
 * **Build Tool**: Vite 6
-* **Styling**: Tailwind CSS 3 (Dark Cyber & Emerald Glow theme, glassmorphism cards, Plus Jakarta Sans typography)
+* **Styling & Aesthetic**:
+  * **Deep Black Dominance**: Palet warna dominan hitam pekat (`#030508` / `#06080d`) untuk menghadirkan kesan mewah, eksklusif, dan modern.
+  * **Ultra Glassmorphism**: Kartu dan container menggunakan efek kaca buram (*frosted glass* dengan `backdrop-blur-xl`, background translusen `bg-white/[0.03]` atau `bg-black/60`, serta border tipis elegan `border-white/10` dengan glow halo).
+  * **Interactive Choose Plan System**: Fitur interaktif di mana pengunjung dapat memilih/mengklik paket (*Choose Plan*), melihat status paket yang sedang aktif terpilih dengan efek glow khusus, serta ringkasan pesan yang otomatis sinkron dengan WhatsApp CTA.
 * **Icons**: `lucide-react`
 * **Observability**: Custom lightweight, zero-dependency Telemetry Logger & PerformanceObserver module
 * **Deployment Target**: Static Web (GitHub Pages / Vercel ready)
@@ -79,8 +82,12 @@ Susunan *Single-Page Application* dari atas ke bawah:
 3. **Langkah 3 - Testing & Polishing (Hari 5)**: Uji coba alur chat, koreksi copywriting, dan finalisasi seluruh aset.
 4. **Langkah 4 - Go-Live & Handover (Hari 6–7)**: Peluncuran resmi, serah terima data, dan pendampingan operasional.
 
-### 3.5 `PricingSection.tsx` (Pricelist Sprint Sekali Bayar)
-Tiga paket harga transparan sekali bayar:
+### 3.5 `PricingSection.tsx` (Pricelist dengan Interactive "Choose Plan")
+Tiga paket harga transparan sekali bayar dengan sistem seleksi interaktif (*Choose Plan*):
+* **Mekanisme Choose Plan**:
+  * Pengunjung dapat mengklik paket mana saja untuk memilihnya (*select plan*).
+  * Paket yang dipilih akan mendapatkan penekanan visual: border emerald menyala (*glow*), tag *"Paket Terpilih"*, dan animasi transisi halus.
+  * Di bawah kartu harga terdapat bar status dinamis: *"Anda sedang memilih paket: [Nama Paket]"* dengan rincian singkat dan tombol utama *"Klaim Paket Ini via WhatsApp"*.
 
 1. **Starter AI Sprint — Rp 2.900.000**
    * Target: Pemilik bisnis yang ingin respon CS instan dan punya materi promosi rapi.
