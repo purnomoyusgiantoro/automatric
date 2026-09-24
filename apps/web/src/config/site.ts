@@ -46,7 +46,16 @@ export const siteConfig = {
     { name: "Cara Kerja", href: "#cara-kerja" },
     { name: "Paket Biaya", href: "#pricing" },
     { name: "FAQ", href: "#faq" },
+    { name: "Kontak", href: "#kontak" },
   ],
+
+  contact: {
+    phone: "+62 812-3456-7890",
+    whatsapp: "+62 812-3456-7890",
+    email: "halo@automatric.com",
+    address: "Jakarta, Indonesia",
+    hours: "24 Jam Nonstop (Respon < 1 Detik)",
+  },
 
   heroMetrics: [
     { value: "< 1 Detik", label: "Waktu Respon Balasan Bot" },
