@@ -16,14 +16,14 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="kontak" className="relative bg-[#050505] border-t border-white/[0.08] pt-16 pb-12 overflow-hidden">
+    <footer id="kontak" className="relative bg-[#050505] border-t border-white/[0.08] pt-14 pb-10 overflow-hidden">
       {/* Background glow at the very bottom */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="glow-white-wide bottom-[-15%] left-1/2 -translate-x-1/2 w-[950px] h-[450px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/[0.08]">
           {/* Brand & Mission */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">

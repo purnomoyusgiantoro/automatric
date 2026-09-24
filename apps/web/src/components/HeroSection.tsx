@@ -19,7 +19,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 bg-[#050505] overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 pb-14 sm:pb-20 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="glow-white-intense top-[15%] left-[25%] w-[650px] h-[650px]" />
@@ -31,10 +31,6 @@ export const HeroSection: React.FC = () => {
 
           {/* Left: Value Proposition */}
           <div className="lg:col-span-7 space-y-6">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono">
-              Otomasi Bisnis • Sprint 3–7 Hari
-            </p>
-
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.05]">
               WhatsApp. Desain. Iklan.
               <br />

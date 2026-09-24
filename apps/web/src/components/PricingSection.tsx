@@ -14,7 +14,7 @@ export const PricingSection: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="relative py-32 sm:py-40 bg-[#050505] overflow-hidden">
+    <section id="pricing" className="relative py-14 sm:py-20 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="glow-white-intense top-[15%] left-1/2 -translate-x-1/2 w-[700px] h-[550px]" />
@@ -22,8 +22,8 @@ export const PricingSection: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-4">
+        <div className="text-center mb-12 sm:mb-14">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-3">
             Investasi
           </p>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">

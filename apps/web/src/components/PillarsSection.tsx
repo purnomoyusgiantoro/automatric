@@ -54,7 +54,7 @@ export const PillarsSection: React.FC = () => {
     }`;
 
   return (
-    <section id="layanan" className="relative py-28 sm:py-36 bg-[#050505] overflow-hidden">
+    <section id="layanan" className="relative py-14 sm:py-20 bg-[#050505] overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="glow-white-intense top-[10%] right-[10%] w-[650px] h-[650px]" />
@@ -65,14 +65,14 @@ export const PillarsSection: React.FC = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-4">Layanan</p>
+        <div className="text-center mb-12 sm:mb-14">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-3">Layanan</p>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             Tiga pilar untuk bisnis Anda.
           </h2>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-10 sm:space-y-12">
 
           {/* ─── Pilar 1: Bot WhatsApp ─── */}
           <div className="glass-card rounded-2xl p-6 sm:p-10">
