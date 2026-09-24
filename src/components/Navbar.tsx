@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
   };
 
   const defaultWaMessage = encodeURIComponent(
-    "Halo Automatric! Saya ingin konsultasi solusi AI (Chatbot WA, Desain Kilat & Iklan) untuk meningkatkan bisnis saya."
+    "Halo Automatric! Saya ingin konsultasi sistem bot WhatsApp dan materi promosi untuk toko saya."
   );
 
   return (

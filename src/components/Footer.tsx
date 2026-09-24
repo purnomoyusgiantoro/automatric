@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   };
 
   const defaultWaMessage = encodeURIComponent(
-    "Halo Automatric! Saya ingin berdiskusi mengenai percepatan bisnis saya melalui solusi AI."
+    "Halo Automatric! Saya ingin berdiskusi mengenai pemasangan bot WhatsApp dan materi promosi untuk bisnis saya."
   );
 
   return (
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-xs sm:text-sm text-zinc-400 max-w-md leading-relaxed">
-              Agensi pertumbuhan bisnis modern berbasis AI. Membantu UMKM dan brand retail melipatgandakan produktivitas dan penjualan melalui CS WhatsApp otomatis 24/7, materi promosi kilat, dan periklanan digital presisi.
+              Layanan setup otomasi WhatsApp dan produksi materi promosi kilat untuk toko online dan UMKM. Membantu melayani pembeli 24 jam nonstop dengan sistem pengerjaan sprint sekali bayar tanpa ikatan biaya bulanan.
             </p>
             <div className="pt-2 flex items-center gap-3">
               <a
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
           {/* Navigation Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-white">
-              Navigasi Cepat
+              Navigasi Halaman
             </h4>
             <ul className="space-y-2 text-xs text-zinc-400">
               {siteConfig.navLinks.map((link) => (
@@ -75,13 +75,13 @@ export const Footer: React.FC = () => {
           {/* Pillars List */}
           <div className="space-y-3">
             <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-white">
-              Pilar Layanan
+              Layanan Utama
             </h4>
             <ul className="space-y-2 text-xs text-zinc-400">
-              <li>Chatbot CS WhatsApp 24/7</li>
-              <li>Desain Promosi Kilat &lt;24 Jam</li>
-              <li>Setup Iklan Meta &amp; TikTok AI</li>
-              <li>Sprint Integrasi Bisnis Sekali Bayar</li>
+              <li>Bot WhatsApp Penjawab Otomatis</li>
+              <li>Desain Promosi Siap dalam 24 Jam</li>
+              <li>Setup Iklan Meta &amp; TikTok</li>
+              <li>Sprint Pengerjaan Sekali Bayar</li>
             </ul>
           </div>
         </div>
@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
-            &copy; {new Date().getFullYear()} {siteConfig.name}. Hak Cipta Dilindungi Undang-Undang.
+            &copy; {new Date().getFullYear()} {siteConfig.name}. Seluruh hak cipta dilindungi undang-undang.
           </div>
           <button
             onClick={scrollToTop}

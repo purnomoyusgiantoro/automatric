@@ -18,7 +18,7 @@ import { trackEvent } from '../telemetry/tracker';
 export const PillarsSection: React.FC = () => {
   const [activeChatScenario, setActiveChatScenario] = useState<'catalog' | 'order' | 'followup'>('catalog');
   const [activeCreativeFormat, setActiveCreativeFormat] = useState<'feed' | 'story' | 'banner'>('feed');
-  const [adsTimeframe, setAdsTimeframe] = useState<'30d' | '60d' | '90d'>('30d');
+  const [adsTimeframe, setAdsTimeframe] = useState<'30d' | '60d'>('30d');
 
   const p1 = siteConfig.pillars[0]; // WhatsApp AI
   const p2 = siteConfig.pillars[1]; // Creative Speed
@@ -52,71 +52,71 @@ export const PillarsSection: React.FC = () => {
     catalog: [
       {
         sender: 'user',
-        text: 'Malam min, kemeja batik navy size XL ready gak ya? Buat acara Sabtu besok ke Surabaya.',
+        text: 'Malam min, kemeja batik navy ukuran XL masih ada? Butuh untuk acara hari Sabtu di Surabaya.',
         time: '23:14',
       },
       {
         sender: 'bot',
-        text: 'Malam kak! Ready kak untuk Batik Navy size XL (tersisa 3 pcs terakhir). Pengiriman via Paxel/JNE YES bisa sampai Jumat sore kak. Mau kami pesankan sekarang?',
+        text: 'Malam kak! Masih ada 3 potong untuk Batik Navy ukuran XL. Pengiriman kilat bisa tiba hari Jumat sore. Mau kami pesankan sekarang?',
         time: '23:14',
       },
       {
         sender: 'user',
-        text: 'Boleh min, minta foto detail motif bahannya dong.',
+        text: 'Boleh min, minta foto detail bahan kainnya ya.',
         time: '23:15',
       },
       {
         sender: 'bot',
-        text: 'Tentu kak! Ini foto detail katun primisima premium kami. Bahannya adem, tidak mudah kusut, dan jahitan lapis furing rapi.',
+        text: 'Baik kak! Ini foto detail bahan katun primisima. Bahannya adem, tidak kaku, dan sudah dilapisi furing rapi.',
         time: '23:15',
       },
     ],
     order: [
       {
         sender: 'user',
-        text: 'Min, saya mau pesan Paket Kopi Susu Literan (2 btl) sama Brownies Fudgy (1 box) kirim ke Tebet.',
+        text: 'Min, saya mau pesan Kopi Susu 1 Liter (2 botol) dan Brownies Fudgy (1 kotak) kirim ke Tebet ya.',
         time: '14:20',
       },
       {
         sender: 'bot',
-        text: 'Siap kak! Rekap pesanannya:\n• 2x Kopi Susu 1 Liter (Rp 130.000)\n• 1x Fudgy Brownies (Rp 65.000)\n• Ongkir Tebet (Rp 12.000)\nTotal: Rp 207.000',
+        text: 'Baik kak, berikut rincian pesanannya:\n• 2x Kopi Susu 1 Liter (Rp 130.000)\n• 1x Brownies Fudgy (Rp 65.000)\n• Ongkir kurir lokal Tebet (Rp 12.000)\nTotal: Rp 207.000',
         time: '14:20',
       },
       {
         sender: 'bot',
-        text: 'Pesanan sudah otomatis tercatat di rekap toko #ORD-4921. Pembayaran transfer ke BCA 883019281 a/n Kedai Rasa atau scan QRIS.',
+        text: 'Pesanan sudah tercatat di sistem toko #ORD-4921. Pembayaran bisa transfer ke rekening BCA atau scan kode QRIS.',
         time: '14:21',
       },
       {
         sender: 'user',
-        text: 'Sudah saya transfer via QRIS ya min barusan.',
+        text: 'Sudah saya bayar lewat QRIS ya min barusan.',
         time: '14:22',
       },
       {
         sender: 'bot',
-        text: 'Pembayaran terverifikasi lunas otomatis! Pesanan langsung masuk antrean barista ya kak. Estimasi pickup 15 menit lagi.',
+        text: 'Pembayaran sudah kami terima. Pesanan langsung diteruskan ke tim peracik untuk disiapkan. Estimasi penjemputan kurir 15 menit lagi ya kak.',
         time: '14:22',
       },
     ],
     followup: [
       {
         sender: 'bot',
-        text: 'Halo Kak Sarah! Kami perhatikan Kakak kemarin sempat checkout Paket Skincare tapi belum sempat menyelesaikan pembayaran.',
+        text: 'Halo Kak Sarah! Kami mengabarkan bahwa pesanan Paket Skincare kemarin masih tersimpan di keranjang belanja Kakak.',
         time: '09:00',
       },
       {
         sender: 'bot',
-        text: 'Khusus hari ini ada voucher subsidi ongkir Rp 15.000 dengan kode ONSALE15. Mau kami bantu proseskan sekarang sebelum kuota promo berakhir kak?',
+        text: 'Khusus hari ini ada kupon potongan ongkos kirim Rp 15.000. Apakah mau kami bantu proseskan sekarang sebelum kuota promo berakhir kak?',
         time: '09:00',
       },
       {
         sender: 'user',
-        text: 'Eh iya kemarin lupa keburu meeting! Makasih udah diingetin min, mau dong vouchernya.',
+        text: 'Halo min, kemarin sempat lupa karena ada rapat kerja. Boleh dibantu lanjutkan pesanannya ya.',
         time: '09:05',
       },
       {
         sender: 'bot',
-        text: 'Siap kak! Totalnya sudah kami potong otomatis jadi Rp 185.000 ya kak. Link pembayaran sudah diperbarui.',
+        text: 'Baik kak! Rincian pembayaran sudah kami perbarui dengan potongan ongkir menjadi Rp 185.000. Tautan pembayaran sudah siap digunakan.',
         time: '09:06',
       },
     ],
@@ -129,13 +129,13 @@ export const PillarsSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-16 sm:mb-20">
           <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 block mb-3">
-            Pilar Layanan
+            Layanan Utama
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Tiga Sistem Inti untuk Akselerasi Bisnis Anda.
+            Tiga Layanan untuk Memperlancar Operasional Toko Anda.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed font-normal">
-            Bukan sekadar rekomendasi atau teori. Kami mengimplementasikan sistem AI bekerja nyata yang langsung memangkas beban kerja operasional dan menaikkan konversi penjualan.
+            Kami merancang dan memasang sistem yang langsung menangani percakapan pembeli, materi promosi, dan pengaturan iklan produk Anda.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export const PillarsSection: React.FC = () => {
         <div className="space-y-12 sm:space-y-16">
           
           {/* ========================================================
-              PILAR 1: WhatsApp AI & CS Automation
+              PILAR 1: Otomasi Percakapan WhatsApp
              ======================================================== */}
           <div className="bg-[#0b0b0d] border border-white/[0.08] rounded-2xl p-6 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -170,7 +170,7 @@ export const PillarsSection: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-zinc-400 font-mono block">
-                      Dampak Operasional
+                      Keandalan Sistem
                     </span>
                     <span className="text-sm font-semibold text-white">
                       {p1.metrics}
@@ -191,7 +191,7 @@ export const PillarsSection: React.FC = () => {
                 <div className="pt-2">
                   <a
                     href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                      'Halo Automatric! Saya tertarik konsultasi Otomasi CS & Chatbot WhatsApp AI untuk bisnis saya.'
+                      'Halo Automatric! Saya tertarik konsultasi Otomasi Percakapan WhatsApp untuk toko saya.'
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -215,11 +215,11 @@ export const PillarsSection: React.FC = () => {
                       </div>
                       <div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs font-bold text-white">CS AI Automatric</span>
+                          <span className="text-xs font-bold text-white">Bot WhatsApp Toko</span>
                           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                         </div>
                         <span className="text-[10px] text-zinc-400 block">
-                          Online 24/7 • Respons &lt; 1 Detik
+                          Online 24 Jam • Respons &lt; 1 Detik
                         </span>
                       </div>
                     </div>
@@ -262,7 +262,7 @@ export const PillarsSection: React.FC = () => {
                           : 'text-zinc-400 hover:text-white'
                       }`}
                     >
-                      3. Follow-Up
+                      3. Pengingat Pembayaran
                     </button>
                   </div>
 
@@ -309,7 +309,7 @@ export const PillarsSection: React.FC = () => {
 
 
           {/* ========================================================
-              PILAR 2: Desain & Konten Promosi Kilat (<24 Jam)
+              PILAR 2: Pembuatan Desain Promosi Kilat (<24 Jam)
              ======================================================== */}
           <div className="bg-[#0b0b0d] border border-white/[0.08] rounded-2xl p-6 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -323,12 +323,12 @@ export const PillarsSection: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <ImageIcon className="w-4 h-4 text-emerald-400" />
                       <span className="text-xs font-bold text-white tracking-wide">
-                        Prompt-to-Asset Pipeline
+                        Alur Pembuatan Materi Promosi
                       </span>
                     </div>
                     <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/[0.06] text-zinc-300 border border-white/[0.06] flex items-center gap-1">
                       <Clock className="w-3 h-3 text-emerald-400" />
-                      &lt;24 Jam Delivery
+                      &lt; 24 Jam Pengerjaan
                     </span>
                   </div>
 
@@ -354,7 +354,7 @@ export const PillarsSection: React.FC = () => {
                           : 'text-zinc-400 hover:text-white'
                       }`}
                     >
-                      Story/Reels (9:16)
+                      Story / Reels (9:16)
                     </button>
                     <button
                       type="button"
@@ -365,7 +365,7 @@ export const PillarsSection: React.FC = () => {
                           : 'text-zinc-400 hover:text-white'
                       }`}
                     >
-                      Banner Ads (16:9)
+                      Banner Iklan (16:9)
                     </button>
                   </div>
 
@@ -373,41 +373,41 @@ export const PillarsSection: React.FC = () => {
                   <div className="rounded-xl border border-white/[0.08] bg-[#08080a] p-5">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400">
-                        <span>ASSET IDENTIFIER #CRT-204</span>
-                        <span className="text-emerald-400 font-semibold">HIGH-CONVERSION</span>
+                        <span>MATERI PROMOSI #CRT-204</span>
+                        <span className="text-emerald-400 font-semibold">SIAP PASANG</span>
                       </div>
 
                       <div className="py-5 px-4 rounded-lg bg-[#141418] border border-white/[0.06] text-center">
                         <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider block">
-                          Spesial Gajian UMKM
+                          Periode Gajian Toko
                         </span>
                         <h4 className="text-lg font-bold text-white mt-1">
-                          UPGRADE SISTEM BISNIS ANDA
+                          PROMO SPESIAL PRODUK RETAIL
                         </h4>
                         <p className="text-xs text-zinc-400 mt-1 max-w-xs mx-auto">
-                          Materi promosi tajam, estetis, dan teruji psikologis meningkatkan konversi pelanggan.
+                          Materi visual promosi dibuat jelas dan proporsional untuk menarik perhatian pelanggan di media sosial.
                         </p>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2 pt-1 text-center">
                         <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04]">
-                          <span className="text-[10px] text-zinc-400 block">Waktu Produksi</span>
-                          <span className="text-xs font-mono font-semibold text-white">3.5 Jam</span>
+                          <span className="text-[10px] text-zinc-400 block">Waktu Buat</span>
+                          <span className="text-xs font-mono font-semibold text-white">&lt; 24 Jam</span>
                         </div>
                         <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04]">
-                          <span className="text-[10px] text-zinc-400 block">Resolusi</span>
-                          <span className="text-xs font-mono font-semibold text-white">High-Res (4K)</span>
+                          <span className="text-[10px] text-zinc-400 block">Kualitas</span>
+                          <span className="text-xs font-mono font-semibold text-white">Resolusi Tinggi</span>
                         </div>
                         <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04]">
-                          <span className="text-[10px] text-zinc-400 block">Estimasi CTR</span>
-                          <span className="text-xs font-mono font-semibold text-emerald-400">+4.2%</span>
+                          <span className="text-[10px] text-zinc-400 block">Hak Penggunaan</span>
+                          <span className="text-xs font-mono font-semibold text-emerald-400">Milik Anda</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="text-[11px] font-mono text-zinc-400 flex items-center justify-between px-1">
-                    <span>Brief Diterima • Draft AI • Quality Check • Serah Terima</span>
+                    <span>Materi Diterima • Draf Desain • Pengecekan • Serah Terima File</span>
                   </div>
                 </div>
               </div>
@@ -433,7 +433,7 @@ export const PillarsSection: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-zinc-400 font-mono block">
-                      Kecepatan Eksekusi
+                      Kecepatan Penyerahan
                     </span>
                     <span className="text-sm font-semibold text-white">
                       {p2.metrics}
@@ -453,7 +453,7 @@ export const PillarsSection: React.FC = () => {
                 <div className="pt-2">
                   <a
                     href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                      'Halo Automatric! Saya butuh materi Desain Promosi Kilat (<24 jam) untuk kampanye bisnis saya.'
+                      'Halo Automatric! Saya butuh materi Desain Promosi Kilat (<24 jam) untuk toko saya.'
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -471,7 +471,7 @@ export const PillarsSection: React.FC = () => {
 
 
           {/* ========================================================
-              PILAR 3: Iklan Berbasis AI & Growth Marketing
+              PILAR 3: Setup Iklan Digital Terarah
              ======================================================== */}
           <div className="bg-[#0b0b0d] border border-white/[0.08] rounded-2xl p-6 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -517,14 +517,14 @@ export const PillarsSection: React.FC = () => {
                 <div className="pt-2">
                   <a
                     href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                      'Halo Automatric! Saya ingin konsultasi Setup Iklan Berbasis AI (Meta/TikTok Ads) untuk bisnis saya.'
+                      'Halo Automatric! Saya ingin konsultasi Setup Iklan Digital (Meta/TikTok Ads) untuk toko saya.'
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => handlePillarWaClick(p3.id)}
                     className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
                   >
-                    <span>Konsultasi Iklan Berbasis AI</span>
+                    <span>Konsultasi Setup Iklan</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -536,10 +536,10 @@ export const PillarsSection: React.FC = () => {
                   <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
                     <div>
                       <h4 className="text-xs font-bold text-white">
-                        AI Ads Intelligence Dashboard
+                        Contoh Format Laporan Iklan
                       </h4>
                       <span className="text-[10px] font-mono text-zinc-400">
-                        [Simulasi Studi Kasus Retail Fashion]
+                        [Simulasi Toko Retail Fashion]
                       </span>
                     </div>
 
@@ -568,26 +568,26 @@ export const PillarsSection: React.FC = () => {
                   {/* Primary Highlight */}
                   <div className="p-4 rounded-xl bg-[#08080a] border border-white/[0.06]">
                     <span className="text-xs text-zinc-400 block mb-1">
-                      Blended Return on Ad Spend (ROAS)
+                      Rasio Pendapatan Iklan (Target ROAS)
                     </span>
                     <div className="flex items-baseline gap-3">
                       <span className="text-3xl font-bold font-mono text-emerald-400">
                         4.20x
                       </span>
                       <span className="text-xs text-zinc-400">
-                        (Tiap Rp 1jt modal iklan = Rp 4.2jt omset)
+                        (Tiap Rp 1jt modal iklan = Rp 4.2jt penjualan)
                       </span>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 rounded-lg bg-[#08080a] border border-white/[0.04]">
-                      <span className="text-[10px] text-zinc-400 block font-mono">Omset Tercipta</span>
+                      <span className="text-[10px] text-zinc-400 block font-mono">Nilai Penjualan</span>
                       <span className="text-sm font-bold font-mono text-white mt-0.5 block">Rp 142.8Jt</span>
                       <span className="text-[10px] text-zinc-400">Modal iklan: 34Jt</span>
                     </div>
                     <div className="p-3 rounded-lg bg-[#08080a] border border-white/[0.04]">
-                      <span className="text-[10px] text-zinc-400 block font-mono">Cost per Order</span>
+                      <span className="text-[10px] text-zinc-400 block font-mono">Biaya per Pesanan</span>
                       <span className="text-sm font-bold font-mono text-emerald-400 mt-0.5 block">Rp 24.500</span>
                       <span className="text-[10px] text-zinc-400">Total order: 1.380</span>
                     </div>
@@ -596,7 +596,7 @@ export const PillarsSection: React.FC = () => {
                   <div className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-start gap-2.5">
                     <Activity className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <p className="text-[11px] text-zinc-300 leading-snug">
-                      <strong className="text-white font-semibold">AI Auto-Optimizer Aktif:</strong> Anggaran otomatis dialihkan ke segmen pembeli berulang di kota-kota dengan margin profit tertinggi.
+                      <strong className="text-white font-semibold">Target Audiens Relevan:</strong> Anggaran dialokasikan pada kategori produk dan wilayah kota dengan tingkat pembelian berulang tertinggi.
                     </p>
                   </div>
                 </div>

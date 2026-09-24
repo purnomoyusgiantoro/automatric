@@ -7,7 +7,7 @@ export const HeroSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'wa' | 'design' | 'ads'>('wa');
 
   const defaultWaMessage = encodeURIComponent(
-    'Halo Automatric! Saya tertarik untuk konsultasi sistem AI (Chatbot WhatsApp 24/7, Desain Kilat & Iklan Berbasis AI) untuk bisnis saya.'
+    'Halo Automatric! Saya ingin konsultasi sistem bot WhatsApp, pembuatan desain promosi, dan setup iklan untuk bisnis saya.'
   );
 
   const handlePricingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -35,25 +35,25 @@ export const HeroSection: React.FC = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Editorial Value Proposition */}
+          {/* Left Column: Value Proposition */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             
             {/* Status Line */}
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-                Sistem AI Siap Kerja • Sprint 3-7 Hari
+                Otomasi Bisnis • Sprint 3-7 Hari Kerja
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.08]">
-              Sistem AI Nyata untuk Pertumbuhan Bisnis Anda.
+              Otomasi WhatsApp dan Desain Promosi Siap Kerja dalam 3-7 Hari.
             </h1>
 
             {/* Lead Text */}
             <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-normal">
-              Otomasi CS WhatsApp 24/7, produksi materi promosi kilat dalam 24 jam, dan optimasi iklan digital presisi. Paket integrasi sekali bayar tanpa langganan wajib.
+              Kami membantu toko dan bisnis Anda melayani pesanan di WhatsApp selama 24 jam nonstop, memproduksi materi promosi visual dalam waktu kurang dari 24 jam, dan menyiapkan kampanye iklan digital. Sistem jadi sekali bayar tanpa biaya langganan bulanan.
             </p>
 
             {/* Action Buttons */}
@@ -83,21 +83,21 @@ export const HeroSection: React.FC = () => {
             <div className="pt-4 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-zinc-400">
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Turnaround &lt;24 jam</span>
+                <span>Pengerjaan &lt;24 jam</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Sekali bayar</span>
+                <span>Biaya tetap sekali bayar</span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Garansi 14-30 hari</span>
+                <span>Pendampingan 14-30 hari</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Live Interactive Proof Console */}
+          {/* Right Column: Live Proof Console */}
           <div className="lg:col-span-5">
             <div className="bg-[#0b0b0e] border border-white/[0.12] rounded-2xl overflow-hidden shadow-2xl">
               
@@ -138,12 +138,12 @@ export const HeroSection: React.FC = () => {
                     }`}
                   >
                     <TrendingUp className="w-3.5 h-3.5" />
-                    <span>Iklan AI</span>
+                    <span>Laporan Iklan</span>
                   </button>
                 </div>
 
                 <span className="text-[10px] font-mono text-zinc-400 pr-1 hidden sm:inline-block">
-                  LIVE DEMO
+                  CONTOH SISTEM
                 </span>
               </div>
 
@@ -156,28 +156,28 @@ export const HeroSection: React.FC = () => {
                     <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] text-xs">
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                        <span className="font-bold text-white">CS AI Automatric (Aktif 24/7)</span>
+                        <span className="font-bold text-white">Bot WhatsApp Toko (Aktif 24 Jam)</span>
                       </div>
-                      <span className="text-[10px] font-mono text-zinc-400">Response: 0.8s</span>
+                      <span className="text-[10px] font-mono text-zinc-400">Respon: &lt; 1 detik</span>
                     </div>
 
                     <div className="space-y-2.5 text-xs">
                       <div className="bg-[#141418] p-3 rounded-xl border border-white/[0.06] text-zinc-300">
                         <span className="text-[10px] text-zinc-400 block mb-1">Pelanggan (23:14):</span>
-                        <p>Malam min, kemeja batik navy size XL ready gak ya? Buat acara Sabtu besok.</p>
+                        <p>Malam min, kemeja batik navy ukuran XL masih ada? Butuh untuk acara hari Sabtu besok.</p>
                       </div>
 
                       <div className="bg-emerald-950/40 p-3 rounded-xl border border-emerald-500/20 text-emerald-100">
                         <div className="flex items-center justify-between text-[10px] text-emerald-400 mb-1">
-                          <span>Bot Automatric:</span>
+                          <span>Bot WhatsApp Toko:</span>
                           <CheckCheck className="w-3 h-3" />
                         </div>
-                        <p>Malam kak! Ready kak untuk Batik Navy size XL (tersisa 3 pcs terakhir). Pengiriman via Paxel/JNE YES bisa sampai Jumat sore. Mau kami pesankan sekarang?</p>
+                        <p>Malam kak! Masih ada untuk Batik Navy ukuran XL (tersisa 3 potong terakhir). Pengiriman kilat bisa tiba hari Jumat sore. Boleh kami bantu buatkan pesanannya sekarang?</p>
                       </div>
 
                       <div className="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] text-[11px] text-zinc-400 flex items-center justify-between font-mono">
                         <span>Pengecekan Stok: Otomatis</span>
-                        <span className="text-emerald-400">Database Live Sync</span>
+                        <span className="text-emerald-400">Terhubung ke Data Toko</span>
                       </div>
                     </div>
                   </div>
@@ -189,20 +189,20 @@ export const HeroSection: React.FC = () => {
                     <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] text-xs">
                       <div className="flex items-center gap-2">
                         <ImageIcon className="w-4 h-4 text-emerald-400" />
-                        <span className="font-bold text-white">Prompt-to-Banner 4K Engine</span>
+                        <span className="font-bold text-white">Produksi Desain Promosi</span>
                       </div>
                       <span className="text-[10px] font-mono text-emerald-400 font-semibold">&lt;24 Jam</span>
                     </div>
 
                     <div className="p-4 rounded-xl bg-[#121217] border border-white/[0.08] space-y-2 text-center">
                       <span className="text-[10px] font-mono uppercase text-emerald-400 tracking-wider block">
-                        Output Siap Tayang
+                        Materi Siap Tayang
                       </span>
                       <h4 className="text-base font-bold text-white">
-                        BANNER PROMO FLASH SALE UMKM
+                        BANNER PROMO DISKON TOKO RETAIL
                       </h4>
                       <p className="text-xs text-zinc-400">
-                        Visual tajam resolusi tinggi disesuaikan dengan psikologi konversi audiens Indonesia.
+                        Materi visual dibuat tajam dan proporsional untuk feed, story Instagram, maupun materi iklan berbayar.
                       </p>
                     </div>
 
@@ -213,11 +213,11 @@ export const HeroSection: React.FC = () => {
                       </div>
                       <div className="p-2 rounded bg-white/[0.03] border border-white/[0.04]">
                         <span className="text-[10px] text-zinc-400 block">Waktu Buat</span>
-                        <span className="text-emerald-400 font-semibold">3.5 Jam</span>
+                        <span className="text-emerald-400 font-semibold">&lt; 24 Jam</span>
                       </div>
                       <div className="p-2 rounded bg-white/[0.03] border border-white/[0.04]">
-                        <span className="text-[10px] text-zinc-400 block">Lisensi</span>
-                        <span className="text-white font-semibold">Komersial 100%</span>
+                        <span className="text-[10px] text-zinc-400 block">Hak Cipta</span>
+                        <span className="text-white font-semibold">Milik Anda Penuh</span>
                       </div>
                     </div>
                   </div>
@@ -229,26 +229,26 @@ export const HeroSection: React.FC = () => {
                     <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] text-xs">
                       <div className="flex items-center gap-2">
                         <TrendingUp className="w-4 h-4 text-emerald-400" />
-                        <span className="font-bold text-white">AI Realtime Targeting Engine</span>
+                        <span className="font-bold text-white">Format Laporan Hasil Iklan</span>
                       </div>
-                      <span className="text-[10px] font-mono text-zinc-400">[Studi Kasus Retail]</span>
+                      <span className="text-[10px] font-mono text-zinc-400">[Simulasi Usaha Retail]</span>
                     </div>
 
                     <div className="p-3.5 rounded-xl bg-[#121217] border border-white/[0.08]">
-                      <span className="text-[11px] text-zinc-400 block">Return on Ad Spend (ROAS)</span>
+                      <span className="text-[11px] text-zinc-400 block">Rasio Pendapatan Iklan (Target ROAS)</span>
                       <div className="flex items-baseline gap-2 mt-1">
                         <span className="text-3xl font-bold font-mono text-emerald-400">4.20x</span>
-                        <span className="text-xs text-zinc-400">Modal Rp 1jt = Rp 4.2jt Omset</span>
+                        <span className="text-xs text-zinc-400">Tiap Rp 1jt iklan = Rp 4.2jt omset</span>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                       <div className="p-2.5 rounded bg-white/[0.03] border border-white/[0.04]">
-                        <span className="text-[10px] text-zinc-400 block">Omset Tercipta</span>
+                        <span className="text-[10px] text-zinc-400 block">Nilai Penjualan</span>
                         <span className="text-white font-semibold">Rp 142.8 Juta</span>
                       </div>
                       <div className="p-2.5 rounded bg-white/[0.03] border border-white/[0.04]">
-                        <span className="text-[10px] text-zinc-400 block">Cost Per Order</span>
+                        <span className="text-[10px] text-zinc-400 block">Biaya per Pesanan</span>
                         <span className="text-emerald-400 font-semibold">Rp 24.500</span>
                       </div>
                     </div>
@@ -257,12 +257,12 @@ export const HeroSection: React.FC = () => {
 
                 {/* Console Footer */}
                 <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-zinc-400">
-                  <span>Status: Integrasi Terverifikasi</span>
+                  <span>Alur disesuaikan dengan kebutuhan toko Anda</span>
                   <a
                     href="#layanan"
                     className="text-emerald-400 hover:text-emerald-300 font-medium"
                   >
-                    Pelajari Detail &rarr;
+                    Rincian Layanan &rarr;
                   </a>
                 </div>
 

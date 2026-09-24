@@ -46,10 +46,10 @@ export const PricingSection: React.FC = () => {
             Investasi Sekali Bayar
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Pilih Paket Sprint Sesuai Kebutuhan Bisnis Anda.
+            Pilihan Paket Sprint Sesuai Kebutuhan Toko Anda.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed font-normal">
-            Tanpa jebakan biaya bulanan yang membengkak. Anda hanya membayar sekali untuk integrasi sistem jadi yang langsung siap bekerja dan menghasilkan penjualan.
+            Seluruh paket menggunakan sistem satu kali bayar untuk pengerjaan awal. Tidak ada biaya langganan bulanan wajib dari kami.
           </p>
         </div>
 
@@ -75,13 +75,13 @@ export const PricingSection: React.FC = () => {
                   {/* Top Identifier & Status */}
                   <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.06]">
                     <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-400">
-                      {plan.id === 'starter-sprint' && 'TIER 01 • ESSENTIAL'}
-                      {plan.id === 'growth-sprint' && 'TIER 02 • RECOMMENDED'}
-                      {plan.id === 'domination-sprint' && 'TIER 03 • FULL SCALE'}
+                      {plan.id === 'starter-sprint' && 'PAKET 01 • DASAR'}
+                      {plan.id === 'growth-sprint' && 'PAKET 02 • PILIHAN UTAMA'}
+                      {plan.id === 'domination-sprint' && 'PAKET 03 • SKALA LENGKAP'}
                     </span>
                     {isSelected && (
                       <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-400/20 text-emerald-300 font-bold border border-emerald-400/30">
-                        AKTIF DIPILIH
+                        DIPILIH
                       </span>
                     )}
                   </div>
@@ -112,7 +112,7 @@ export const PricingSection: React.FC = () => {
                   {/* Features List */}
                   <div className="space-y-2.5 pt-4 border-t border-white/[0.06]">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 block mb-2 font-semibold">
-                      Deliverables:
+                      Cakupan Pengerjaan:
                     </span>
                     {plan.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-2.5 text-xs text-zinc-300 leading-relaxed">
@@ -140,7 +140,7 @@ export const PricingSection: React.FC = () => {
                     {isSelected ? (
                       <>
                         <Check className="w-4 h-4 stroke-[3]" />
-                        <span>Paket Dipilih: Siap Order</span>
+                        <span>Paket Dipilih: Siap Pesan</span>
                       </>
                     ) : (
                       <>
@@ -164,14 +164,14 @@ export const PricingSection: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
-                  Konfirmasi Paket Terpilih
+                  Konfirmasi Pilihan Paket
                 </span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white">
                 {selectedPlan.name} ({selectedPlan.formattedPrice})
               </h3>
               <p className="text-xs sm:text-sm text-zinc-400 max-w-xl">
-                {selectedPlan.duration} • Setup penuh dari nol oleh tim spesialis Automatric, garansi resmi pendampingan aktif.
+                {selectedPlan.duration} • Pengerjaan menyeluruh oleh tim Automatric, dilengkapi masa pendampingan operasional.
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export const PricingSection: React.FC = () => {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm font-semibold text-black bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-sm cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 fill-black/20" />
-                <span>Kunci Slot via WhatsApp</span>
+                <span>Pesan Paket via WhatsApp</span>
               </a>
             </div>
 

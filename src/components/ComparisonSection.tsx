@@ -4,24 +4,24 @@ import { X, Check } from 'lucide-react';
 export const ComparisonSection: React.FC = () => {
   const comparisons = [
     {
-      aspect: 'Model Biaya & Kontrak',
-      conventional: 'Retainer bulanan mahal Rp 15-30 juta/bulan yang mengikat kontrak panjang.',
-      automatric: 'Sistem Sprint Sekali Bayar. Miliki seluruh aset dan bot tanpa langganan wajib.',
+      aspect: 'Model Biaya & Komitmen',
+      conventional: 'Biaya langganan bulanan rutin yang mengikat kontrak panjang meskipun volume kerja sedang sedikit.',
+      automatric: 'Satu kali bayar per sprint pengerjaan. Seluruh materi dan bot menjadi milik Anda tanpa biaya bulanan wajib.',
     },
     {
-      aspect: 'Respon Pelanggan & CS',
-      conventional: 'Admin manusia sering kewalahan, slow respon saat jam istirahat atau malam hari.',
-      automatric: 'Chatbot WhatsApp AI siaga 24/7, menjawab katalog & info stok dalam hitungan detik.',
+      aspect: 'Pelayanan Pesan Pelanggan',
+      conventional: 'Pesan pelanggan di malam hari atau hari libur sering tidak terbalas cepat karena keterbatasan jam kerja admin.',
+      automatric: 'Bot WhatsApp aktif menjawab info produk, mengecek katalog, dan mencatat pesanan selama 24 jam nonstop.',
     },
     {
-      aspect: 'Kecepatan Produksi Desain',
-      conventional: 'Proses antrean agensi 5-10 hari kerja hanya untuk 1 set banner promosi.',
-      automatric: 'Turnaround kilat <24 jam. Siap posting saat tren pasar sedang memuncak.',
+      aspect: 'Waktu Pengerjaan Desain',
+      conventional: 'Antrean pengerjaan agensi sering memakan waktu 5 sampai 10 hari kerja hanya untuk satu materi promosi.',
+      automatric: 'Materi desain selesai dalam waktu kurang dari 24 jam agar langsung siap dipasang untuk promosi toko Anda.',
     },
     {
-      aspect: 'Eksekusi & Setup Sistem',
-      conventional: 'Rapat berulang-ulang tanpa kejelasan kapan sistem siap berjalan.',
-      automatric: 'Sprint selesai dalam 3-7 hari kerja. Langsung serah terima dan siap terima order.',
+      aspect: 'Kejelasan Serah Terima',
+      conventional: 'Banyak pertemuan koordinasi yang berulang tanpa kepastian kapan sistem benar-benar bisa dipakai.',
+      automatric: 'Pengerjaan selesai dalam 3 sampai 7 hari kerja. Sistem langsung diuji coba dan diserahkan dalam kondisi siap pakai.',
     },
   ];
 
@@ -32,24 +32,24 @@ export const ComparisonSection: React.FC = () => {
         {/* Header */}
         <div className="max-w-2xl mb-14 sm:mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 block mb-2">
-            Perbandingan Nyata
+            Perbandingan Alur Kerja
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Mengapa Bisnis Beralih ke Model Sprint Automatric.
+            Perbedaan Model Pengerjaan Kami dengan Agensi Tradisional.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-zinc-400">
-            Perbandingan langsung antara metode konvensional yang memboroskan anggaran vs implementasi AI terpadu yang berorientasi hasil cepat.
+            Kami menghilangkan proses berbelit-belit dan kontrak langganan bulanan agar Anda langsung menerima sistem kerja yang beroperasi.
           </p>
         </div>
 
         {/* Comparison Table / Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           
-          {/* Left: Cara Konvensional */}
+          {/* Left: Cara Agensi Tradisional */}
           <div className="bg-[#0e0e12] border border-red-500/20 rounded-2xl p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
               <span className="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">
-                Agensi Konvensional &amp; Manual
+                Model Agensi Tradisional
               </span>
               <span className="w-2 h-2 rounded-full bg-red-400/60" />
             </div>
@@ -69,14 +69,14 @@ export const ComparisonSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Cara Automatric */}
+          {/* Right: Model Sprint Automatric */}
           <div className="bg-[#0e0e12] border-2 border-emerald-400/80 rounded-2xl p-6 sm:p-8 space-y-6 relative">
             <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
               <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-                Ekosistem Automatric Sprint AI
+                Model Sprint Automatric
               </span>
               <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-400 text-black">
-                LEBIH EFISIEN
+                PRAKTIS &amp; TRANSPARAN
               </span>
             </div>
 

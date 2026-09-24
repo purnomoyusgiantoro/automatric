@@ -22,7 +22,7 @@ export const FaqSection: React.FC = () => {
   };
 
   const defaultWaMessage = encodeURIComponent(
-    "Halo Automatric! Saya punya beberapa pertanyaan seputar solusi AI untuk bisnis saya sebelum memesan."
+    "Halo Automatric! Saya ingin menanyakan beberapa hal mengenai sistem bot dan materi promosi untuk toko saya sebelum memesan."
   );
 
   return (
@@ -35,10 +35,10 @@ export const FaqSection: React.FC = () => {
             Pertanyaan Umum
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Kerap Ditanyakan Seputar Automatric.
+            Pertanyaan yang Sering Diajukan.
           </h2>
           <p className="mt-3 text-base text-zinc-400 font-normal">
-            Informasi transparan seputar keamanan data, estimasi pengerjaan, dan garansi operasional sistem AI bisnis Anda.
+            Penjelasan mengenai keamanan nomor WhatsApp, alur pengerjaan, dan masa pendampingan operasional toko Anda.
           </p>
         </div>
 
@@ -83,10 +83,10 @@ export const FaqSection: React.FC = () => {
         <div className="mt-12 p-6 sm:p-8 rounded-xl bg-[#0b0b0e] border border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <h3 className="text-base sm:text-lg font-bold text-white mb-1">
-              Punya Pertanyaan Spesifik Tentang Bisnis Anda?
+              Punya Pertanyaan Spesifik Mengenai Toko Anda?
             </h3>
             <p className="text-xs text-zinc-400">
-              Tim konsultan kami siap memberikan simulasi alur AI khusus untuk jenis produk dan model operasional Anda.
+              Sampaikan alur pesanan dan produk yang Anda miliki, tim kami akan menjelaskan bagaimana sistem bot ini dapat diterapkan.
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export const FaqSection: React.FC = () => {
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs font-semibold text-zinc-200 bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.1] transition-colors shrink-0 cursor-pointer"
           >
             <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Diskusi Langsung via WhatsApp</span>
+            <span>Tanya Langsung via WhatsApp</span>
           </a>
         </div>
 

@@ -11,17 +11,17 @@ import { siteConfig, WorkflowStep } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
 
 const stepIcons = [
-  Search,       // 01 Discovery & Briefing
-  Cpu,          // 02 AI Training & Creative Sprint
-  ShieldCheck,  // 03 Testing & Polishing
-  Send,         // 04 Go-Live & Handover
+  Search,       // 01 Konsultasi Alur dan Produk
+  Cpu,          // 02 Pemasangan Bot dan Produksi Desain
+  ShieldCheck,  // 03 Uji Coba Alur dan Pemeriksaan Bersama
+  Send,         // 04 Peluncuran dan Serah Terima Sistem
 ];
 
 const stepKeyPoints = [
-  ['Konsultasi produk unggulan', 'Pemetaan karakter pembeli', 'Konfigurasi nomor WhatsApp'],
-  ['Training bot dengan data bisnis', 'Integrasi Google Sheets', 'Produksi visual & copywriting kilat'],
-  ['Uji coba alur percakapan nyata', 'Simulasi order pelanggan', 'Penyempurnaan copywriting'],
-  ['Peluncuran sistem bot 24/7', 'Serah terima akun & aset', 'Masa pendampingan aktif'],
+  ['Konsultasi daftar produk utama', 'Pemetaan pertanyaan umum pembeli', 'Konfigurasi nomor WhatsApp toko'],
+  ['Pemasangan data ke dalam bot', 'Integrasi Google Sheets toko', 'Produksi paket materi desain promosi'],
+  ['Uji coba simulasi pesan nyata', 'Pemeriksaan alur pesanan pembeli', 'Penyesuaian teks dan info stok'],
+  ['Peluncuran sistem bot toko', 'Serah terima file materi promosi', 'Masa pendampingan operasional aktif'],
 ];
 
 export const WorkflowSection: React.FC = () => {
@@ -33,7 +33,7 @@ export const WorkflowSection: React.FC = () => {
   };
 
   const defaultWaMessage = encodeURIComponent(
-    "Halo Automatric! Saya ingin menanyakan estimasi waktu dan alur pengerjaan sprint AI untuk bisnis saya."
+    "Halo Automatric! Saya ingin menanyakan ketersediaan jadwal pengerjaan sprint untuk toko saya."
   );
 
   return (
@@ -43,13 +43,13 @@ export const WorkflowSection: React.FC = () => {
         {/* Header */}
         <div className="max-w-3xl mb-16 sm:mb-20">
           <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 block mb-3">
-            Alur Kerja Cepat
+            Alur Pengerjaan
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Sprint Terstruktur. Beres dalam 3-7 Hari Kerja.
+            Empat Tahap Pengerjaan. Selesai dalam 3 Sampai 7 Hari Kerja.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed font-normal">
-            Tanpa instalasi rumit yang membingungkan Anda. Tim spesialis Automatric mengurus seluruh setup teknis dari nol sampai sistem aktif menghasilkan pesanan.
+            Anda tidak perlu melakukan instalasi teknis sendiri. Tim kami menyiapkan dan menguji coba seluruh alur sistem hingga siap digunakan.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export const WorkflowSection: React.FC = () => {
                   {/* Step Header */}
                   <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/[0.06]">
                     <span className="text-sm font-mono font-bold text-emerald-400">
-                      PHASE {item.step}
+                      TAHAP {item.step}
                     </span>
                     <span className="text-[11px] font-mono text-zinc-400">
                       {item.day}
@@ -107,10 +107,10 @@ export const WorkflowSection: React.FC = () => {
         <div className="mt-12 p-6 sm:p-8 rounded-xl bg-[#0b0b0d] border border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-1">
             <h4 className="text-base sm:text-lg font-bold text-white">
-              Tidak Perlu Merekrut Tim IT atau Desainer Tambahan
+              Tidak Perlu Merekrut Tim Teknis Baru
             </h4>
             <p className="text-xs sm:text-sm text-zinc-400 max-w-xl">
-              Seluruh proses integrasi kami kerjakan secara penuh. Anda hanya memberikan materi bisnis dasar dan langsung menerima sistem yang sudah dites siap pakai.
+              Kami mengurus seluruh konfigurasi teknis dan persiapan materi desain. Anda cukup memberikan informasi produk dan panduan toko yang ingin digunakan.
             </p>
           </div>
 
@@ -122,7 +122,7 @@ export const WorkflowSection: React.FC = () => {
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs font-semibold text-black bg-emerald-400 hover:bg-emerald-300 transition-colors shrink-0 cursor-pointer"
           >
             <MessageSquare className="w-4 h-4 fill-black/20" />
-            <span>Tanya Jadwal Sprint</span>
+            <span>Tanya Jadwal Pengerjaan</span>
           </a>
         </div>
 

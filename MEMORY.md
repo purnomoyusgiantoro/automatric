@@ -42,10 +42,24 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 * [x] **Task 5 Selesai**: FAQ Section (`src/components/FaqSection.tsx`), Footer (`src/components/Footer.tsx`), and Full App Assembly (`src/App.tsx`).
 * [x] **Task 6 Selesai**: Production Build (`npm run build` 0 error), Telemetry Audit & Final Git Push.
 * [x] **Task 7 Selesai (Anti-Slop Audit & Refinement)**: Instalasi global plugin anti-slop, pembuatan `DESIGN.md` (dials ENERGY 2 / RHYTHM 2 / MOTION 2), penghapusan seluruh em dash (`—`), eliminasi link mati `#keunggulan`, penggantian generic AI icons dengan semantic icons (`Layers`, `Flame`, `ShieldCheck`), pembatasan glassmorphism dan multi-glow, transparent case-study labeling, dan pembuatan laporan `anti-slop/audit-001-2026-09-24.md`.
+* [x] **Task 8 Selesai (Anti-Slop Copywriting Rewrite)**: Penulisan ulang 100% teks di seluruh landing page (`src/config/site.ts`, `HeroSection.tsx`, `ComparisonSection.tsx`, `PillarsSection.tsx`, `WorkflowSection.tsx`, `PricingSection.tsx`, `FaqSection.tsx`, `Footer.tsx`, `Navbar.tsx`, `index.html`). Menghapus seluruh buzzword AI kosong, melarang formula negatif paralel (*bukan sekadar X tapi Y*), mengganti metrik fabrikasi dengan deliverable riil, menyelaraskan bahasa percakapan WhatsApp agar natural, dan memverifikasi 0 em dash.
 
 ---
 
 ## 4. Change Log / Riwayat Perubahan
+
+### [2026-09-24 22:15] - Penerapan Menyeluruh Skill Anti-Slop Copywriting pada Seluruh Teks Web
+* **Tipe**: Copywriting & Tone Refinement (Anti-Slop Hard Gate)
+* **File Terkait**: `src/config/site.ts`, `src/components/HeroSection.tsx`, `src/components/ComparisonSection.tsx`, `src/components/PillarsSection.tsx`, `src/components/WorkflowSection.tsx`, `src/components/PricingSection.tsx`, `src/components/FaqSection.tsx`, `src/components/Footer.tsx`, `src/components/Navbar.tsx`, `index.html`, `MEMORY.md`
+* **Detail**:
+  - **Eliminasi Total Kosakata AI Kosong (Empty AI Vocabulary & Buzzwords)**: Menghapus seluruh istilah klise AI seperti *ekosistem*, *melejitkan*, *akselerasi*, *solusi cerdas/terpadu*, *revolusioner*, *game-changer*, *next-level*, *domination*. Menggantinya dengan kalimat lugas, membumi, dan berakar pada kenyataan operasional bisnis ritel/toko di Indonesia.
+  - **Penghapusan Formula Negatif Paralel (Negative Parallelism)**: Menghapus pola formula AI *"Bukan sekadar X tapi Y"* (misalnya pada header pilar layanan), digantikan dengan pernyataan tindakan langsung apa yang dikerjakan tim.
+  - **Penggantian Metrik Fabrikasi dengan Deliverable Operasional Riil (R-17, R-36)**:
+    - Metrik hero yang sebelumnya mengklaim "+350% Kecepatan Respon" diganti dengan janji operasional nyata: *"< 1 Detik Waktu Respon Balasan Bot"*, *"< 24 Jam Waktu Pembuatan Desain"*, *"3 - 7 Hari Waktu Pengerjaan Sprint"*, dan *"Sekali Bayar Tanpa Biaya Langganan"*.
+    - Memberikan label simulasi jujur `[Simulasi Usaha Retail Fashion]` pada simulasi laporan performa iklan digital.
+  - **Dialog Interaktif Asli & Manusiawi (Chat WhatsApp Simulator)**: Menulis ulang percakapan simulasi bot WhatsApp agar 100% menggunakan ragam percakapan transaksi toko Indonesia yang wajar (tanya stok kemeja batik, pesan kopi susu literan ke Tebet via QRIS, dan pengingat keranjang belanja skincare yang belum dibayar).
+  - **Larangan Keras Em Dash (R-02 Em Dash Ban)**: Memverifikasi 0 kemunculan karakter em dash (`—`) maupun en-dash (`–`) di seluruh basis kode proyek.
+  - **Verifikasi Build**: Berhasil membangun bundle produksi `tsc -b && vite build` (0 error, build selesai dalam 6.56 detik).
 
 ### [2026-09-24 22:07] - Full Bespoke Redesign Anti-Slop & Editorial Architecture Refactor
 * **Tipe**: Desain & Arsitektur UI
