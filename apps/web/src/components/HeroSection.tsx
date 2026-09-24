@@ -20,9 +20,10 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 bg-[#050505]">
-      {/* Subtle glow */}
+      {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-white/[0.015] blur-[100px]" />
+        <div className="absolute top-[20%] left-[30%] w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-[150px]" />
+        <div className="absolute bottom-[10%] right-[20%] w-[400px] h-[400px] rounded-full bg-white/[0.025] blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">

@@ -54,8 +54,14 @@ export const PillarsSection: React.FC = () => {
     }`;
 
   return (
-    <section id="layanan" className="py-28 sm:py-36 bg-[#050505]">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="layanan" className="relative py-28 sm:py-36 bg-[#050505]">
+      {/* Background glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[15%] right-[15%] w-[500px] h-[500px] rounded-full bg-white/[0.025] blur-[140px]" />
+        <div className="absolute bottom-[20%] left-[10%] w-[450px] h-[450px] rounded-full bg-white/[0.02] blur-[130px]" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Section Header */}
         <div className="text-center mb-20">

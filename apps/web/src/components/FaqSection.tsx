@@ -13,8 +13,13 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-32 sm:py-40 bg-[#050505]">
-      <div className="max-w-2xl mx-auto px-6 lg:px-8">
+    <section id="faq" className="relative py-32 sm:py-40 bg-[#050505]">
+      {/* Background glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-white/[0.02] blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 max-w-2xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-4">
             FAQ
@@ -48,7 +53,7 @@ export const FaqSection: React.FC = () => {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-4 text-xs text-zinc-500 leading-relaxed border-t border-white/[0.06] pt-3">
+                  <div className="px-5 pb-4 text-xs text-zinc-500 leading-relaxed border-t border-white/[0.08] pt-3">
                     {faq.answer}
                   </div>
                 )}

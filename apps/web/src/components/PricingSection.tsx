@@ -14,8 +14,14 @@ export const PricingSection: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="py-32 sm:py-40 bg-[#050505]">
-      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+    <section id="pricing" className="relative py-32 sm:py-40 bg-[#050505]">
+      {/* Background glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] rounded-full bg-white/[0.025] blur-[140px]" />
+        <div className="absolute bottom-[15%] right-[25%] w-[400px] h-[400px] rounded-full bg-white/[0.02] blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
           <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-4">
             Investasi
@@ -50,10 +56,10 @@ export const PricingSection: React.FC = () => {
                   <span className="text-xs text-zinc-500 ml-2">/ sprint</span>
                 </div>
 
-                <div className="space-y-3 border-t border-white/[0.06] pt-6">
+                <div className="space-y-3 border-t border-white/[0.08] pt-6">
                   {plan.features.map((f, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-xs text-zinc-400">
-                      <Check className="w-3.5 h-3.5 text-zinc-600 shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-zinc-500 shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -69,7 +75,7 @@ export const PricingSection: React.FC = () => {
                   className={`w-full flex items-center justify-center gap-2 py-3 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                     plan.popular
                       ? 'bg-white text-black hover:bg-zinc-200'
-                      : 'bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] hover:text-white'
+                      : 'glass-strong text-zinc-300 hover:bg-white/[0.12] hover:text-white'
                   }`}
                 >
                   <span>Pesan Paket</span>
