@@ -18,11 +18,9 @@ import { ScrollReveal } from './ScrollReveal';
 // lalu masukkan path-nya pada properti `image` di bawah ini (misal: image: '/desain-1.jpg').
 // Jika belum ada gambar, sistem otomatis menampilkan template artwork desain visual.
 // =========================================================================
-export interface DesignPlayingCard {
+export interface DesignShowcaseCard {
   id: string;
-  rank: string;
-  suit: string;
-  badge: string;
+  stepNum: string;
   format: string;
   dimensions: string;
   title: string;
@@ -31,12 +29,10 @@ export interface DesignPlayingCard {
   theme: 'fashion' | 'sale' | 'skincare' | 'coffee' | 'tech';
 }
 
-export const designPlayingCards: DesignPlayingCard[] = [
+export const designShowcaseCards: DesignShowcaseCard[] = [
   {
-    id: 'card-ace',
-    rank: 'A',
-    suit: '♠',
-    badge: 'A ♠ Feed (1:1)',
+    id: 'card-1',
+    stepNum: '01',
     format: '1:1 Persegi',
     dimensions: '1080 x 1080 px',
     title: 'Katalog Produk & Feed Instagram',
@@ -45,10 +41,8 @@ export const designPlayingCards: DesignPlayingCard[] = [
     theme: 'fashion',
   },
   {
-    id: 'card-king',
-    rank: 'K',
-    suit: '♠',
-    badge: 'K ♠ Story (9:16)',
+    id: 'card-2',
+    stepNum: '02',
     format: '9:16 Vertikal',
     dimensions: '1080 x 1920 px',
     title: 'Flash Sale & Promo Story',
@@ -57,10 +51,8 @@ export const designPlayingCards: DesignPlayingCard[] = [
     theme: 'sale',
   },
   {
-    id: 'card-queen',
-    rank: 'Q',
-    suit: '♠',
-    badge: 'Q ♠ Banner (16:9)',
+    id: 'card-3',
+    stepNum: '03',
     format: '16:9 Landscape',
     dimensions: '1920 x 1080 px',
     title: 'Banner Marketplace & Web Hero',
@@ -69,10 +61,8 @@ export const designPlayingCards: DesignPlayingCard[] = [
     theme: 'skincare',
   },
   {
-    id: 'card-jack',
-    rank: 'J',
-    suit: '♠',
-    badge: 'J ♠ Poster (4:5)',
+    id: 'card-4',
+    stepNum: '04',
     format: '4:5 Vertikal Feed',
     dimensions: '1080 x 1350 px',
     title: 'Poster Promosi F&B & Retail',
@@ -81,10 +71,8 @@ export const designPlayingCards: DesignPlayingCard[] = [
     theme: 'coffee',
   },
   {
-    id: 'card-10',
-    rank: '10',
-    suit: '♠',
-    badge: '10 ♠ Ads Card (1:1)',
+    id: 'card-5',
+    stepNum: '05',
     format: '1:1 Persegi',
     dimensions: '1080 x 1080 px',
     title: 'Display Iklan Meta & Google Ads',
@@ -262,13 +250,13 @@ export const PillarsSection: React.FC = () => {
 
                     {/* Fanned Cards Deck (Interactive Spread) */}
                     <div className="relative w-full h-[260px] sm:h-[290px] flex items-center justify-center pt-3 select-none">
-                      {designPlayingCards.map((card, i) => {
-                        const total = designPlayingCards.length;
+                      {designShowcaseCards.map((card, i) => {
+                        const total = designShowcaseCards.length;
                         const center = (total - 1) / 2;
                         const diff = i - center;
                         const isSelected = activeDesignSlide === i;
 
-                        // Rotations & Translations mirroring a hand of playing cards
+                        // Rotations & Translations mirroring a hand of cards
                         const rotationDeg = diff * 7;
                         const translateY = Math.abs(diff) * 5;
 
@@ -288,17 +276,12 @@ export const PillarsSection: React.FC = () => {
                                 : 'border-zinc-300 shadow-[0_12px_28px_rgba(0,0,0,0.65)] hover:border-zinc-400 hover:-translate-y-2'
                             }`}
                           >
-                            {/* Card Top Left Index */}
-                            <div className="flex items-center justify-between leading-none pointer-events-none">
-                              <div className="flex flex-col items-center">
-                                <span className="font-extrabold text-xs sm:text-sm font-mono text-zinc-950 leading-none">
-                                  {card.rank}
-                                </span>
-                                <span className="text-[10px] sm:text-xs text-zinc-950 leading-none mt-0.5">
-                                  {card.suit}
-                                </span>
-                              </div>
-                              <span className="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-600 font-semibold border border-zinc-200">
+                            {/* Card Top Header */}
+                            <div className="flex items-center justify-between leading-none pointer-events-none px-1">
+                              <span className="font-extrabold text-[11px] sm:text-xs font-mono text-zinc-950 leading-none">
+                                {card.stepNum}
+                              </span>
+                              <span className="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-700 font-semibold border border-zinc-200">
                                 {card.format.split(' ')[0]}
                               </span>
                             </div>
@@ -347,19 +330,10 @@ export const PillarsSection: React.FC = () => {
                               )}
                             </div>
 
-                            {/* Card Bottom Right Inverted Index */}
-                            <div className="flex items-center justify-between leading-none pointer-events-none">
-                              <span className="text-[8px] text-zinc-500 font-mono tracking-wider">
-                                SPRINT
-                              </span>
-                              <div className="flex flex-col items-center rotate-180">
-                                <span className="font-extrabold text-xs sm:text-sm font-mono text-zinc-950 leading-none">
-                                  {card.rank}
-                                </span>
-                                <span className="text-[10px] sm:text-xs text-zinc-950 leading-none mt-0.5">
-                                  {card.suit}
-                                </span>
-                              </div>
+                            {/* Card Bottom Footer */}
+                            <div className="flex items-center justify-between leading-none pointer-events-none px-1 text-[8px] font-mono text-zinc-400">
+                              <span>AUTOMATRIC</span>
+                              <span>24H</span>
                             </div>
                           </div>
                         );
@@ -370,15 +344,15 @@ export const PillarsSection: React.FC = () => {
                     <div className="pt-3 border-t border-white/[0.08] space-y-2.5">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-white font-mono px-2 py-0.5 rounded bg-white/10 border border-white/15">
-                            {designPlayingCards[activeDesignSlide].rank} {designPlayingCards[activeDesignSlide].suit}
+                          <span className="text-xs font-bold text-white font-mono px-2.5 py-0.5 rounded bg-white/10 border border-white/15">
+                            {designShowcaseCards[activeDesignSlide].stepNum}
                           </span>
                           <div>
                             <h4 className="text-xs sm:text-sm font-bold text-white">
-                              {designPlayingCards[activeDesignSlide].title}
+                              {designShowcaseCards[activeDesignSlide].title}
                             </h4>
                             <span className="text-[10px] text-emerald-400 font-mono">
-                              {designPlayingCards[activeDesignSlide].dimensions} ({designPlayingCards[activeDesignSlide].format})
+                              {designShowcaseCards[activeDesignSlide].dimensions} ({designShowcaseCards[activeDesignSlide].format})
                             </span>
                           </div>
                         </div>
@@ -387,7 +361,7 @@ export const PillarsSection: React.FC = () => {
                         <div className="flex items-center gap-1.5">
                           <button
                             type="button"
-                            onClick={() => setActiveDesignSlide((prev) => (prev - 1 + designPlayingCards.length) % designPlayingCards.length)}
+                            onClick={() => setActiveDesignSlide((prev) => (prev - 1 + designShowcaseCards.length) % designShowcaseCards.length)}
                             className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
                             aria-label="Kartu sebelumnya"
                           >
@@ -395,7 +369,7 @@ export const PillarsSection: React.FC = () => {
                           </button>
                           <button
                             type="button"
-                            onClick={() => setActiveDesignSlide((prev) => (prev + 1) % designPlayingCards.length)}
+                            onClick={() => setActiveDesignSlide((prev) => (prev + 1) % designShowcaseCards.length)}
                             className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
                             aria-label="Kartu berikutnya"
                           >
@@ -405,7 +379,7 @@ export const PillarsSection: React.FC = () => {
                       </div>
 
                       <p className="text-xs text-zinc-400 leading-relaxed">
-                        {designPlayingCards[activeDesignSlide].desc}
+                        {designShowcaseCards[activeDesignSlide].desc}
                       </p>
                     </div>
                   </div>

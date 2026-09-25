@@ -29,9 +29,6 @@ export const WorkflowSection: React.FC = () => {
                     <span className="text-3xl font-extrabold font-mono text-white/30">
                       {item.step}
                     </span>
-                    <span className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-white/[0.06] border border-white/10 text-emerald-400">
-                      {item.day}
-                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white leading-snug">
                     {item.title}

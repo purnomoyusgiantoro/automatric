@@ -51,6 +51,13 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:32] - Penghapusan Simbol Sekop & Rank Kartu pada Pilar Desain, serta Penghapusan Badge Hari Alur Kerja
+* **Tipe**: UI / Copywriting / Cleanup
+* **File Terkait**: `apps/web/src/components/PillarsSection.tsx`, `apps/web/src/components/WorkflowSection.tsx`
+* **Detail**:
+  - Menghapus simbol sekop (`♠`) dan huruf rank kartu remi (`A`, `K`, `Q`, `J`, `10`) pada showcase pilar desain cepat, menggantinya dengan penomoran format bersih (`01..05`) dan format badge minimalis sehingga tetap berbentuk kartu display modern untuk gambar karya tanpa nuansa kartu remi/judi.
+  - Menghapus teks badge hari (`Hari ke-1`, `Hari ke 2 - 4`, `Hari ke-5`, `Hari ke 6 - 7`) pada kartu alur kerja (`WorkflowSection`) agar kartu berfokus tegas pada nomor langkah, judul, dan penjelasan aktivitas.
+
 ### [2026-09-25 23:30] - Pemulihan Tampilan Kartu Alur Kerja Bersih Tanpa Garis (Clean Workflow Cards)
 * **Tipe**: UI / Layout / Simplifikasi
 * **File Terkait**: `apps/web/src/components/WorkflowSection.tsx`
