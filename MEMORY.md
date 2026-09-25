@@ -51,6 +51,11 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:15] - Relokasi WhatsApp di Bawah Email pada Informasi Kontak Footer
+* **Tipe**: UI / Layout
+* **File Terkait**: `apps/web/src/components/Footer.tsx`
+* **Detail**: Memindahkan kartu tautan WhatsApp resmi ke kolom Informasi Kontak tepat di bawah kartu Email Resmi dengan icon MessageCircle emerald, tampilan matte surface seragam, dan link langsung ke nomor WhatsApp bisnis Automatric. Menghapus tombol WhatsApp di kolom deskripsi brand kiri sehingga footer memiliki tepat satu entri WhatsApp yang tertata rapi dan presisi di bawah email.
+
 ### [2026-09-25 23:10] - Showcase Desain Sliding Glass Cards, Refactor Headline Hero, & Pembersihan Duplikasi Footer
 * **Tipe**: UI / Feature / Copywriting
 * **File Terkait**: `apps/web/src/components/PillarsSection.tsx`, `apps/web/src/components/HeroSection.tsx`, `apps/web/src/components/Footer.tsx`, `apps/web/src/config/site.ts`
