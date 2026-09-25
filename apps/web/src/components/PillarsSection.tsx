@@ -26,7 +26,7 @@ interface DesignShowcaseCard {
   title: string;
   desc: string;
   image?: string; // <-- Masukkan URL atau path file foto di sini
-  theme: 'fashion' | 'sale' | 'skincare' | 'coffee' | 'tech';
+  theme: 'fashion' | 'sale' | 'skincare' | 'coffee';
 }
 
 const designShowcaseCards: DesignShowcaseCard[] = [
@@ -70,22 +70,14 @@ const designShowcaseCards: DesignShowcaseCard[] = [
     image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-poster.jpg'
     theme: 'coffee',
   },
-  {
-    id: 'card-5',
-    stepNum: '05',
-    format: '1:1 Persegi',
-    dimensions: '1080 x 1080 px',
-    title: 'Display Iklan Meta & Google Ads',
-    desc: 'Materi visual iklan dengan hierarki penawaran tegas yang lolos standar review Meta Ads.',
-    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-ads.jpg'
-    theme: 'tech',
-  },
 ];
 
 export const PillarsSection: React.FC = () => {
   const [activeChatScenario, setActiveChatScenario] = useState<'catalog' | 'order' | 'followup'>('catalog');
   const [activeDesignSlide, setActiveDesignSlide] = useState(0);
   const [adsTimeframe, setAdsTimeframe] = useState<'30d' | '60d'>('30d');
+
+  const activeDesignCard = designShowcaseCards[activeDesignSlide] || designShowcaseCards[0];
 
   const p1 = siteConfig.pillars[0];
   const p2 = siteConfig.pillars[1];
@@ -234,17 +226,79 @@ export const PillarsSection: React.FC = () => {
 
               {/* Left: Design Showcase - Fanned Playing Cards Display */}
               <div className="lg:col-span-7 order-2 lg:order-1">
-                <div className="glass-card rounded-xl p-5 sm:p-6 space-y-4">
+                <div className="glass-card rounded-xl p-5 sm:p-6 space-y-3.5">
                   <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
                     <div>
                       <span className="text-xs font-bold text-white block">Pembuatan Desain Cepat & Terjangkau</span>
-                      <span className="text-[10px] text-zinc-400">Klik kartu untuk melihat detail desain</span>
+                      <span className="text-[10px] text-zinc-400">Pilih ukuran atau klik kartu untuk melihat format</span>
                     </div>
                     <span className="text-[10px] font-mono text-zinc-300 glass px-2.5 py-1 rounded">24 Jam</span>
                   </div>
 
+                  {/* Navigasi Ukuran & Format (Top Interactive Navigation) */}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-1.5 overflow-x-auto py-0.5 scrollbar-none flex-1">
+                      {designShowcaseCards.map((card, i) => {
+                        const isSelected = activeDesignSlide === i;
+                        return (
+                          <button
+                            key={card.id}
+                            type="button"
+                            onClick={() => setActiveDesignSlide(i)}
+                            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer border shrink-0 ${
+                              isSelected
+                                ? 'bg-white text-zinc-950 font-bold border-white shadow-[0_0_14px_rgba(255,255,255,0.3)]'
+                                : 'bg-white/[0.04] text-zinc-300 hover:text-white border-white/[0.08] hover:border-white/20'
+                            }`}
+                            aria-label={`Pilih ukuran ${card.dimensions}`}
+                          >
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full ${
+                                isSelected ? 'bg-emerald-600' : 'bg-zinc-500'
+                              }`}
+                            />
+                            <span>{card.dimensions.replace(' px', '')}</span>
+                            <span
+                              className={`text-[10px] ${
+                                isSelected ? 'text-zinc-700' : 'text-zinc-500'
+                              }`}
+                            >
+                              ({card.format.split(' ')[0]})
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Navigasi Tombol Panah (Prev / Next) */}
+                    <div className="flex items-center gap-1 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveDesignSlide(
+                            (prev) => (prev - 1 + designShowcaseCards.length) % designShowcaseCards.length
+                          )
+                        }
+                        className="w-7 h-7 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
+                        aria-label="Desain sebelumnya"
+                      >
+                        <ChevronLeft className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveDesignSlide((prev) => (prev + 1) % designShowcaseCards.length)
+                        }
+                        className="w-7 h-7 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
+                        aria-label="Desain berikutnya"
+                      >
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+
                   {/* Fanned Playing Cards Showcase Container */}
-                  <div className="relative overflow-hidden rounded-2xl bg-black/60 border border-white/[0.08] p-4 sm:p-6 min-h-[430px] flex flex-col justify-between">
+                  <div className="relative overflow-hidden rounded-2xl bg-black/60 border border-white/[0.08] p-4 sm:p-6 min-h-[420px] flex flex-col justify-between">
                     {/* Background glow behind the cards */}
                     <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -266,11 +320,11 @@ export const PillarsSection: React.FC = () => {
                             onClick={() => setActiveDesignSlide(i)}
                             style={{
                               transform: isSelected
-                                ? `translate3d(calc(${diff} * var(--spread, 44px)), -22px, 0) rotate(0deg) scale(1.08)`
-                                : `translate3d(calc(${diff} * var(--spread, 44px)), ${translateY}px, 0) rotate(${rotationDeg}deg) scale(1)`,
+                                ? `translate3d(calc(${diff} * var(--spread, 52px)), -22px, 0) rotate(0deg) scale(1.08)`
+                                : `translate3d(calc(${diff} * var(--spread, 52px)), ${translateY}px, 0) rotate(${rotationDeg}deg) scale(1)`,
                               zIndex: isSelected ? 30 : 10 + i,
                             }}
-                            className={`[--spread:28px] xs:[--spread:34px] sm:[--spread:46px] absolute w-[130px] h-[190px] sm:w-[155px] sm:h-[230px] rounded-2xl bg-white text-zinc-900 border-2 transition-all duration-300 ease-out cursor-pointer overflow-hidden flex flex-col justify-between p-2 sm:p-2.5 ${
+                            className={`[--spread:32px] xs:[--spread:40px] sm:[--spread:54px] absolute w-[130px] h-[190px] sm:w-[155px] sm:h-[230px] rounded-2xl bg-white text-zinc-900 border-2 transition-all duration-300 ease-out cursor-pointer overflow-hidden flex flex-col justify-between p-2 sm:p-2.5 ${
                               isSelected
                                 ? 'border-emerald-400 shadow-[0_22px_45px_rgba(0,0,0,0.85),0_0_25px_rgba(16,185,129,0.35)] ring-2 ring-emerald-400'
                                 : 'border-zinc-300 shadow-[0_12px_28px_rgba(0,0,0,0.65)] hover:border-zinc-400 hover:-translate-y-2'
@@ -312,7 +366,6 @@ export const PillarsSection: React.FC = () => {
                                       {card.theme === 'sale' && 'FLASH SALE 50% OFF'}
                                       {card.theme === 'skincare' && 'GLOWING ESSENTIALS'}
                                       {card.theme === 'coffee' && 'ARTISAN COFFEE ROAST'}
-                                      {card.theme === 'tech' && 'ORIGINAL TECH GEAR'}
                                     </div>
                                     <div className="text-[7px] sm:text-[8px] text-zinc-400 mt-0.5 line-clamp-1 font-mono">
                                       {card.format}
@@ -340,46 +393,22 @@ export const PillarsSection: React.FC = () => {
                       })}
                     </div>
 
-                    {/* Active Card Information & Controls */}
-                    <div className="pt-3 border-t border-white/[0.08] space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-white font-mono px-2.5 py-0.5 rounded bg-white/10 border border-white/15">
-                            {designShowcaseCards[activeDesignSlide].stepNum}
-                          </span>
-                          <div>
-                            <h4 className="text-xs sm:text-sm font-bold text-white">
-                              {designShowcaseCards[activeDesignSlide].title}
-                            </h4>
-                            <span className="text-[10px] text-emerald-400 font-mono">
-                              {designShowcaseCards[activeDesignSlide].dimensions} ({designShowcaseCards[activeDesignSlide].format})
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Navigation Buttons */}
-                        <div className="flex items-center gap-1.5">
-                          <button
-                            type="button"
-                            onClick={() => setActiveDesignSlide((prev) => (prev - 1 + designShowcaseCards.length) % designShowcaseCards.length)}
-                            className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
-                            aria-label="Kartu sebelumnya"
-                          >
-                            <ChevronLeft className="w-4 h-4" />
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => setActiveDesignSlide((prev) => (prev + 1) % designShowcaseCards.length)}
-                            className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
-                            aria-label="Kartu berikutnya"
-                          >
-                            <ChevronRight className="w-4 h-4" />
-                          </button>
-                        </div>
+                    {/* Active Card Information (Clean Footer) */}
+                    <div className="pt-3 border-t border-white/[0.08] space-y-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-white font-mono px-2 py-0.5 rounded bg-white/10 border border-white/15">
+                          {activeDesignCard.stepNum}
+                        </span>
+                        <h4 className="text-xs sm:text-sm font-bold text-white leading-tight">
+                          {activeDesignCard.title}
+                        </h4>
+                        <span className="text-[10px] text-emerald-400 font-mono hidden sm:inline">
+                          • {activeDesignCard.dimensions} ({activeDesignCard.format})
+                        </span>
                       </div>
 
                       <p className="text-xs text-zinc-400 leading-relaxed">
-                        {designShowcaseCards[activeDesignSlide].desc}
+                        {activeDesignCard.desc}
                       </p>
                     </div>
                   </div>

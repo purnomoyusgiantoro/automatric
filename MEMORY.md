@@ -51,6 +51,14 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:35] - Navigasi Ukuran Interaktif Bagian Atas & Penghapusan Kartu Ads pada Pilar Desain
+* **Tipe**: UI / Feature / Cleanup
+* **File Terkait**: `apps/web/src/components/PillarsSection.tsx`
+* **Detail**:
+  - Menghapus item kartu ke-5 (`Display Iklan Meta & Google Ads`, `1080 x 1080 px (1:1 Persegi)`) dari showcase pilar desain sesuai instruksi pengguna, menyisakan 4 varian ukuran baku yang unik (`1:1`, `9:16`, `16:9`, `4:5`).
+  - Menambahkan bilah navigasi interaktif tepat di bagian atas display kartu yang menampilkan dimensi ukuran desain (`1080 x 1080`, `1080 x 1920`, `1920 x 1080`, `1080 x 1350`). Setiap tab ukuran dapat diklik langsung untuk memilih kartu secara instan dengan indikator visual aktif dan tombol navigasi panah kiri/kanan.
+  - Menyederhanakan bagian bawah kartu agar menampilkan informasi judul dan deskripsi kartu aktif secara bersih dan fokus tanpa tombol ganda.
+
 ### [2026-09-25 23:33] - Optimasi Vite Fast Refresh pada Showcase Pilar Desain
 * **Tipe**: Code Quality / DX
 * **File Terkait**: `apps/web/src/components/PillarsSection.tsx`
