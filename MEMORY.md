@@ -56,7 +56,7 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 * **File Terkait**: `apps/web/src/components/PillarsSection.tsx`, `apps/web/src/components/HeroSection.tsx`, `apps/web/src/components/Footer.tsx`, `apps/web/src/config/site.ts`
 * **Detail**:
   - Mengubah showcase desain pilar 2 menjadi sliding glass card container (Feed 1:1, Story 9:16, Banner 16:9) dengan tombol navigasi geser kartu dan slot gambar siap pasang.
-  - Memperbarui headline HeroSection agar mencerminkan identitas Automatric sebagai AI Growth Agency dan penawaran sprint 7 hari dengan jelas dan profesional.
+  - Memperbarui headline HeroSection menjadi judul ringkas dan fokus ('Agensi Otomasi & Pertumbuhan Bisnis Anda.') serta menghapus subteks 7 hari sesuai permintaan user.
   - Menghapus kartu WhatsApp duplikat di bawah Informasi Kontak pada Footer agar tombol WhatsApp terpusat tunggal.
   - Menghapus simbol '<' pada metrik dan badge pilar agar penulisan lebih elegan.
   - Meningkatkan kontras warna teks pada Chat Simulator WhatsApp dan tabel metrik iklan agar lolos standar WCAG AA.
