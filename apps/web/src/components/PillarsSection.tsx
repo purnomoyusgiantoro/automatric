@@ -12,6 +12,88 @@ import {
 import { siteConfig } from '../config/site';
 import { ScrollReveal } from './ScrollReveal';
 
+// =========================================================================
+// PANDUAN PENGGUNA UNTUK MEMASUKKAN GAMBAR:
+// Letakkan foto/gambar Anda di folder `public/` (misal: public/desain-1.jpg)
+// lalu masukkan path-nya pada properti `image` di bawah ini (misal: image: '/desain-1.jpg').
+// Jika belum ada gambar, sistem otomatis menampilkan template artwork desain visual.
+// =========================================================================
+export interface DesignPlayingCard {
+  id: string;
+  rank: string;
+  suit: string;
+  badge: string;
+  format: string;
+  dimensions: string;
+  title: string;
+  desc: string;
+  image?: string; // <-- Masukkan URL atau path file foto di sini
+  theme: 'fashion' | 'sale' | 'skincare' | 'coffee' | 'tech';
+}
+
+export const designPlayingCards: DesignPlayingCard[] = [
+  {
+    id: 'card-ace',
+    rank: 'A',
+    suit: '♠',
+    badge: 'A ♠ Feed (1:1)',
+    format: '1:1 Persegi',
+    dimensions: '1080 x 1080 px',
+    title: 'Katalog Produk & Feed Instagram',
+    desc: 'Desain feed produk beresolusi tinggi dengan tipografi elegan dan komposisi visual siap upload.',
+    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-feed.jpg'
+    theme: 'fashion',
+  },
+  {
+    id: 'card-king',
+    rank: 'K',
+    suit: '♠',
+    badge: 'K ♠ Story (9:16)',
+    format: '9:16 Vertikal',
+    dimensions: '1080 x 1920 px',
+    title: 'Flash Sale & Promo Story',
+    desc: 'Format vertikal dinamis untuk penawaran kilat di Instagram Story, TikTok, dan WhatsApp Status.',
+    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-story.jpg'
+    theme: 'sale',
+  },
+  {
+    id: 'card-queen',
+    rank: 'Q',
+    suit: '♠',
+    badge: 'Q ♠ Banner (16:9)',
+    format: '16:9 Landscape',
+    dimensions: '1920 x 1080 px',
+    title: 'Banner Marketplace & Web Hero',
+    desc: 'Visual header display berkualitas tajam untuk etalase Tokopedia, Shopee, dan promo berbayar.',
+    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-banner.jpg'
+    theme: 'skincare',
+  },
+  {
+    id: 'card-jack',
+    rank: 'J',
+    suit: '♠',
+    badge: 'J ♠ Poster (4:5)',
+    format: '4:5 Vertikal Feed',
+    dimensions: '1080 x 1350 px',
+    title: 'Poster Promosi F&B & Retail',
+    desc: 'Proporsi portrait yang mendominasi timeline media sosial untuk engagement dan klik maksimal.',
+    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-poster.jpg'
+    theme: 'coffee',
+  },
+  {
+    id: 'card-10',
+    rank: '10',
+    suit: '♠',
+    badge: '10 ♠ Ads Card (1:1)',
+    format: '1:1 Persegi',
+    dimensions: '1080 x 1080 px',
+    title: 'Display Iklan Meta & Google Ads',
+    desc: 'Materi visual iklan dengan hierarki penawaran tegas yang lolos standar review Meta Ads.',
+    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-ads.jpg'
+    theme: 'tech',
+  },
+];
+
 export const PillarsSection: React.FC = () => {
   const [activeChatScenario, setActiveChatScenario] = useState<'catalog' | 'order' | 'followup'>('catalog');
   const [activeDesignSlide, setActiveDesignSlide] = useState(0);
@@ -20,33 +102,6 @@ export const PillarsSection: React.FC = () => {
   const p1 = siteConfig.pillars[0];
   const p2 = siteConfig.pillars[1];
   const p3 = siteConfig.pillars[2];
-
-  const designCards = [
-    {
-      id: 'feed',
-      format: '1:1 Persegi',
-      badge: 'Feed Instagram (1:1)',
-      title: 'Materi Promosi Feed & Katalog',
-      desc: 'Desain feed produk presisi tinggi dengan tipografi jelas, kontras tegas, dan siap upload.',
-      tag: 'Resolusi 1080 x 1080 px',
-    },
-    {
-      id: 'story',
-      format: '9:16 Vertikal',
-      badge: 'Story & Status (9:16)',
-      title: 'Materi Flash Sale & Promo',
-      desc: 'Visual vertikal dinamis untuk penawaran kilat di Instagram Story, TikTok, dan WhatsApp Status.',
-      tag: 'Resolusi 1080 x 1920 px',
-    },
-    {
-      id: 'banner',
-      format: '16:9 Landscape',
-      badge: 'Banner Iklan (16:9)',
-      title: 'Banner Iklan & Website Ads',
-      desc: 'Materi display iklan digital berkinerja tinggi untuk kampanye berbayar di Meta Ads dan Google.',
-      tag: 'Resolusi 1920 x 1080 px',
-    },
-  ];
 
   const chatDialogues = {
     catalog: [
@@ -189,20 +244,20 @@ export const PillarsSection: React.FC = () => {
           <div className="glass-card rounded-2xl p-6 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
-              {/* Left: Design Showcase - Sliding Cards dengan Glass Background */}
+              {/* Left: Design Showcase - Fanned Playing Cards Display */}
               <div className="lg:col-span-7 order-2 lg:order-1">
                 <div className="glass-card rounded-xl p-5 sm:p-6 space-y-4">
                   <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
                     <div>
                       <span className="text-xs font-bold text-white block">Pembuatan Desain Cepat & Terjangkau</span>
-                      <span className="text-[10px] text-zinc-400">Pilih format untuk melihat template kartu desain</span>
+                      <span className="text-[10px] text-zinc-400">Tampilan model kartu remi: klik kartu untuk melihat detail</span>
                     </div>
                     <span className="text-[10px] font-mono text-zinc-300 glass px-2.5 py-1 rounded">24 Jam</span>
                   </div>
 
                   {/* Format Navigation Tabs */}
                   <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
-                    {designCards.map((card, i) => (
+                    {designPlayingCards.map((card, i) => (
                       <button
                         key={card.id}
                         type="button"
@@ -218,78 +273,166 @@ export const PillarsSection: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Sliding Glass Card Showcase Container */}
-                  <div className="relative overflow-hidden rounded-2xl bg-black/40 border border-white/[0.08] p-4 sm:p-6 min-h-[320px] flex flex-col justify-between">
-                    {/* Active Card Glass Frame */}
-                    <div className="w-full relative rounded-xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/[0.14] p-6 sm:p-7 flex flex-col items-center justify-center text-center shadow-lg backdrop-blur-md transition-all duration-300">
-                      {/* Subtle Grid Texture */}
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:18px_18px] opacity-70 pointer-events-none" />
+                  {/* Fanned Playing Cards Showcase Container */}
+                  <div className="relative overflow-hidden rounded-2xl bg-black/60 border border-white/[0.08] p-4 sm:p-6 min-h-[430px] flex flex-col justify-between">
+                    {/* Background glow behind the cards */}
+                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
-                      {/* Card Content Ready for Image */}
-                      <div className="relative z-10 w-full space-y-3.5">
-                        <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto text-white shadow-inner">
-                          <ImageIcon className="w-7 h-7 text-zinc-200" />
-                        </div>
+                    {/* Fanned Cards Deck (Interactive Spread) */}
+                    <div className="relative w-full h-[260px] sm:h-[290px] flex items-center justify-center pt-3 select-none">
+                      {designPlayingCards.map((card, i) => {
+                        const total = designPlayingCards.length;
+                        const center = (total - 1) / 2;
+                        const diff = i - center;
+                        const isSelected = activeDesignSlide === i;
 
-                        <div>
-                          <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 block font-medium">
-                            {designCards[activeDesignSlide].tag}
-                          </span>
-                          <h4 className="text-base sm:text-lg font-bold text-white mt-1">
-                            {designCards[activeDesignSlide].title}
-                          </h4>
-                          <p className="text-xs text-zinc-300 mt-1 max-w-sm mx-auto leading-relaxed">
-                            {designCards[activeDesignSlide].desc}
-                          </p>
-                        </div>
+                        // Rotations & Translations mirroring a hand of playing cards
+                        const rotationDeg = diff * 7;
+                        const translateY = Math.abs(diff) * 5;
 
-                        <div className="pt-2 flex flex-wrap items-center justify-center gap-2">
-                          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white/10 border border-white/15 text-zinc-200">
-                            Slot Foto Desain Siap Pasang
-                          </span>
-                          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-                            Selesai 24 Jam
-                          </span>
-                        </div>
-                      </div>
+                        return (
+                          <div
+                            key={card.id}
+                            onClick={() => setActiveDesignSlide(i)}
+                            style={{
+                              transform: isSelected
+                                ? `translate3d(calc(${diff} * var(--spread, 44px)), -22px, 0) rotate(0deg) scale(1.08)`
+                                : `translate3d(calc(${diff} * var(--spread, 44px)), ${translateY}px, 0) rotate(${rotationDeg}deg) scale(1)`,
+                              zIndex: isSelected ? 30 : 10 + i,
+                            }}
+                            className={`[--spread:28px] xs:[--spread:34px] sm:[--spread:46px] absolute w-[130px] h-[190px] sm:w-[155px] sm:h-[230px] rounded-2xl bg-white text-zinc-900 border-2 transition-all duration-300 ease-out cursor-pointer overflow-hidden flex flex-col justify-between p-2 sm:p-2.5 ${
+                              isSelected
+                                ? 'border-emerald-400 shadow-[0_22px_45px_rgba(0,0,0,0.85),0_0_25px_rgba(16,185,129,0.35)] ring-2 ring-emerald-400'
+                                : 'border-zinc-300 shadow-[0_12px_28px_rgba(0,0,0,0.65)] hover:border-zinc-400 hover:-translate-y-2'
+                            }`}
+                          >
+                            {/* Card Top Left Index */}
+                            <div className="flex items-center justify-between leading-none pointer-events-none">
+                              <div className="flex flex-col items-center">
+                                <span className="font-extrabold text-xs sm:text-sm font-mono text-zinc-950 leading-none">
+                                  {card.rank}
+                                </span>
+                                <span className="text-[10px] sm:text-xs text-zinc-950 leading-none mt-0.5">
+                                  {card.suit}
+                                </span>
+                              </div>
+                              <span className="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-600 font-semibold border border-zinc-200">
+                                {card.format.split(' ')[0]}
+                              </span>
+                            </div>
+
+                            {/* Card Center Artwork Slot (Where Image Goes!) */}
+                            <div className="relative w-full flex-1 my-1 sm:my-1.5 rounded-xl overflow-hidden bg-zinc-950 border border-zinc-900/20 shadow-inner flex flex-col justify-between p-2">
+                              {card.image ? (
+                                <img
+                                  src={card.image}
+                                  alt={card.title}
+                                  className="w-full h-full object-cover rounded-lg"
+                                />
+                              ) : (
+                                <div className="w-full h-full flex flex-col justify-between text-left relative z-10">
+                                  {/* Template Artwork Preview */}
+                                  <div className="flex items-center justify-between">
+                                    <span className="text-[7px] sm:text-[8px] font-mono uppercase tracking-widest text-emerald-400 font-bold">
+                                      AUTOMATRIC
+                                    </span>
+                                    <span className="text-[7px] sm:text-[8px] font-mono text-zinc-400">
+                                      24H
+                                    </span>
+                                  </div>
+
+                                  <div className="my-auto py-1">
+                                    <div className="text-[10px] sm:text-xs font-black tracking-tight text-white leading-tight uppercase font-sans">
+                                      {card.theme === 'fashion' && 'NEW SEASON COLLECTION'}
+                                      {card.theme === 'sale' && 'FLASH SALE 50% OFF'}
+                                      {card.theme === 'skincare' && 'GLOWING ESSENTIALS'}
+                                      {card.theme === 'coffee' && 'ARTISAN COFFEE ROAST'}
+                                      {card.theme === 'tech' && 'ORIGINAL TECH GEAR'}
+                                    </div>
+                                    <div className="text-[7px] sm:text-[8px] text-zinc-400 mt-0.5 line-clamp-1 font-mono">
+                                      {card.format}
+                                    </div>
+                                  </div>
+
+                                  {/* Slot indicator */}
+                                  <div className="py-0.5 px-1 rounded bg-white/10 border border-white/15 text-center">
+                                    <span className="text-[7px] sm:text-[8px] font-mono text-zinc-200 flex items-center justify-center gap-1">
+                                      <ImageIcon className="w-2.5 h-2.5 text-emerald-400" />
+                                      Slot Foto Siap Pasang
+                                    </span>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Card Bottom Right Inverted Index */}
+                            <div className="flex items-center justify-between leading-none pointer-events-none">
+                              <span className="text-[8px] text-zinc-500 font-mono tracking-wider">
+                                SPRINT
+                              </span>
+                              <div className="flex flex-col items-center rotate-180">
+                                <span className="font-extrabold text-xs sm:text-sm font-mono text-zinc-950 leading-none">
+                                  {card.rank}
+                                </span>
+                                <span className="text-[10px] sm:text-xs text-zinc-950 leading-none mt-0.5">
+                                  {card.suit}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
 
-                    {/* Card Slide Controls */}
-                    <div className="pt-4 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5">
-                        {designCards.map((_, i) => (
+                    {/* Active Card Information & Controls */}
+                    <div className="pt-3 border-t border-white/[0.08] space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-white font-mono px-2 py-0.5 rounded bg-white/10 border border-white/15">
+                            {designPlayingCards[activeDesignSlide].rank} {designPlayingCards[activeDesignSlide].suit}
+                          </span>
+                          <div>
+                            <h4 className="text-xs sm:text-sm font-bold text-white">
+                              {designPlayingCards[activeDesignSlide].title}
+                            </h4>
+                            <span className="text-[10px] text-emerald-400 font-mono">
+                              {designPlayingCards[activeDesignSlide].dimensions} ({designPlayingCards[activeDesignSlide].format})
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Navigation Buttons */}
+                        <div className="flex items-center gap-1.5">
                           <button
-                            key={i}
                             type="button"
-                            onClick={() => setActiveDesignSlide(i)}
-                            className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                              activeDesignSlide === i ? 'w-6 bg-white' : 'w-2 bg-white/20 hover:bg-white/40'
-                            }`}
-                            aria-label={`Lihat kartu ${i + 1}`}
-                          />
-                        ))}
-                        <span className="text-[10px] font-mono text-zinc-400 ml-2">
-                          0{activeDesignSlide + 1} / 0{designCards.length}
-                        </span>
+                            onClick={() => setActiveDesignSlide((prev) => (prev - 1 + designPlayingCards.length) % designPlayingCards.length)}
+                            className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
+                            aria-label="Kartu sebelumnya"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setActiveDesignSlide((prev) => (prev + 1) % designPlayingCards.length)}
+                            className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
+                            aria-label="Kartu berikutnya"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </div>
                       </div>
 
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => setActiveDesignSlide((prev) => (prev - 1 + designCards.length) % designCards.length)}
-                          className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
-                          aria-label="Kartu sebelumnya"
-                        >
-                          <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setActiveDesignSlide((prev) => (prev + 1) % designCards.length)}
-                          className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
-                          aria-label="Kartu berikutnya"
-                        >
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
+                      <p className="text-xs text-zinc-400 leading-relaxed">
+                        {designPlayingCards[activeDesignSlide].desc}
+                      </p>
+
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                        <span className="text-[10px] font-mono text-zinc-400">
+                          Kartu 0{activeDesignSlide + 1} / 0{designPlayingCards.length} : Klik kartu mana saja untuk memilih
+                        </span>
+                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium">
+                          Slot Gambar Siap Dipasang
+                        </span>
                       </div>
                     </div>
                   </div>

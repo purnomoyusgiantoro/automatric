@@ -51,6 +51,11 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:20] - Showcase Desain Model Kartu Remi Interaktif (Fanned Playing Cards) & Slot Gambar
+* **Tipe**: UI / Feature / Component
+* **File Terkait**: `apps/web/src/components/PillarsSection.tsx`
+* **Detail**: Mengubah showcase pilar 2 (Pembuatan Desain Cepat & Terjangkau) menjadi tampilan dek kartu remi (fanned playing cards: As, King, Queen, Jack, 10 ♠) terinspirasi dari referensi visual permainan kartu dengan proporsi kartu otentik (indeks rank di sudut atas dan sudut bawah terbalik 180°), sebaran sudut kipas lengkung dinamis, efek hover/active angkat kartu bercahaya emerald (lift up + scale), dan slot foto desain siap pakai (`image?: string`) dengan instruksi panduan penggantian foto untuk pengguna.
+
 ### [2026-09-25 23:15] - Relokasi WhatsApp di Bawah Email pada Informasi Kontak Footer
 * **Tipe**: UI / Layout
 * **File Terkait**: `apps/web/src/components/Footer.tsx`
