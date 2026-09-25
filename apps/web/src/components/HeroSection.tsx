@@ -27,10 +27,8 @@ export const HeroSection: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Automatric : AI Growth Agency</span>
             </div>
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
               Agensi Otomasi & Pertumbuhan Bisnis Anda.
-              <br />
-              <span className="text-zinc-400 text-3xl sm:text-5xl font-medium">WhatsApp, desain promosi, dan iklan selesai dalam 7 hari.</span>
             </h1>
             <p className="text-sm sm:text-base text-zinc-400 max-w-xl leading-relaxed">
               Layanan sprint sekali bayar untuk UMKM dan toko online: CS bot WhatsApp siaga 24 jam, materi promosi visual siap tayang 24 jam, dan setup kampanye iklan digital berkinerja tinggi.
