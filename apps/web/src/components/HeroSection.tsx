@@ -23,10 +23,6 @@ export const HeroSection: React.FC = () => {
 
           {/* Left: Value Proposition */}
           <ScrollReveal className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-xs text-zinc-300 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Automatric : AI Growth Agency</span>
-            </div>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
               Agensi Otomasi & Pertumbuhan Bisnis Anda.
             </h1>

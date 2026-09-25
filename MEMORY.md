@@ -51,6 +51,14 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:25] - Garis Timeline Penegas Alur End-to-End di WorkflowSection & Pembersihan Badge Hero
+* **Tipe**: UI / Feature / Layout
+* **File Terkait**: `apps/web/src/components/WorkflowSection.tsx`, `apps/web/src/components/HeroSection.tsx`
+* **Detail**:
+  - Menambahkan garis penegas alur horizontal kontinu dari ujung ke ujung (end-to-end) di bagian atas 4 langkah alur sprint (Tahap 01 Diskusi Alur, Tahap 02 Pemasangan Bot & Desain, Tahap 03 Uji Coba, Tahap 04 Peluncuran) lengkap dengan stepper node berpulsasi emerald pada desktop dan track penghubung pada tampilan mobile.
+  - Memperkaya kartu langkah kerja dengan badge hari beraksen emerald (`Hari ke-1`, `Hari ke 2 - 4`, `Hari ke-5`, `Hari ke 6 - 7`) dan deskripsi detail pengerjaan.
+  - Menghapus badge pill 'Automatric : AI Growth Agency' di atas headline HeroSection sesuai permintaan pengguna agar fokus langsung ke judul utama.
+
 ### [2026-09-25 23:20] - Showcase Desain Model Kartu Remi Interaktif (Fanned Playing Cards) & Slot Gambar
 * **Tipe**: UI / Feature / Component
 * **File Terkait**: `apps/web/src/components/PillarsSection.tsx`
