@@ -51,6 +51,11 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:37] - Simplifikasi Label Navigasi Ukuran ke Rasio Baku (1:1, 9:16, 16:9, 4:5)
+* **Tipe**: UI / Styling / Simplifikasi
+* **File Terkait**: `apps/web/src/components/PillarsSection.tsx`
+* **Detail**: Menyederhanakan teks tombol bilah navigasi atas showcase desain agar langsung menampilkan rasio aspek baku (`1:1`, `9:16`, `16:9`, `4:5`) sesuai permintaan pengguna, serta menyelaraskan badge sudut kartu dan ringkasan dimensi footer dengan rasio terkait.
+
 ### [2026-09-25 23:35] - Navigasi Ukuran Interaktif Bagian Atas & Penghapusan Kartu Ads pada Pilar Desain
 * **Tipe**: UI / Feature / Cleanup
 * **File Terkait**: `apps/web/src/components/PillarsSection.tsx`

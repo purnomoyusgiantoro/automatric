@@ -21,6 +21,7 @@ import { ScrollReveal } from './ScrollReveal';
 interface DesignShowcaseCard {
   id: string;
   stepNum: string;
+  ratio: string;
   format: string;
   dimensions: string;
   title: string;
@@ -33,7 +34,8 @@ const designShowcaseCards: DesignShowcaseCard[] = [
   {
     id: 'card-1',
     stepNum: '01',
-    format: '1:1 Persegi',
+    ratio: '1:1',
+    format: 'Persegi Feed',
     dimensions: '1080 x 1080 px',
     title: 'Katalog Produk & Feed Instagram',
     desc: 'Desain feed produk beresolusi tinggi dengan tipografi elegan dan komposisi visual siap upload.',
@@ -43,7 +45,8 @@ const designShowcaseCards: DesignShowcaseCard[] = [
   {
     id: 'card-2',
     stepNum: '02',
-    format: '9:16 Vertikal',
+    ratio: '9:16',
+    format: 'Vertikal Story',
     dimensions: '1080 x 1920 px',
     title: 'Flash Sale & Promo Story',
     desc: 'Format vertikal dinamis untuk penawaran kilat di Instagram Story, TikTok, dan WhatsApp Status.',
@@ -53,7 +56,8 @@ const designShowcaseCards: DesignShowcaseCard[] = [
   {
     id: 'card-3',
     stepNum: '03',
-    format: '16:9 Landscape',
+    ratio: '16:9',
+    format: 'Landscape Banner',
     dimensions: '1920 x 1080 px',
     title: 'Banner Marketplace & Web Hero',
     desc: 'Visual header display berkualitas tajam untuk etalase Tokopedia, Shopee, dan promo berbayar.',
@@ -63,7 +67,8 @@ const designShowcaseCards: DesignShowcaseCard[] = [
   {
     id: 'card-4',
     stepNum: '04',
-    format: '4:5 Vertikal Feed',
+    ratio: '4:5',
+    format: 'Portrait Poster',
     dimensions: '1080 x 1350 px',
     title: 'Poster Promosi F&B & Retail',
     desc: 'Proporsi portrait yang mendominasi timeline media sosial untuk engagement dan klik maksimal.',
@@ -245,26 +250,19 @@ export const PillarsSection: React.FC = () => {
                             key={card.id}
                             type="button"
                             onClick={() => setActiveDesignSlide(i)}
-                            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer border shrink-0 ${
+                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer border shrink-0 ${
                               isSelected
                                 ? 'bg-white text-zinc-950 font-bold border-white shadow-[0_0_14px_rgba(255,255,255,0.3)]'
                                 : 'bg-white/[0.04] text-zinc-300 hover:text-white border-white/[0.08] hover:border-white/20'
                             }`}
-                            aria-label={`Pilih ukuran ${card.dimensions}`}
+                            aria-label={`Pilih rasio ${card.ratio}`}
                           >
                             <span
                               className={`w-1.5 h-1.5 rounded-full ${
                                 isSelected ? 'bg-emerald-600' : 'bg-zinc-500'
                               }`}
                             />
-                            <span>{card.dimensions.replace(' px', '')}</span>
-                            <span
-                              className={`text-[10px] ${
-                                isSelected ? 'text-zinc-700' : 'text-zinc-500'
-                              }`}
-                            >
-                              ({card.format.split(' ')[0]})
-                            </span>
+                            <span className="font-bold">{card.ratio}</span>
                           </button>
                         );
                       })}
@@ -336,7 +334,7 @@ export const PillarsSection: React.FC = () => {
                                 {card.stepNum}
                               </span>
                               <span className="text-[8px] sm:text-[9px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-700 font-semibold border border-zinc-200">
-                                {card.format.split(' ')[0]}
+                                {card.ratio}
                               </span>
                             </div>
 
@@ -403,7 +401,7 @@ export const PillarsSection: React.FC = () => {
                           {activeDesignCard.title}
                         </h4>
                         <span className="text-[10px] text-emerald-400 font-mono hidden sm:inline">
-                          • {activeDesignCard.dimensions} ({activeDesignCard.format})
+                          • {activeDesignCard.ratio} ({activeDesignCard.dimensions})
                         </span>
                       </div>
 
