@@ -18,7 +18,7 @@ import { ScrollReveal } from './ScrollReveal';
 // lalu masukkan path-nya pada properti `image` di bawah ini (misal: image: '/desain-1.jpg').
 // Jika belum ada gambar, sistem otomatis menampilkan template artwork desain visual.
 // =========================================================================
-export interface DesignShowcaseCard {
+interface DesignShowcaseCard {
   id: string;
   stepNum: string;
   format: string;
@@ -29,7 +29,7 @@ export interface DesignShowcaseCard {
   theme: 'fashion' | 'sale' | 'skincare' | 'coffee' | 'tech';
 }
 
-export const designShowcaseCards: DesignShowcaseCard[] = [
+const designShowcaseCards: DesignShowcaseCard[] = [
   {
     id: 'card-1',
     stepNum: '01',

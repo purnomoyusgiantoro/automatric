@@ -51,6 +51,11 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:33] - Optimasi Vite Fast Refresh pada Showcase Pilar Desain
+* **Tipe**: Code Quality / DX
+* **File Terkait**: `apps/web/src/components/PillarsSection.tsx`
+* **Detail**: Mengubah `DesignShowcaseCard` dan `designShowcaseCards` menjadi scope internal (tanpa `export`) di `PillarsSection.tsx` agar modul memenuhi standar Vite React Fast Refresh secara optimal tanpa peringatan HMR.
+
 ### [2026-09-25 23:32] - Penghapusan Simbol Sekop & Rank Kartu pada Pilar Desain, serta Penghapusan Badge Hari Alur Kerja
 * **Tipe**: UI / Copywriting / Cleanup
 * **File Terkait**: `apps/web/src/components/PillarsSection.tsx`, `apps/web/src/components/WorkflowSection.tsx`
