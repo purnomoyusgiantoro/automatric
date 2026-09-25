@@ -51,6 +51,11 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:30] - Pemulihan Tampilan Kartu Alur Kerja Bersih Tanpa Garis (Clean Workflow Cards)
+* **Tipe**: UI / Layout / Simplifikasi
+* **File Terkait**: `apps/web/src/components/WorkflowSection.tsx`
+* **Detail**: Menghapus seluruh garis horizontal penghubung dan badge timeline tengah pada alur kerja sprint 4-langkah, mengembalikannya ke tampilan kartu matte solid yang bersih, elegan, dan rapi tanpa ornamen garis sesuai instruksi pengguna, dengan mempertahankan nomor langkah `01..04`, badge durasi hari beraksen emerald, judul, serta deskripsi pengerjaan.
+
 ### [2026-09-25 23:28] - Penataan Garis Timeline di Tengah Body Alur & Pembersihan Elemen Redundan Pilar Desain
 * **Tipe**: UI / Layout / Refactor
 * **File Terkait**: `apps/web/src/components/WorkflowSection.tsx`, `apps/web/src/components/PillarsSection.tsx`
