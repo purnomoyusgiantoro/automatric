@@ -250,27 +250,9 @@ export const PillarsSection: React.FC = () => {
                   <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
                     <div>
                       <span className="text-xs font-bold text-white block">Pembuatan Desain Cepat & Terjangkau</span>
-                      <span className="text-[10px] text-zinc-400">Tampilan model kartu remi: klik kartu untuk melihat detail</span>
+                      <span className="text-[10px] text-zinc-400">Klik kartu untuk melihat detail desain</span>
                     </div>
                     <span className="text-[10px] font-mono text-zinc-300 glass px-2.5 py-1 rounded">24 Jam</span>
-                  </div>
-
-                  {/* Format Navigation Tabs */}
-                  <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
-                    {designPlayingCards.map((card, i) => (
-                      <button
-                        key={card.id}
-                        type="button"
-                        onClick={() => setActiveDesignSlide(i)}
-                        className={`text-[11px] px-3.5 py-1.5 rounded-lg font-medium transition-all cursor-pointer whitespace-nowrap min-h-[32px] ${
-                          activeDesignSlide === i
-                            ? 'bg-white text-black font-semibold shadow-sm'
-                            : 'text-zinc-300 hover:text-white hover:bg-white/[0.08]'
-                        }`}
-                      >
-                        {card.badge}
-                      </button>
-                    ))}
                   </div>
 
                   {/* Fanned Playing Cards Showcase Container */}
@@ -425,30 +407,7 @@ export const PillarsSection: React.FC = () => {
                       <p className="text-xs text-zinc-400 leading-relaxed">
                         {designPlayingCards[activeDesignSlide].desc}
                       </p>
-
-                      <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-                        <span className="text-[10px] font-mono text-zinc-400">
-                          Kartu 0{activeDesignSlide + 1} / 0{designPlayingCards.length} : Klik kartu mana saja untuk memilih
-                        </span>
-                        <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium">
-                          Slot Gambar Siap Dipasang
-                        </span>
-                      </div>
                     </div>
-                  </div>
-
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-2">
-                    {[
-                      { label: 'Waktu', value: '24 Jam' },
-                      { label: 'Kualitas', value: 'Hi-Res' },
-                      { label: 'Hak Cipta', value: 'Milik Anda' },
-                    ].map((s, i) => (
-                      <div key={i} className="glass rounded-lg p-2.5 text-center">
-                        <span className="text-[10px] text-zinc-400 block">{s.label}</span>
-                        <span className="text-xs font-mono font-medium text-white">{s.value}</span>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </div>

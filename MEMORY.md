@@ -51,6 +51,14 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
+### [2026-09-25 23:28] - Penataan Garis Timeline di Tengah Body Alur & Pembersihan Elemen Redundan Pilar Desain
+* **Tipe**: UI / Layout / Refactor
+* **File Terkait**: `apps/web/src/components/WorkflowSection.tsx`, `apps/web/src/components/PillarsSection.tsx`
+* **Detail**:
+  - Memindahkan garis alur kontinu dan badge `Tahap 01`, `Tahap 02`, `Tahap 03`, `Tahap 04` tepat ke tengah-tengah body kartu langkah kerja (bukan di atas kartu) dengan garis horizontal yang menembus kartu secara mulus dari ujung ke ujung.
+  - Menghapus tab tombol format navigasi yang menjelaskan format kartu (`A Feed (1:1)`, `K Story (9:16)`, dll) pada pilar desain agar tampilan fanned cards tetap bersih dan fokus.
+  - Menghapus teks indikator kartu (`Kartu 03 / 05 : Klik kartu mana saja...`), badge `Slot Gambar Siap Dipasang`, serta grid metrik statistik (`Waktu 24 Jam`, `Kualitas Hi-Res`, `Hak Cipta Milik Anda`) dari showcase pilar desain sesuai arahan pengguna.
+
 ### [2026-09-25 23:25] - Garis Timeline Penegas Alur End-to-End di WorkflowSection & Pembersihan Badge Hero
 * **Tipe**: UI / Feature / Layout
 * **File Terkait**: `apps/web/src/components/WorkflowSection.tsx`, `apps/web/src/components/HeroSection.tsx`
