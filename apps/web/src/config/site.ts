@@ -54,12 +54,12 @@ export const siteConfig = {
     whatsapp: "+62 812-3456-7890",
     email: "halo@automatric.com",
     address: "Jakarta, Indonesia",
-    hours: "24 Jam Nonstop (Respon < 1 Detik)",
+    hours: "24 Jam Nonstop",
   },
 
   heroMetrics: [
-    { value: "< 1 Detik", label: "Waktu Respon Balasan Bot" },
-    { value: "< 24 Jam", label: "Waktu Pembuatan Desain" },
+    { value: "1 Detik", label: "Waktu Respon Balasan Bot" },
+    { value: "24 Jam", label: "Waktu Pembuatan Desain" },
     { value: "3 - 7 Hari", label: "Waktu Pengerjaan Sprint" },
     { value: "Sekali Bayar", label: "Tanpa Biaya Langganan" },
   ],
@@ -84,10 +84,10 @@ export const siteConfig = {
       id: "creative-speed",
       title: "Pembuatan Desain Promosi Kilat",
       subtitle: "Materi Visual Siap Tayang dalam Waktu Kurang dari 24 Jam",
-      badge: "Pengerjaan < 24 Jam",
+      badge: "Pengerjaan 24 Jam",
       description:
         "Dapatkan materi promosi visual tanpa perlu menunggu antrean berminggu-minggu. Kami memproduksi materi banner iklan, konten feed, story Instagram, dan video promosi pendek siap pasang yang disesuaikan dengan identitas brand Anda.",
-      metrics: "Turnaround materi promosi di bawah 24 jam",
+      metrics: "Turnaround materi promosi dalam 24 jam",
       highlights: [
         "Banner materi iklan siap pasang untuk Meta Ads dan TikTok Ads",
         "Format materi visual feed 1:1, story 9:16, dan banner landscape",
@@ -116,7 +116,7 @@ export const siteConfig = {
     {
       step: "01",
       day: "Hari ke-1",
-      title: "Konsultasi Alur dan Produk",
+      title: "Diskusi Alur dan Produk",
       description:
         "Kami mendiskusikan daftar produk utama Anda, jam buka toko, daftar pertanyaan yang sering diajukan pembeli, dan nomor WhatsApp yang akan digunakan.",
     },

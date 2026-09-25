@@ -5,27 +5,48 @@ import {
   Palette,
   BarChart2,
   Check,
+  ChevronLeft,
+  ChevronRight,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { siteConfig } from '../config/site';
-import { trackEvent } from '../telemetry/tracker';
 import { ScrollReveal } from './ScrollReveal';
 
 export const PillarsSection: React.FC = () => {
   const [activeChatScenario, setActiveChatScenario] = useState<'catalog' | 'order' | 'followup'>('catalog');
-  const [activeCreativeFormat, setActiveCreativeFormat] = useState<'feed' | 'story' | 'banner'>('feed');
+  const [activeDesignSlide, setActiveDesignSlide] = useState(0);
   const [adsTimeframe, setAdsTimeframe] = useState<'30d' | '60d'>('30d');
 
   const p1 = siteConfig.pillars[0];
   const p2 = siteConfig.pillars[1];
   const p3 = siteConfig.pillars[2];
 
-  const handlePillarWaClick = (pillarId: string) => {
-    trackEvent('whatsapp_redirect', {
-      source: 'pillar_cta',
-      destination: `https://wa.me/${siteConfig.whatsappNumber}`,
-      planId: pillarId,
-    });
-  };
+  const designCards = [
+    {
+      id: 'feed',
+      format: '1:1 Persegi',
+      badge: 'Feed Instagram (1:1)',
+      title: 'Materi Promosi Feed & Katalog',
+      desc: 'Desain feed produk presisi tinggi dengan tipografi jelas, kontras tegas, dan siap upload.',
+      tag: 'Resolusi 1080 x 1080 px',
+    },
+    {
+      id: 'story',
+      format: '9:16 Vertikal',
+      badge: 'Story & Status (9:16)',
+      title: 'Materi Flash Sale & Promo',
+      desc: 'Visual vertikal dinamis untuk penawaran kilat di Instagram Story, TikTok, dan WhatsApp Status.',
+      tag: 'Resolusi 1080 x 1920 px',
+    },
+    {
+      id: 'banner',
+      format: '16:9 Landscape',
+      badge: 'Banner Iklan (16:9)',
+      title: 'Banner Iklan & Website Ads',
+      desc: 'Materi display iklan digital berkinerja tinggi untuk kampanye berbayar di Meta Ads dan Google.',
+      tag: 'Resolusi 1920 x 1080 px',
+    },
+  ];
 
   const chatDialogues = {
     catalog: [
@@ -50,8 +71,10 @@ export const PillarsSection: React.FC = () => {
   };
 
   const tabBtn = (active: boolean) =>
-    `text-[11px] px-3 py-1.5 rounded-lg font-medium transition-all cursor-pointer min-h-[36px] ${
-      active ? 'bg-white text-black' : 'text-zinc-500 hover:text-white'
+    `text-[11px] px-3.5 py-1.5 rounded-lg font-medium transition-all cursor-pointer min-h-[36px] ${
+      active
+        ? 'bg-white text-black font-semibold shadow-sm'
+        : 'text-zinc-300 hover:text-white hover:bg-white/[0.08]'
     }`;
 
   return (
@@ -67,7 +90,7 @@ export const PillarsSection: React.FC = () => {
 
         {/* Section Header */}
         <ScrollReveal className="text-center mb-12 sm:mb-14">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-mono mb-3">Layanan</p>
+          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-mono mb-3">Layanan</p>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             Tiga pilar untuk bisnis Anda.
           </h2>
@@ -87,70 +110,70 @@ export const PillarsSection: React.FC = () => {
                   <span>{p1.badge}</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{p1.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{p1.description}</p>
+                <p className="text-sm text-zinc-400 leading-relaxed">{p1.description}</p>
 
                 <ul className="space-y-2 pt-2">
                   {p1.highlights.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs text-zinc-400">
-                      <Check className="w-3.5 h-3.5 text-zinc-600 shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-zinc-300">
+                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Halo Automatric! Saya tertarik Otomasi WhatsApp.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handlePillarWaClick(p1.id)}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 hover:text-white transition-colors pt-1"
-                >
-                  <span>Konsultasi WhatsApp</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
               </div>
 
               {/* Right: Chat Simulator */}
               <div className="lg:col-span-7">
                 <div className="glass-card rounded-xl overflow-hidden">
                   {/* Chat Header */}
-                  <div className="glass-strong px-4 py-3 flex items-center justify-between">
+                  <div className="glass-strong px-4 py-3 flex items-center justify-between border-b border-white/[0.08]">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold text-white font-mono">AT</div>
+                      <div className="w-8 h-8 rounded-full bg-white/15 border border-white/20 flex items-center justify-center text-xs font-bold text-white font-mono">
+                        AT
+                      </div>
                       <div>
                         <span className="text-xs font-bold text-white block">Bot WhatsApp Toko</span>
-                        <span className="text-[10px] text-zinc-500">Online 24 Jam</span>
+                        <span className="text-[10px] text-emerald-400 font-medium flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+                          Online 24 Jam
+                        </span>
                       </div>
                     </div>
-                    <span className="text-[9px] font-mono px-2 py-0.5 rounded glass text-zinc-500">SIMULASI</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 border border-white/15 text-zinc-300">
+                      SIMULASI
+                    </span>
                   </div>
 
                   {/* Scenario Tabs */}
-                  <div className="px-3 py-2 flex items-center gap-1.5 border-b border-white/[0.06] bg-black/20">
+                  <div className="px-3 py-2 flex items-center gap-1.5 border-b border-white/[0.08] bg-black/40">
                     <button type="button" onClick={() => setActiveChatScenario('catalog')} className={tabBtn(activeChatScenario === 'catalog')}>Cek Stok</button>
                     <button type="button" onClick={() => setActiveChatScenario('order')} className={tabBtn(activeChatScenario === 'order')}>Rekap Pesanan</button>
                     <button type="button" onClick={() => setActiveChatScenario('followup')} className={tabBtn(activeChatScenario === 'followup')}>Pengingat</button>
                   </div>
 
                   {/* Messages */}
-                  <div className="p-4 space-y-2.5 min-h-[260px] max-h-[300px] overflow-y-auto bg-black/10">
+                  <div className="p-4 space-y-3 min-h-[260px] max-h-[300px] overflow-y-auto bg-black/30">
                     {chatDialogues[activeChatScenario].map((msg, idx) => (
                       <div key={idx} className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}>
-                        <div className={`max-w-[80%] rounded-xl px-3 py-2 text-xs leading-relaxed ${
+                        <div className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs leading-relaxed ${
                           msg.sender === 'user'
-                            ? 'glass-strong text-zinc-200'
-                            : 'glass text-zinc-300'
+                            ? 'bg-white/15 border border-white/20 text-white shadow-sm'
+                            : 'bg-zinc-900/90 border border-white/15 text-zinc-100 shadow-sm'
                         }`}>
                           <p className="whitespace-pre-line">{msg.text}</p>
-                          <span className="text-[10px] text-zinc-600 block text-right mt-0.5">{msg.time}</span>
+                          <span className={`text-[10px] block text-right mt-1 font-mono ${
+                            msg.sender === 'user' ? 'text-zinc-300' : 'text-zinc-400'
+                          }`}>
+                            {msg.time}
+                          </span>
                         </div>
                       </div>
                     ))}
                   </div>
 
                   {/* Input bar */}
-                  <div className="glass-strong px-4 py-2.5 flex items-center justify-between text-zinc-600 text-xs">
-                    <span>Ketik pesan...</span>
+                  <div className="glass-strong px-4 py-2.5 flex items-center justify-between border-t border-white/[0.08] text-xs">
+                    <span className="text-zinc-400 font-normal">Ketik pesan...</span>
                     <div className="w-6 h-6 rounded-lg bg-white text-black flex items-center justify-center">
                       <ArrowUpRight className="w-3 h-3" />
                     </div>
@@ -166,43 +189,120 @@ export const PillarsSection: React.FC = () => {
           <div className="glass-card rounded-2xl p-6 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
-              {/* Left: Design Showcase */}
+              {/* Left: Design Showcase - Sliding Cards dengan Glass Background */}
               <div className="lg:col-span-7 order-2 lg:order-1">
-                <div className="glass-card rounded-xl p-5 space-y-4">
-                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
-                    <span className="text-xs font-bold text-white">Alur Pembuatan Materi</span>
-                    <span className="text-[10px] font-mono text-zinc-500 glass px-2 py-0.5 rounded">&lt; 24 Jam</span>
+                <div className="glass-card rounded-xl p-5 sm:p-6 space-y-4">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                    <div>
+                      <span className="text-xs font-bold text-white block">Pembuatan Desain Cepat & Terjangkau</span>
+                      <span className="text-[10px] text-zinc-400">Pilih format untuk melihat template kartu desain</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-zinc-300 glass px-2.5 py-1 rounded">24 Jam</span>
                   </div>
 
-                  {/* Format Tabs */}
-                  <div className="flex items-center gap-1.5">
-                    <button type="button" onClick={() => setActiveCreativeFormat('feed')} className={tabBtn(activeCreativeFormat === 'feed')}>Feed (1:1)</button>
-                    <button type="button" onClick={() => setActiveCreativeFormat('story')} className={tabBtn(activeCreativeFormat === 'story')}>Story (9:16)</button>
-                    <button type="button" onClick={() => setActiveCreativeFormat('banner')} className={tabBtn(activeCreativeFormat === 'banner')}>Banner (16:9)</button>
+                  {/* Format Navigation Tabs */}
+                  <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
+                    {designCards.map((card, i) => (
+                      <button
+                        key={card.id}
+                        type="button"
+                        onClick={() => setActiveDesignSlide(i)}
+                        className={`text-[11px] px-3.5 py-1.5 rounded-lg font-medium transition-all cursor-pointer whitespace-nowrap min-h-[32px] ${
+                          activeDesignSlide === i
+                            ? 'bg-white text-black font-semibold shadow-sm'
+                            : 'text-zinc-300 hover:text-white hover:bg-white/[0.08]'
+                        }`}
+                      >
+                        {card.badge}
+                      </button>
+                    ))}
                   </div>
 
-                  {/* Preview */}
-                  <div className="rounded-xl glass p-5 text-center">
-                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">Materi #{activeCreativeFormat === 'feed' ? 'CRT-204' : activeCreativeFormat === 'story' ? 'CRT-205' : 'CRT-206'}</span>
-                    <h4 className="text-base font-bold text-white mt-2">PROMO SPESIAL PRODUK</h4>
-                    <p className="text-xs text-zinc-500 mt-1 max-w-xs mx-auto">
-                      Visual promosi {activeCreativeFormat === 'feed' ? 'feed 1:1' : activeCreativeFormat === 'story' ? 'story 9:16' : 'banner 16:9'} siap tayang.
-                    </p>
-                    <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono glass text-white/60">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                      SIAP PASANG
+                  {/* Sliding Glass Card Showcase Container */}
+                  <div className="relative overflow-hidden rounded-2xl bg-black/40 border border-white/[0.08] p-4 sm:p-6 min-h-[320px] flex flex-col justify-between">
+                    {/* Active Card Glass Frame */}
+                    <div className="w-full relative rounded-xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/[0.14] p-6 sm:p-7 flex flex-col items-center justify-center text-center shadow-lg backdrop-blur-md transition-all duration-300">
+                      {/* Subtle Grid Texture */}
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:18px_18px] opacity-70 pointer-events-none" />
+
+                      {/* Card Content Ready for Image */}
+                      <div className="relative z-10 w-full space-y-3.5">
+                        <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto text-white shadow-inner">
+                          <ImageIcon className="w-7 h-7 text-zinc-200" />
+                        </div>
+
+                        <div>
+                          <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 block font-medium">
+                            {designCards[activeDesignSlide].tag}
+                          </span>
+                          <h4 className="text-base sm:text-lg font-bold text-white mt-1">
+                            {designCards[activeDesignSlide].title}
+                          </h4>
+                          <p className="text-xs text-zinc-300 mt-1 max-w-sm mx-auto leading-relaxed">
+                            {designCards[activeDesignSlide].desc}
+                          </p>
+                        </div>
+
+                        <div className="pt-2 flex flex-wrap items-center justify-center gap-2">
+                          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white/10 border border-white/15 text-zinc-200">
+                            Slot Foto Desain Siap Pasang
+                          </span>
+                          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                            Selesai 24 Jam
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card Slide Controls */}
+                    <div className="pt-4 flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        {designCards.map((_, i) => (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => setActiveDesignSlide(i)}
+                            className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                              activeDesignSlide === i ? 'w-6 bg-white' : 'w-2 bg-white/20 hover:bg-white/40'
+                            }`}
+                            aria-label={`Lihat kartu ${i + 1}`}
+                          />
+                        ))}
+                        <span className="text-[10px] font-mono text-zinc-400 ml-2">
+                          0{activeDesignSlide + 1} / 0{designCards.length}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setActiveDesignSlide((prev) => (prev - 1 + designCards.length) % designCards.length)}
+                          className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
+                          aria-label="Kartu sebelumnya"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setActiveDesignSlide((prev) => (prev + 1) % designCards.length)}
+                          className="w-8 h-8 rounded-lg glass flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/15 transition-all cursor-pointer"
+                          aria-label="Kartu berikutnya"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
                     </div>
                   </div>
 
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-2">
                     {[
-                      { label: 'Waktu', value: '< 24 Jam' },
+                      { label: 'Waktu', value: '24 Jam' },
                       { label: 'Kualitas', value: 'Hi-Res' },
                       { label: 'Hak Cipta', value: 'Milik Anda' },
                     ].map((s, i) => (
                       <div key={i} className="glass rounded-lg p-2.5 text-center">
-                        <span className="text-[10px] text-zinc-600 block">{s.label}</span>
+                        <span className="text-[10px] text-zinc-400 block">{s.label}</span>
                         <span className="text-xs font-mono font-medium text-white">{s.value}</span>
                       </div>
                     ))}
@@ -217,27 +317,16 @@ export const PillarsSection: React.FC = () => {
                   <span>{p2.badge}</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{p2.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{p2.description}</p>
+                <p className="text-sm text-zinc-400 leading-relaxed">{p2.description}</p>
 
                 <ul className="space-y-2 pt-2">
                   {p2.highlights.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs text-zinc-400">
-                      <Check className="w-3.5 h-3.5 text-zinc-600 shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-zinc-300">
+                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Halo Automatric! Saya butuh Desain Promosi Kilat.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handlePillarWaClick(p2.id)}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 hover:text-white transition-colors pt-1"
-                >
-                  <span>Pesan Desain Kilat</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
               </div>
             </div>
           </div>
@@ -255,27 +344,16 @@ export const PillarsSection: React.FC = () => {
                   <span>{p3.badge}</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{p3.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{p3.description}</p>
+                <p className="text-sm text-zinc-400 leading-relaxed">{p3.description}</p>
 
                 <ul className="space-y-2 pt-2">
                   {p3.highlights.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs text-zinc-400">
-                      <Check className="w-3.5 h-3.5 text-zinc-600 shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-zinc-300">
+                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Halo Automatric! Saya ingin Setup Iklan Digital.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handlePillarWaClick(p3.id)}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 hover:text-white transition-colors pt-1"
-                >
-                  <span>Konsultasi Setup Iklan</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
               </div>
 
               {/* Right: Ads Dashboard */}
@@ -284,39 +362,39 @@ export const PillarsSection: React.FC = () => {
                   <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
                     <div>
                       <span className="text-xs font-bold text-white block">Laporan Hasil Iklan</span>
-                      <span className="text-[10px] font-mono text-zinc-600">[Simulasi Retail]</span>
+                      <span className="text-[10px] font-mono text-zinc-400">[Simulasi Retail]</span>
                     </div>
                     <div className="flex items-center gap-1 glass p-0.5 rounded text-[10px]">
-                      <button type="button" onClick={() => setAdsTimeframe('30d')} className={`px-2.5 py-1 rounded cursor-pointer font-mono min-h-[28px] ${adsTimeframe === '30d' ? 'bg-white text-black font-medium' : 'text-zinc-500'}`}>30H</button>
-                      <button type="button" onClick={() => setAdsTimeframe('60d')} className={`px-2.5 py-1 rounded cursor-pointer font-mono min-h-[28px] ${adsTimeframe === '60d' ? 'bg-white text-black font-medium' : 'text-zinc-500'}`}>60H</button>
+                      <button type="button" onClick={() => setAdsTimeframe('30d')} className={`px-2.5 py-1 rounded cursor-pointer font-mono min-h-[28px] ${adsTimeframe === '30d' ? 'bg-white text-black font-semibold' : 'text-zinc-300 hover:text-white'}`}>30H</button>
+                      <button type="button" onClick={() => setAdsTimeframe('60d')} className={`px-2.5 py-1 rounded cursor-pointer font-mono min-h-[28px] ${adsTimeframe === '60d' ? 'bg-white text-black font-semibold' : 'text-zinc-300 hover:text-white'}`}>60H</button>
                     </div>
                   </div>
 
                   {/* ROAS */}
                   <div className="glass rounded-xl p-4">
-                    <span className="text-xs text-zinc-500 block mb-1">Target ROAS</span>
+                    <span className="text-xs text-zinc-400 block mb-1">Target ROAS</span>
                     <div className="flex items-baseline gap-3">
                       <span className="text-3xl font-bold font-mono text-white">{adsTimeframe === '30d' ? '4.20x' : '4.85x'}</span>
-                      <span className="text-xs text-zinc-500">Rp 1jt iklan = Rp {adsTimeframe === '30d' ? '4.2' : '4.85'}jt omset</span>
+                      <span className="text-xs text-zinc-300">Rp 1jt iklan = Rp {adsTimeframe === '30d' ? '4.2' : '4.85'}jt omset</span>
                     </div>
                   </div>
 
                   {/* Stats grid */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="glass rounded-lg p-3">
-                      <span className="text-[10px] text-zinc-600 block font-mono">Penjualan</span>
+                      <span className="text-[10px] text-zinc-400 block font-mono">Penjualan</span>
                       <span className="text-sm font-bold font-mono text-white block mt-0.5">{adsTimeframe === '30d' ? 'Rp 142.8Jt' : 'Rp 291.6Jt'}</span>
-                      <span className="text-[10px] text-zinc-600">Modal: {adsTimeframe === '30d' ? '34Jt' : '60Jt'}</span>
+                      <span className="text-[10px] text-zinc-400">Modal: {adsTimeframe === '30d' ? '34Jt' : '60Jt'}</span>
                     </div>
                     <div className="glass rounded-lg p-3">
-                      <span className="text-[10px] text-zinc-600 block font-mono">Biaya/Pesanan</span>
+                      <span className="text-[10px] text-zinc-400 block font-mono">Biaya/Pesanan</span>
                       <span className="text-sm font-bold font-mono text-white block mt-0.5">Rp {adsTimeframe === '30d' ? '24.500' : '22.100'}</span>
-                      <span className="text-[10px] text-zinc-600">Total: {adsTimeframe === '30d' ? '1.380' : '2.714'} order</span>
+                      <span className="text-[10px] text-zinc-400">Total: {adsTimeframe === '30d' ? '1.380' : '2.714'} order</span>
                     </div>
                   </div>
 
-                  <div className="glass rounded-lg p-3 text-[11px] text-zinc-500">
-                    <strong className="text-white/80">Target Audiens Relevan:</strong> Anggaran dialokasikan pada produk dan wilayah dengan pembelian berulang tertinggi.
+                  <div className="glass rounded-lg p-3 text-[11px] text-zinc-300">
+                    <strong className="text-white">Target Audiens Relevan:</strong> Anggaran dialokasikan pada produk dan wilayah dengan pembelian berulang tertinggi.
                   </div>
                 </div>
               </div>

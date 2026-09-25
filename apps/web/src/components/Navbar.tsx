@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowUpRight, Layers, MessageCircle } from 'lucide-react';
+import { Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
 
@@ -13,13 +13,22 @@ export const Navbar: React.FC = () => {
     });
   };
 
-  const handleNavLinkClick = (name: string) => {
+  const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, name: string, href: string) => {
     trackEvent('section_viewed', { section: name.toLowerCase() });
     setMobileMenuOpen(false);
+
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   const defaultWaMessage = encodeURIComponent(
-    "Halo Automatric! Saya ingin konsultasi sistem bot WhatsApp dan materi promosi untuk bisnis saya."
+    "Halo Automatric! Saya ingin info sistem bot WhatsApp dan materi promosi untuk bisnis saya."
   );
 
   return (
@@ -28,8 +37,12 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Brand Logo */}
           <a href="#" className="flex items-center gap-2.5 text-base sm:text-lg font-bold tracking-tight text-white group">
-            <div className="w-8 h-8 rounded-xl bg-white/[0.08] border border-white/[0.14] flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all">
-              <Layers className="w-4 h-4 transition-colors" />
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-black border border-white/[0.14] flex items-center justify-center overflow-hidden p-1 group-hover:border-white/40 transition-all">
+              <img
+                src={`${import.meta.env.BASE_URL}putih pada logo.jpg`}
+                alt={siteConfig.name}
+                className="w-full h-full object-contain"
+              />
             </div>
             <span>{siteConfig.name}</span>
           </a>
@@ -40,7 +53,7 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => handleNavLinkClick(link.name)}
+                onClick={(e) => handleNavLinkClick(e, link.name, link.href)}
                 className="text-[11px] uppercase tracking-[0.15em] text-zinc-400 hover:text-white transition-colors duration-200"
               >
                 {link.name}
@@ -58,7 +71,7 @@ export const Navbar: React.FC = () => {
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-black bg-white hover:bg-zinc-200 transition-colors shadow-sm cursor-pointer"
             >
               <MessageCircle className="w-3.5 h-3.5" />
-              <span>Konsultasi</span>
+              <span>WhatsApp</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
           </div>
@@ -96,7 +109,7 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => handleNavLinkClick(link.name)}
+                onClick={(e) => handleNavLinkClick(e, link.name, link.href)}
                 className="block px-3 py-2.5 rounded-lg text-sm text-zinc-300 hover:text-white hover:bg-white/[0.04] transition-colors"
               >
                 {link.name}
@@ -113,7 +126,7 @@ export const Navbar: React.FC = () => {
               className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-full text-xs font-semibold text-black bg-white hover:bg-zinc-200 transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>Hubungi via WhatsApp</span>
+              <span>WhatsApp</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>

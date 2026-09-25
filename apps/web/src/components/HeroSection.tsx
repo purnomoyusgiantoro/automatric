@@ -1,22 +1,13 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { siteConfig } from '../config/site';
 import { trackEvent } from '../telemetry/tracker';
 import { ScrollReveal } from './ScrollReveal';
 
 export const HeroSection: React.FC = () => {
-  const defaultWaMessage = encodeURIComponent(
-    'Halo Automatric! Saya ingin konsultasi.'
-  );
-
   const handlePricingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     trackEvent('section_viewed', { section: 'pricing', source: 'hero_primary_cta' });
     const el = document.getElementById('pricing');
     if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
-  };
-
-  const handleWhatsAppClick = () => {
-    trackEvent('whatsapp_redirect', { source: 'hero', destination: `https://wa.me/${siteConfig.whatsappNumber}` });
   };
 
   return (
@@ -32,11 +23,18 @@ export const HeroSection: React.FC = () => {
 
           {/* Left: Value Proposition */}
           <ScrollReveal className="lg:col-span-7 space-y-6">
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.05]">
-              WhatsApp. Desain. Iklan.
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-xs text-zinc-300 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Automatric : AI Growth Agency</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.08]">
+              Agensi Otomasi & Pertumbuhan Bisnis Anda.
               <br />
-              <span className="text-zinc-500">Selesai dalam 7 hari.</span>
+              <span className="text-zinc-400 text-3xl sm:text-5xl font-medium">WhatsApp, desain promosi, dan iklan selesai dalam 7 hari.</span>
             </h1>
+            <p className="text-sm sm:text-base text-zinc-400 max-w-xl leading-relaxed">
+              Layanan sprint sekali bayar untuk UMKM dan toko online: CS bot WhatsApp siaga 24 jam, materi promosi visual siap tayang 24 jam, dan setup kampanye iklan digital berkinerja tinggi.
+            </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-md pt-2">
               <a
@@ -46,15 +44,6 @@ export const HeroSection: React.FC = () => {
               >
                 <span>Lihat Paket</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${defaultWaMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleWhatsAppClick}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-medium text-zinc-400 glass hover:text-white transition-colors cursor-pointer"
-              >
-                <span>Konsultasi</span>
               </a>
             </div>
           </ScrollReveal>

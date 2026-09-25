@@ -43,10 +43,48 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 * [x] **Task 6 Selesai**: Production Build (`npm run build` 0 error), Telemetry Audit & Final Git Push.
 * [x] **Task 7 Selesai (Anti-Slop Audit & Refinement)**: Instalasi global plugin anti-slop, pembuatan `DESIGN.md` (dials ENERGY 2 / RHYTHM 2 / MOTION 2), penghapusan seluruh em dash (`—`), eliminasi link mati `#keunggulan`, penggantian generic AI icons dengan semantic icons (`Layers`, `Flame`, `ShieldCheck`), pembatasan glassmorphism dan multi-glow, transparent case-study labeling, dan pembuatan laporan `anti-slop/audit-001-2026-09-24.md`.
 * [x] **Task 8 Selesai (Anti-Slop Copywriting Rewrite)**: Penulisan ulang 100% teks di seluruh landing page (`src/config/site.ts`, `HeroSection.tsx`, `ComparisonSection.tsx`, `PillarsSection.tsx`, `WorkflowSection.tsx`, `PricingSection.tsx`, `FaqSection.tsx`, `Footer.tsx`, `Navbar.tsx`, `index.html`). Menghapus seluruh buzzword AI kosong, melarang formula negatif paralel (*bukan sekadar X tapi Y*), mengganti metrik fabrikasi dengan deliverable riil, menyelaraskan bahasa percakapan WhatsApp agar natural, dan memverifikasi 0 em dash.
+* [x] **Asset Logo Resmi & Integrasi UI**: Menyinkronkan file logo JPG/JPEG (`hitam pada logo.jpeg`, `putih pada logo.jpg`) dan memasangnya langsung ke komponen Navbar, Footer, serta Favicon (`apps/web/index.html`).
+* [x] **Informasi Kontak & Navigasi Footer**: Menambahkan bagian informasi kontak terstruktur (WhatsApp, Email, Waktu Layanan, Lokasi) di footer dan menghubungkan tautan navigasi Kontak di Navbar agar langsung melakukan smooth scroll ke Footer.
+* [x] **Showcase Desain Cepat & Terjangkau (Sliding Glass Cards)**: Mengubah showcase desain promosi di Pilar 2 menjadi kartu geser interaktif berlatar glassmorphism siap pakai untuk foto desain pengguna, menghapus kartu WhatsApp duplikat di footer, mempertegas headline hero identity perusahaan, dan meningkatkan kontras seluruh teks chat simulator.
 
 ---
 
 ## 4. Change Log / Riwayat Perubahan
+
+### [2026-09-25 23:10] - Showcase Desain Sliding Glass Cards, Refactor Headline Hero, & Pembersihan Duplikasi Footer
+* **Tipe**: UI / Feature / Copywriting
+* **File Terkait**: `apps/web/src/components/PillarsSection.tsx`, `apps/web/src/components/HeroSection.tsx`, `apps/web/src/components/Footer.tsx`, `apps/web/src/config/site.ts`
+* **Detail**:
+  - Mengubah showcase desain pilar 2 menjadi sliding glass card container (Feed 1:1, Story 9:16, Banner 16:9) dengan tombol navigasi geser kartu dan slot gambar siap pasang.
+  - Memperbarui headline HeroSection agar mencerminkan identitas Automatric sebagai AI Growth Agency dan penawaran sprint 7 hari dengan jelas dan profesional.
+  - Menghapus kartu WhatsApp duplikat di bawah Informasi Kontak pada Footer agar tombol WhatsApp terpusat tunggal.
+  - Menghapus simbol '<' pada metrik dan badge pilar agar penulisan lebih elegan.
+  - Meningkatkan kontras warna teks pada Chat Simulator WhatsApp dan tabel metrik iklan agar lolos standar WCAG AA.
+
+### [2026-09-25 23:04] - Penyempurnaan Bottom Bar Footer & Copyright Bersih
+* **Tipe**: UI / Copywriting
+* **File Terkait**: `apps/web/src/components/Footer.tsx`
+* **Detail**: Menghapus badge status 'Sistem Otomasi Aktif' dari footer, merapikan kalimat hak cipta menjadi format standar industri yang ringkas dan profesional ('Automatric. All rights reserved.'), serta menengahkan posisinya di bagian paling bawah halaman.
+
+### [2026-09-25 23:02] - Konsolidasi Tombol WhatsApp di Navbar & Footer dan Pembersihan Tombol Konsultasi
+* **Tipe**: Copywriting / UI Refactor
+* **File Terkait**: `apps/web/src/components/Navbar.tsx`, `apps/web/src/components/Footer.tsx`, `apps/web/src/components/HeroSection.tsx`, `apps/web/src/components/PillarsSection.tsx`, `apps/web/src/config/site.ts`
+* **Detail**: Mengubah label tombol di Navbar dan Footer menjadi 'WhatsApp' (menggantikan 'Konsultasi'), menghapus tombol konsultasi sekunder di HeroSection dan PillarsSection sehingga tombol tindakan WhatsApp terfokus secara eksklusif di Navbar dan Footer, serta mengganti kata konsultasi pada tahapan alur kerja menjadi diskusi.
+
+### [2026-09-25 22:55] - Implementasi Informasi Kontak di Footer & Navigasi Scroll Kontak Navbar
+* **Tipe**: Fitur / UI
+* **File Terkait**: `apps/web/src/components/Footer.tsx`, `apps/web/src/components/Navbar.tsx`
+* **Detail**: Menambahkan kartu informasi kontak terstruktur di Footer (WhatsApp langsung, email resmi, waktu layanan 24 jam bot, dan lokasi) dengan gaya matte solid surface berstandar anti-slop, serta memperbarui handler navigasi di Navbar agar klik menu Kontak langsung melakukan smooth scroll ke `#kontak` di Footer.
+
+### [2026-09-25 22:52] - Pemasangan Logo Resmi ke Web & Peluncuran Server Lokal
+* **Tipe**: Desain / UI / Asset
+* **File Terkait**: `apps/web/src/components/Navbar.tsx`, `apps/web/src/components/Footer.tsx`, `apps/web/index.html`, `apps/web/src/vite-env.d.ts`
+* **Detail**: Memasang logo resmi varian gelap (`putih pada logo.jpg`) ke header Navbar dan Footer dengan bingkai rapi dan rasio pas, menambahkan file deklarasi tipe `vite-env.d.ts`, membuat aset favicon (`favicon.ico`, `favicon-64.png`, `favicon-192.png`), dan menjalankan server pengembangan lokal di `http://localhost:5173/`.
+
+### [2026-09-25 22:44] - Sinkronisasi Asset Logo JPG/JPEG Resmi dari User
+* **Tipe**: Asset / Desain
+* **File Terkait**: `public/hitam pada logo.jpeg`, `public/putih pada logo.jpg`, `apps/web/public/*`
+* **Detail**: Menyinkronkan logo baru berformat gambar dari user (hitam pada logo.jpeg untuk versi light background, dan putih pada logo.jpg untuk versi dark background) ke dalam `apps/web/public/` serta menyediakan alias nama bersih (`logo-light.jpeg` dan `logo-dark.jpg`) agar mudah digunakan di komponen web.
 
 ### [2026-09-24 22:25] - Perbaikan Temuan Audit Anti-Slop (Pricing, Telemetri, & Dokumentasi)
 * **Tipe**: Bugfix & Dokumentasi (Anti-Slop Hard Gate)
