@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-zinc-400 max-w-sm leading-relaxed">
-              Otomasi WhatsApp 24 jam nonstop, produksi materi promosi visual kilat siap tayang, dan setup iklan digital terarah untuk UMKM dan bisnis online.
+              Otomasi WhatsApp 24 jam nonstop, produksi materi promosi visual kilat siap tayang, dan pembuatan website modern responsif untuk UMKM dan bisnis online.
             </p>
           </div>
 

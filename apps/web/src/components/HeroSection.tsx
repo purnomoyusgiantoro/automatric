@@ -27,7 +27,7 @@ export const HeroSection: React.FC = () => {
               Agensi Otomasi & Pertumbuhan Bisnis Anda.
             </h1>
             <p className="text-sm sm:text-base text-zinc-400 max-w-xl leading-relaxed">
-              Layanan sprint sekali bayar untuk UMKM dan toko online: CS bot WhatsApp siaga 24 jam, materi promosi visual siap tayang 24 jam, dan setup kampanye iklan digital berkinerja tinggi.
+              Layanan sprint sekali bayar untuk UMKM dan toko online: CS bot WhatsApp siaga 24 jam, materi promosi visual siap tayang 24 jam, dan pembuatan website modern yang responsif.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-md pt-2">

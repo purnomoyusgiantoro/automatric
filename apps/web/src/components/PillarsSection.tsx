@@ -3,7 +3,7 @@ import {
   ArrowUpRight,
   MessageCircle,
   Palette,
-  BarChart2,
+  Globe,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -39,7 +39,7 @@ const designShowcaseCards: DesignShowcaseCard[] = [
     dimensions: '1080 x 1080 px',
     title: 'Katalog Produk & Feed Instagram',
     desc: 'Desain feed produk beresolusi tinggi dengan tipografi elegan dan komposisi visual siap upload.',
-    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-feed.jpg'
+    image: `${import.meta.env.BASE_URL}11.webp`,
     theme: 'fashion',
   },
   {
@@ -50,7 +50,7 @@ const designShowcaseCards: DesignShowcaseCard[] = [
     dimensions: '1080 x 1920 px',
     title: 'Flash Sale & Promo Story',
     desc: 'Format vertikal dinamis untuk penawaran kilat di Instagram Story, TikTok, dan WhatsApp Status.',
-    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-story.jpg'
+    image: `${import.meta.env.BASE_URL}916.webp`,
     theme: 'sale',
   },
   {
@@ -61,7 +61,7 @@ const designShowcaseCards: DesignShowcaseCard[] = [
     dimensions: '1920 x 1080 px',
     title: 'Banner Marketplace & Web Hero',
     desc: 'Visual header display berkualitas tajam untuk etalase Tokopedia, Shopee, dan promo berbayar.',
-    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-banner.jpg'
+    image: `${import.meta.env.BASE_URL}169.webp`,
     theme: 'skincare',
   },
   {
@@ -72,17 +72,79 @@ const designShowcaseCards: DesignShowcaseCard[] = [
     dimensions: '1080 x 1350 px',
     title: 'Poster Promosi F&B & Retail',
     desc: 'Proporsi portrait yang mendominasi timeline media sosial untuk engagement dan klik maksimal.',
-    image: '', // USER: Masukkan path gambar di sini, contoh: '/foto-poster.jpg'
+    image: `${import.meta.env.BASE_URL}45.webp`,
     theme: 'coffee',
   },
 ];
 
+const getCardDimensions = (ratio: string, isSelected: boolean): string => {
+  if (!isSelected) {
+    return 'w-[120px] h-[175px] sm:w-[145px] sm:h-[210px] opacity-75 hover:opacity-95';
+  }
+  switch (ratio) {
+    case '16:9':
+      return 'w-[280px] h-[195px] sm:w-[380px] sm:h-[250px] opacity-100';
+    case '9:16':
+      return 'w-[145px] h-[265px] sm:w-[170px] sm:h-[315px] opacity-100';
+    case '1:1':
+      return 'w-[195px] h-[235px] sm:w-[240px] sm:h-[280px] opacity-100';
+    case '4:5':
+    default:
+      return 'w-[180px] h-[245px] sm:w-[220px] sm:h-[295px] opacity-100';
+  }
+};
+
+// =========================================================================
+// PANDUAN PENGGUNA UNTUK MEMASUKKAN GAMBAR WEB DEVELOPMENT:
+// Letakkan tangkapan layar (screenshot) website Anda di folder `apps/web/public/`
+// (misal: apps/web/public/screenshot-landing.jpg) lalu isi path pada properti
+// `image` di bawah ini (misal: image: '/screenshot-landing.jpg').
+// Ukuran rekomendasi screenshot desktop: 1920 x 1080 px (16:9) atau 1440 x 900 px.
+// Jika belum ada gambar, sistem otomatis menampilkan template artwork interaktif.
+// =========================================================================
+interface WebDevShowcase {
+  id: 'landing' | 'webapp';
+  label: string;
+  badge: string;
+  url: string;
+  title: string;
+  desc: string;
+  dimensions: string;
+  image?: string;
+  features: string[];
+}
+
+const webDevShowcases: Record<'landing' | 'webapp', WebDevShowcase> = {
+  landing: {
+    id: 'landing',
+    label: 'Landing Page',
+    badge: 'High-Converting Sales',
+    url: 'brandkamu.com/penawaran-eksklusif',
+    title: 'Landing Page Fokus Penjualan & Konversi',
+    desc: 'Halaman penawaran presisi tanpa distraksi navigasi, dirancang khusus untuk memvalidasi penawaran produk dan melipatgandakan konversi pelanggan.',
+    dimensions: '1920 x 1080 px (16:9)',
+    image: `${import.meta.env.BASE_URL}web-landing.webp`,
+    features: ['Direct Conversion', 'Kecepatan Muat Sub-Detik', 'Copywriting Presisi AIDA', 'Mobile-First Responsive'],
+  },
+  webapp: {
+    id: 'webapp',
+    label: 'Web App',
+    badge: 'Custom Full-Stack System',
+    url: 'app.bisniskamu.com/dashboard',
+    title: 'Aplikasi Web & Dashboard Operasional',
+    desc: 'Platform digital interaktif untuk otomasi alur kerja, pengelolaan inventaris katalog dinamis, portal klien, dan integrasi API operasional bisnis Anda.',
+    dimensions: '1920 x 1080 px (16:9)',
+    image: `${import.meta.env.BASE_URL}web-app.webp`,
+    features: ['Manajemen Database Real-Time', 'Portal Pelanggan & Dashboard', 'Integrasi API & Webhook', 'Cloud Architecture Skalabel'],
+  },
+};
+
 export const PillarsSection: React.FC = () => {
   const [activeChatScenario, setActiveChatScenario] = useState<'catalog' | 'order' | 'followup'>('catalog');
   const [activeDesignSlide, setActiveDesignSlide] = useState(0);
-  const [adsTimeframe, setAdsTimeframe] = useState<'30d' | '60d'>('30d');
+  const [activeWebTab, setActiveWebTab] = useState<'landing' | 'webapp'>('landing');
 
-  const activeDesignCard = designShowcaseCards[activeDesignSlide] || designShowcaseCards[0];
+  const currentWeb = webDevShowcases[activeWebTab];
 
   const p1 = siteConfig.pillars[0];
   const p2 = siteConfig.pillars[1];
@@ -296,12 +358,12 @@ export const PillarsSection: React.FC = () => {
                   </div>
 
                   {/* Fanned Playing Cards Showcase Container */}
-                  <div className="relative overflow-hidden rounded-2xl bg-black/60 border border-white/[0.08] p-4 sm:p-6 min-h-[420px] flex flex-col justify-between">
+                  <div className="relative overflow-hidden rounded-2xl bg-black/60 border border-white/[0.08] p-4 sm:p-6 min-h-[360px] sm:min-h-[410px] flex items-center justify-center">
                     {/* Background glow behind the cards */}
-                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
                     {/* Fanned Cards Deck (Interactive Spread) */}
-                    <div className="relative w-full h-[260px] sm:h-[290px] flex items-center justify-center pt-3 select-none">
+                    <div className="relative w-full h-[290px] sm:h-[340px] flex items-center justify-center pt-2 select-none">
                       {designShowcaseCards.map((card, i) => {
                         const total = designShowcaseCards.length;
                         const center = (total - 1) / 2;
@@ -318,13 +380,16 @@ export const PillarsSection: React.FC = () => {
                             onClick={() => setActiveDesignSlide(i)}
                             style={{
                               transform: isSelected
-                                ? `translate3d(calc(${diff} * var(--spread, 52px)), -22px, 0) rotate(0deg) scale(1.08)`
-                                : `translate3d(calc(${diff} * var(--spread, 52px)), ${translateY}px, 0) rotate(${rotationDeg}deg) scale(1)`,
-                              zIndex: isSelected ? 30 : 10 + i,
+                                ? `translate3d(calc(${diff} * 10px), -14px, 0) rotate(0deg)`
+                                : `translate3d(calc(${diff} * var(--spread, 52px)), ${translateY}px, 0) rotate(${rotationDeg}deg)`,
+                              zIndex: isSelected ? 40 : 10 + i,
                             }}
-                            className={`[--spread:32px] xs:[--spread:40px] sm:[--spread:54px] absolute w-[130px] h-[190px] sm:w-[155px] sm:h-[230px] rounded-2xl bg-white text-zinc-900 border-2 transition-all duration-300 ease-out cursor-pointer overflow-hidden flex flex-col justify-between p-2 sm:p-2.5 ${
+                            className={`[--spread:34px] sm:[--spread:54px] absolute rounded-2xl bg-white text-zinc-900 border-2 transition-all duration-500 ease-out cursor-pointer overflow-hidden flex flex-col justify-between p-2 sm:p-2.5 ${getCardDimensions(
+                              card.ratio,
                               isSelected
-                                ? 'border-emerald-400 shadow-[0_22px_45px_rgba(0,0,0,0.85),0_0_25px_rgba(16,185,129,0.35)] ring-2 ring-emerald-400'
+                            )} ${
+                              isSelected
+                                ? 'border-emerald-400 shadow-[0_25px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(16,185,129,0.35)] ring-2 ring-emerald-400'
                                 : 'border-zinc-300 shadow-[0_12px_28px_rgba(0,0,0,0.65)] hover:border-zinc-400 hover:-translate-y-2'
                             }`}
                           >
@@ -339,12 +404,22 @@ export const PillarsSection: React.FC = () => {
                             </div>
 
                             {/* Card Center Artwork Slot (Where Image Goes!) */}
-                            <div className="relative w-full flex-1 my-1 sm:my-1.5 rounded-xl overflow-hidden bg-zinc-950 border border-zinc-900/20 shadow-inner flex flex-col justify-between p-2">
+                            <div
+                              className={`relative w-full flex-1 my-1 sm:my-1.5 rounded-xl overflow-hidden ${
+                                card.image
+                                  ? 'p-0 bg-transparent'
+                                  : 'bg-zinc-950 border border-zinc-900/20 shadow-inner flex items-center justify-center p-2 flex-col justify-between'
+                              }`}
+                            >
                               {card.image ? (
                                 <img
                                   src={card.image}
                                   alt={card.title}
-                                  className="w-full h-full object-cover rounded-lg"
+                                  loading="lazy"
+                                  decoding="async"
+                                  width={card.ratio === '16:9' ? 1600 : card.ratio === '9:16' ? 768 : 1080}
+                                  height={card.ratio === '16:9' ? 893 : card.ratio === '9:16' ? 1376 : 1080}
+                                  className="w-full h-full object-cover object-top rounded-xl transition-all duration-500"
                                 />
                               ) : (
                                 <div className="w-full h-full flex flex-col justify-between text-left relative z-10">
@@ -391,24 +466,7 @@ export const PillarsSection: React.FC = () => {
                       })}
                     </div>
 
-                    {/* Active Card Information (Clean Footer) */}
-                    <div className="pt-3 border-t border-white/[0.08] space-y-1.5">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-white font-mono px-2 py-0.5 rounded bg-white/10 border border-white/15">
-                          {activeDesignCard.stepNum}
-                        </span>
-                        <h4 className="text-xs sm:text-sm font-bold text-white leading-tight">
-                          {activeDesignCard.title}
-                        </h4>
-                        <span className="text-[10px] text-emerald-400 font-mono hidden sm:inline">
-                          • {activeDesignCard.ratio} ({activeDesignCard.dimensions})
-                        </span>
-                      </div>
 
-                      <p className="text-xs text-zinc-400 leading-relaxed">
-                        {activeDesignCard.desc}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -435,7 +493,7 @@ export const PillarsSection: React.FC = () => {
           </div>
           </ScrollReveal>
 
-          {/* ─── Pilar 3: Setup Iklan ─── */}
+          {/* ─── Pilar 3: Web Development ─── */}
           <ScrollReveal>
           <div className="glass-card rounded-2xl p-6 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -443,7 +501,7 @@ export const PillarsSection: React.FC = () => {
               {/* Left: Penjelasan */}
               <div className="lg:col-span-5 space-y-5">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg glass text-[11px] font-mono text-zinc-400">
-                  <BarChart2 className="w-3.5 h-3.5 text-white" />
+                  <Globe className="w-3.5 h-3.5 text-white" />
                   <span>{p3.badge}</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{p3.title}</h3>
@@ -459,45 +517,113 @@ export const PillarsSection: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Right: Ads Dashboard */}
+              {/* Right: Web Dev Interactive Showcase */}
               <div className="lg:col-span-7">
                 <div className="glass-card rounded-xl p-5 sm:p-6 space-y-4">
-                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  {/* Header bar */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.08] pb-3">
                     <div>
-                      <span className="text-xs font-bold text-white block">Laporan Hasil Iklan</span>
-                      <span className="text-[10px] font-mono text-zinc-400">[Simulasi Retail]</span>
+                      <span className="text-xs font-bold text-white block">Simulasi Tampilan Website</span>
+                      <span className="text-[10px] font-mono text-zinc-400">[Standar Kilat & Responsif]</span>
                     </div>
-                    <div className="flex items-center gap-1 glass p-0.5 rounded text-[10px]">
-                      <button type="button" onClick={() => setAdsTimeframe('30d')} className={`px-2.5 py-1 rounded cursor-pointer font-mono min-h-[28px] ${adsTimeframe === '30d' ? 'bg-white text-black font-semibold' : 'text-zinc-300 hover:text-white'}`}>30H</button>
-                      <button type="button" onClick={() => setAdsTimeframe('60d')} className={`px-2.5 py-1 rounded cursor-pointer font-mono min-h-[28px] ${adsTimeframe === '60d' ? 'bg-white text-black font-semibold' : 'text-zinc-300 hover:text-white'}`}>60H</button>
-                    </div>
-                  </div>
-
-                  {/* ROAS */}
-                  <div className="glass rounded-xl p-4">
-                    <span className="text-xs text-zinc-400 block mb-1">Target ROAS</span>
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-3xl font-bold font-mono text-white">{adsTimeframe === '30d' ? '4.20x' : '4.85x'}</span>
-                      <span className="text-xs text-zinc-300">Rp 1jt iklan = Rp {adsTimeframe === '30d' ? '4.2' : '4.85'}jt omset</span>
-                    </div>
-                  </div>
-
-                  {/* Stats grid */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="glass rounded-lg p-3">
-                      <span className="text-[10px] text-zinc-400 block font-mono">Penjualan</span>
-                      <span className="text-sm font-bold font-mono text-white block mt-0.5">{adsTimeframe === '30d' ? 'Rp 142.8Jt' : 'Rp 291.6Jt'}</span>
-                      <span className="text-[10px] text-zinc-400">Modal: {adsTimeframe === '30d' ? '34Jt' : '60Jt'}</span>
-                    </div>
-                    <div className="glass rounded-lg p-3">
-                      <span className="text-[10px] text-zinc-400 block font-mono">Biaya/Pesanan</span>
-                      <span className="text-sm font-bold font-mono text-white block mt-0.5">Rp {adsTimeframe === '30d' ? '24.500' : '22.100'}</span>
-                      <span className="text-[10px] text-zinc-400">Total: {adsTimeframe === '30d' ? '1.380' : '2.714'} order</span>
+                    {/* Mode Tabs */}
+                    <div className="flex items-center gap-1 glass p-0.5 rounded-lg text-[10px]">
+                      <button
+                        type="button"
+                        onClick={() => setActiveWebTab('landing')}
+                        className={`px-3.5 py-1.5 rounded-md cursor-pointer font-medium min-h-[32px] transition-all ${
+                          activeWebTab === 'landing'
+                            ? 'bg-white text-black font-semibold shadow-sm'
+                            : 'text-zinc-300 hover:text-white'
+                        }`}
+                      >
+                        Landing Page
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setActiveWebTab('webapp')}
+                        className={`px-3.5 py-1.5 rounded-md cursor-pointer font-medium min-h-[32px] transition-all ${
+                          activeWebTab === 'webapp'
+                            ? 'bg-white text-black font-semibold shadow-sm'
+                            : 'text-zinc-300 hover:text-white'
+                        }`}
+                      >
+                        Web App
+                      </button>
                     </div>
                   </div>
 
-                  <div className="glass rounded-lg p-3 text-[11px] text-zinc-300">
-                    <strong className="text-white">Target Audiens Relevan:</strong> Anggaran dialokasikan pada produk dan wilayah dengan pembelian berulang tertinggi.
+                  {/* Browser Mockup Window */}
+                  <div className="glass rounded-xl overflow-hidden border border-white/[0.08]">
+                    {/* Window Controls Header */}
+                    <div className="flex items-center px-3.5 py-2.5 border-b border-white/[0.08] bg-black/40">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                      </div>
+                    </div>
+
+                    {/* Screenshot Image or Template Preview */}
+                    {currentWeb.image ? (
+                      <div className="relative w-full aspect-[1547/752] overflow-hidden bg-zinc-950">
+                        <img
+                          key={currentWeb.id}
+                          src={currentWeb.image}
+                          alt={currentWeb.title}
+                          loading="lazy"
+                          decoding="async"
+                          width={1547}
+                          height={752}
+                          className="w-full h-full object-cover object-top transition-opacity duration-300"
+                        />
+                      </div>
+                    ) : (
+                      <div className="p-4 sm:p-5 bg-gradient-to-b from-black/50 to-black/30 space-y-3.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">
+                            {currentWeb.badge}
+                          </span>
+                          <span className="text-[10px] font-mono text-zinc-400 px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08]">
+                            {currentWeb.dimensions}
+                          </span>
+                        </div>
+
+                        <div>
+                          <h4 className="text-sm sm:text-base font-bold text-white leading-snug">
+                            {currentWeb.title}
+                          </h4>
+                          <p className="text-xs text-zinc-400 leading-relaxed mt-1">
+                            {currentWeb.desc}
+                          </p>
+                        </div>
+
+
+                        {/* Feature Pills */}
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {currentWeb.features.map((feature, idx) => (
+                            <span
+                              key={idx}
+                              className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-zinc-300"
+                            >
+                              ✓ {feature}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Image Slot Notification */}
+                        <div className="pt-2">
+                          <div className="py-2 px-3 rounded-lg bg-white/[0.03] border border-dashed border-white/20 text-center">
+                            <span className="text-[10px] font-mono text-zinc-400 flex items-center justify-center gap-1.5">
+                              <ImageIcon className="w-3 h-3 text-emerald-400 shrink-0" />
+                              Slot Foto Screenshot Siap Pasang ({currentWeb.dimensions})
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+
                   </div>
                 </div>
               </div>

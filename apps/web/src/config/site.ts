@@ -34,9 +34,9 @@ export interface FaqItem {
 
 export const siteConfig = {
   name: "Automatric",
-  tagline: "Otomasi WhatsApp & Desain Promosi Kilat",
+  tagline: "Otomasi WhatsApp, Desain Kilat, & Web Dev",
   description:
-    "Kami membantu toko online dan UMKM melayani pembeli otomatis di WhatsApp selama 24 jam nonstop, memproduksi materi promosi visual siap tayang dalam waktu kurang dari 24 jam, dan menyiapkan kampanye iklan digital terarah.",
+    "Kami membantu toko online dan UMKM melayani pembeli otomatis di WhatsApp selama 24 jam nonstop, memproduksi materi promosi visual siap tayang dalam waktu kurang dari 24 jam, dan membangun website bisnis yang cepat serta responsif.",
   // Ganti nomor WhatsApp tujuan di bawah ini (gunakan format kode negara tanpa '+', misal '628...')
   whatsappNumber: "6281234567890",
   githubRepo: "https://github.com/purnomoyusgiantoro/automatric",
@@ -89,25 +89,25 @@ export const siteConfig = {
         "Dapatkan materi promosi visual tanpa perlu menunggu antrean berminggu-minggu. Kami memproduksi materi banner iklan, konten feed, story Instagram, dan video promosi pendek siap pasang yang disesuaikan dengan identitas brand Anda.",
       metrics: "Turnaround materi promosi dalam 24 jam",
       highlights: [
-        "Banner materi iklan siap pasang untuk Meta Ads dan TikTok Ads",
+        "Banner materi visual untuk konten media sosial dan website",
         "Format materi visual feed 1:1, story 9:16, dan banner landscape",
         "Video promosi pendek untuk format Reels dan TikTok",
         "Penyelarasan warna, logo, dan gaya visual toko Anda",
       ],
     },
     {
-      id: "ai-ads",
-      title: "Setup Iklan Digital Terarah",
-      subtitle: "Riset Target Audiens dan Pengaturan Anggaran",
-      badge: "Meta Ads & TikTok Ads",
+      id: "web-dev",
+      title: "Pengembangan Landing Page & Web App",
+      subtitle: "Arsitektur Web Modern, Kilat, dan Terintegrasi",
+      badge: "Web Development",
       description:
-        "Kami membantu merancang dan mengatur kampanye iklan toko Anda di Meta Ads dan TikTok Ads: mulai dari riset segmen audiens yang relevan, penulisan kalimat promosi yang jelas, hingga pengaturan batas anggaran harian agar pengeluaran tetap terkontrol.",
-      metrics: "Laporan performa berkala yang mudah dipahami",
+        "Kami merancang landing page berkonversi tinggi dan aplikasi web kustom: antarmuka responsif ultra-cepat, navigasi presisi, serta integrasi langsung ke sistem WhatsApp untuk transaksi tanpa hambatan.",
+      metrics: "Website siap tayang dalam 3 - 5 hari kerja",
       highlights: [
-        "Riset minat audiens dan kata kunci pencarian yang relevan",
-        "Penulisan teks iklan yang langsung menjelaskan nilai produk",
-        "Pengaturan teknis kampanye iklan di Meta Ads dan TikTok Ads",
-        "Laporan ringkas mengenai biaya dan hasil perolehan pesanan",
+        "Landing page fokus konversi dengan arsitektur copywriting presisi",
+        "Aplikasi web kustom untuk manajemen katalog, portal, dan operasional",
+        "Performa muat kilat sub-detik dan optimal di semua ukuran layar ponsel",
+        "Integrasi langsung ke percakapan WhatsApp dan alur transaksi bisnis",
       ],
     },
   ] as ServicePillar[],
@@ -123,9 +123,9 @@ export const siteConfig = {
     {
       step: "02",
       day: "Hari ke 2 - 4",
-      title: "Pemasangan Bot dan Produksi Desain",
+      title: "Pemasangan Bot, Desain, dan Website",
       description:
-        "Kami memasukkan data produk ke dalam sistem bot, menghubungkan integrasi lembar kerja Google Sheets, dan membuat paket desain promosi yang dibutuhkan.",
+        "Kami memasukkan data produk ke sistem bot, merancang halaman website atau landing page yang dibutuhkan, dan memproduksi paket desain promosi.",
     },
     {
       step: "03",
@@ -177,7 +177,7 @@ export const siteConfig = {
         "Fitur pesan pengingat ramah untuk pembeli yang belum transfer",
         "25 materi desain promosi multi-format",
         "3 video promosi pendek untuk Reels atau TikTok",
-        "Setup kampanye iklan terarah di Meta Ads atau TikTok Ads",
+        "Pembuatan 1 landing page penawaran responsif terhubung ke WhatsApp",
         "Waktu pengerjaan 5-7 hari kerja",
         "Masa pendampingan dan penyesuaian selama 14 hari",
       ],
@@ -197,7 +197,7 @@ export const siteConfig = {
         "Integrasi katalog lengkap dan rekap pesanan pembeli",
         "Produksi materi desain promosi berkala selama sprint 14 hari",
         "10 video promosi pendek dengan visual dan audio siap pakai",
-        "Setup kampanye iklan Meta dan TikTok lengkap dengan pelacakan analitik",
+        "Pembuatan website toko online atau profil bisnis lengkap terintegrasi WhatsApp",
         "Sesi penjelasan cara kerja sistem untuk tim operasional toko Anda",
         "Waktu pengerjaan 10-14 hari kerja",
         "Masa pendampingan dan pemantauan prioritas selama 30 hari",
