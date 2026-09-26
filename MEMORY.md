@@ -51,7 +51,17 @@ Dokumen memori ini mencatat arsitektur, keputusan teknis, status pengerjaan, dan
 
 ## 4. Change Log / Riwayat Perubahan
 
-### [2026-09-25 23:37] - Simplifikasi Label Navigasi Ukuran ke Rasio Baku (1:1, 9:16, 16:9, 4:5)
+### [2026-09-26 16:13] - Optimasi Performa Lighthouse (FCP/LCP/Speed Index) dan Perbaikan Aksesibilitas Heading
+* **Tipe**: Performance / Accessibility / Build
+* **File Terkait**: `apps/web/index.html`, `apps/web/src/components/Navbar.tsx`, `apps/web/src/components/Footer.tsx`, `apps/web/vite.config.ts`, `apps/web/public/logo-icon-80.webp`
+* **Detail**:
+  - **Font Loading Non-Blocking**: Mengubah Google Fonts `<link>` dari render-blocking `rel="stylesheet"` menjadi async loading via `media="print" onload="this.media='all'"` dengan `<noscript>` fallback. Menambahkan `&display=swap` pada URL font untuk menghilangkan FOIT (Flash of Invisible Text) dan memungkinkan LCP `<span>` terpaint segera dengan system font. Menambahkan `<link rel="preload">` untuk file `.woff2` utama Plus Jakarta Sans.
+  - **Optimasi Gambar Logo**: Membuat `logo-icon-80.webp` (80x80 px, 1 KiB) dari `putih pada logo.jpg` (1648x1312 px, 40 KiB) menggunakan PIL/Pillow. Memperbarui referensi `<img>` di Navbar dan Footer ke file WebP baru dengan atribut `width`/`height` eksplisit untuk pencegahan CLS.
+  - **Perbaikan Hirarki Heading**: Mengubah `<h4>` menjadi `<h3>` pada dua section header di Footer (`Informasi Kontak` dan `Navigasi Halaman`) untuk memperbaiki urutan heading sekuensial sesuai temuan aksesibilitas Lighthouse.
+  - **Chunk Splitting Vite**: Menambahkan `build.rollupOptions.output.manualChunks` di `vite.config.ts` untuk memisahkan `lucide-react` ke chunk terpisah (`icons-CzeKPBOZ.js`, 18 KiB) dari bundle utama agar critical path JS lebih ringan.
+  - **Verifikasi Build**: `tsc -b && vite build` sukses 0 error (15.80 detik). Output: `index.html` (1.71 KiB), `index-DSRCbXVO.css` (28.11 KiB), `icons-CzeKPBOZ.js` (18 KiB gzip 5.75 KiB), `index-C-odKEGk.js` (262.45 KiB gzip 78.74 KiB).
+
+
 * **Tipe**: UI / Styling / Simplifikasi
 * **File Terkait**: `apps/web/src/components/PillarsSection.tsx`
 * **Detail**: Menyederhanakan teks tombol bilah navigasi atas showcase desain agar langsung menampilkan rasio aspek baku (`1:1`, `9:16`, `16:9`, `4:5`) sesuai permintaan pengguna, serta menyelaraskan badge sudut kartu dan ringkasan dimensi footer dengan rasio terkait.

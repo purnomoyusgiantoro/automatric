@@ -39,8 +39,10 @@ export const Navbar: React.FC = () => {
           <a href="#" className="flex items-center gap-2.5 text-base sm:text-lg font-bold tracking-tight text-white group">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-black border border-white/[0.14] flex items-center justify-center overflow-hidden p-1 group-hover:border-white/40 transition-all">
               <img
-                src={`${import.meta.env.BASE_URL}putih pada logo.jpg`}
+                src={`${import.meta.env.BASE_URL}logo-icon-80.webp`}
                 alt={siteConfig.name}
+                width={36}
+                height={36}
                 className="w-full h-full object-contain"
               />
             </div>

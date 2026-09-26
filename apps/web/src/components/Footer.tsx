@@ -41,8 +41,10 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-black border border-white/[0.14] flex items-center justify-center overflow-hidden p-1">
                 <img
-                  src={`${import.meta.env.BASE_URL}putih pada logo.jpg`}
+                  src={`${import.meta.env.BASE_URL}logo-icon-80.webp`}
                   alt={siteConfig.name}
+                  width={36}
+                  height={36}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -57,9 +59,9 @@ export const Footer: React.FC = () => {
 
           {/* Contact Details Information */}
           <div className="md:col-span-4 space-y-3.5">
-            <h4 className="text-xs uppercase tracking-[0.18em] font-semibold text-white">
+            <h3 className="text-xs uppercase tracking-[0.18em] font-semibold text-white">
               Informasi Kontak
-            </h4>
+            </h3>
             <div className="space-y-3 text-sm">
               {/* Email Card */}
               <a
@@ -107,9 +109,9 @@ export const Footer: React.FC = () => {
 
           {/* Quick Navigation Links & Location */}
           <div className="md:col-span-3 space-y-3.5">
-            <h4 className="text-xs uppercase tracking-[0.18em] font-semibold text-white">
+            <h3 className="text-xs uppercase tracking-[0.18em] font-semibold text-white">
               Navigasi Halaman
-            </h4>
+            </h3>
             <nav className="flex flex-col space-y-2 text-xs text-zinc-400">
               {siteConfig.navLinks.map((link) => (
                 <a
