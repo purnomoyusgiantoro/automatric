@@ -1,13 +1,12 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { PillarsSection } from './components/PillarsSection';
+import { WorkflowSection } from './components/WorkflowSection';
+import { PricingSection } from './components/PricingSection';
+import { FaqSection } from './components/FaqSection';
+import { Footer } from './components/Footer';
 import { initObservability } from './telemetry/tracker';
-
-const PillarsSection = lazy(() => import('./components/PillarsSection').then(m => ({ default: m.PillarsSection })));
-const WorkflowSection = lazy(() => import('./components/WorkflowSection').then(m => ({ default: m.WorkflowSection })));
-const PricingSection = lazy(() => import('./components/PricingSection').then(m => ({ default: m.PricingSection })));
-const FaqSection = lazy(() => import('./components/FaqSection').then(m => ({ default: m.FaqSection })));
-const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
 
 export const App: React.FC = () => {
   useEffect(() => {
@@ -40,16 +39,12 @@ export const App: React.FC = () => {
       <Navbar />
       <main className="flex-grow relative z-10">
         <HeroSection />
-        <Suspense fallback={null}>
-          <PillarsSection />
-          <WorkflowSection />
-          <PricingSection />
-          <FaqSection />
-        </Suspense>
+        <PillarsSection />
+        <WorkflowSection />
+        <PricingSection />
+        <FaqSection />
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 };
